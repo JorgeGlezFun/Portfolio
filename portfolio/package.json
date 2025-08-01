@@ -23,6 +23,7 @@
         "vite": "^7.0.6"
     },
     "dependencies": {
+        "@designbycode/tailwindcss-text-shadow": "^2.2.1",
         "breeze": "^1.2.2"
     }
 }

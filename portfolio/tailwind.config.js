@@ -22,9 +22,11 @@ module.exports = {
         )
         ({
             shadowColor: "rgba(0, 0, 0, 0.5)",
-            shadowBlur: "3px",
-            shadowOffsetX: "2px",
-            shadowOffsetY: "2px",
+            shadowBlur: "0px",
+            shadowOffsetX: "-0.1px",
+            shadowOffsetY: "0.1px",
+            shadowOpacity: "1",
+            shadowSpread: "0px",
             experimental: true
         })
     ],
