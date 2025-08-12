@@ -8,7 +8,7 @@ export default function ResponsiveNavLink({ active = false, className = '', chil
                 active
                     ? 'enlaceHeaderMovilActivo'
                     : 'enlaceHeaderMovil'
-    )}
+            )}
         >
             {children}
         </Link>

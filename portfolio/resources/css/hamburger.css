@@ -3,8 +3,8 @@
 }
 
 .hamburglar {
-  transform: scale(1);
-  margin: 40px auto;
+  transform: scale(0.75);
+  margin: auto;
   position: relative;
   display: block;
   width: 68px;

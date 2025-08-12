@@ -51,7 +51,6 @@ export default function Header({ user }) {
                             (
                                 <Dropdown>
                                     <Dropdown.Trigger>
-
                                         <span className="rounded-md">
                                         <button
                                             type="button"
@@ -94,8 +93,10 @@ export default function Header({ user }) {
                     </div>
 
                     <div className="contenedorBotonMenuMovil">
-                        <Hamburger />
-                        <button
+                        <Hamburger
+                            setShowingNavigationDropdown={setShowingNavigationDropdown}
+                        />
+                        {/* <button
                             onClick={() => setShowingNavigationDropdown((previousState) => !previousState)}
                             className="botonMenuMovil"
                         >
@@ -115,11 +116,11 @@ export default function Header({ user }) {
                                     d="M6 18L18 6M6 6l12 12"
                                 />
                             </svg>
-                        </button>
+                        </button> */}
                     </div>
                 </div>
 
-                <div className={(showingNavigationDropdown ? 'block w-full' : 'hidden') + ' xl:hidden'}>
+                <div className={(showingNavigationDropdown ? 'block w-full transition ' : 'hidden') + ' xl:hidden'}>
                     <div className="contenedorMenuNavegacionMovil">
                         <ResponsiveNavLink href={route('/')} active={route().current('/')}>
                             Inicio

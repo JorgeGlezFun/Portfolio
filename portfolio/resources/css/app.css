@@ -10,21 +10,26 @@
 html {
     @apply
     min-h-screen w-full
-    bg-gradient-to-bl from-[#4551A1] from-10% via-[#2600FF] via-30% to-[#0D0056] to-90%
+    /* bg-gradient-to-bl from-[#1E3A8A] from-[8%] via-[#3B82F6] via-[38%] to-[#E0F2FE] to-95%
+    bg-gradient-to-bl from-[#312E81] from-[8%] via-[#6366F1] via-40% to-[#EEF2FF] to-95%
+    bg-gradient-to-bl from-[#0F172A] from-[8%] via-[#2563EB] via-40% to-[#E0F7FA] to-95%
+    bg-gradient-to-bl from-[#1E293B] from-[8%] via-[#3B82F6] via-[38%] to-[#F1F5F9] to-95%
+    bg-gradient-to-bl from-[#1E1B4B] from-[8%] via-[#6D28D9] via-40% to-[#F5F3FF] to-95%
+    bg-gradient-to-bl from-[#0B253A] from-[8%] via-[#0EA5E9] via-[38%] to-[#E0F2F1] to-95%
+    bg-gradient-to-bl from-[#1E1B4B] from-[8%] via-[#6366F1] via-[38%] to-[#FDE68A] to-95%
+    bg-gradient-to-bl from-[#0F172A] from-[8%] via-[#14B8A6] via-[38%] to-[#ECFDF5] to-95% */
+    bg-gradient-to-bl from-[#1E40AF] from-[8%] via-[#60A5FA] via-[38%] to-[#FFFFFF] to-95%
+    /* bg-gradient-to-bl from-[#111827] from-[8%] via-[#4B5563] via-[38%] to-[#F9FAFB] to-95% */
 }
 
-main {
-    @apply
-    min-h-screen w-full
-}
-
+/* Clases Header */
 .contenedorHeader {
     @apply
     flex flex-col items-center justify-center w-full h-auto text-4xl
 }
 
 .contenedorMenuNavegacion {
-    @apply flex justify-end px-4 py-5 w-full
+    @apply flex justify-end xl:px-4 xl:py-5 w-full xl:h-fit sm:h-24 sm:px-4;
 }
 
 .contenedorEnlacesHeader {
@@ -47,32 +52,23 @@ main {
     text-white transition ease-in-out hover:translate-x-1 hover:-translate-y-[0.1rem] hover:text-shadow-xl hover:text-shadow-black
 }
 
-.contendorMenuNavegacionMovil {
-    @apply pt-2 pb-3 space-y-1
-}
-
 .contenedorBotonMenuMovil {
     @apply
     -me-2 flex flex-col items-center
     xl:hidden
 }
 
-.botonMenuMovil{
-    @apply inline-flex items-center justify-center p-2 rounded-md text-[#121214] hover:text-[#F6F6F6] hover:bg-[#0088CC] focus:outline-none focus:bg-[#0088CC] focus:text-[#F6F6F6] transition duration-150 ease-in-out
-}
-
-.contendorMenuNavegacionMovil {
-    @apply flex flex-col space-y-1 w-full
+.contenedorMenuNavegacionMovil {
+    @apply flex flex-col w-full
 }
 
 .enlaceHeaderMovil {
-    @apply w-full h-10 flex relative justify-start items-center ps-3 pe-4 py-2 border-b-4 text-base font-medium transition duration-150 ease-in-out border-transparent text-[#b4dcf0] hover:text-[#F6F6F6] hover:bg-[#0088CC] focus:text-[#F6F6F6] focus:bg-[#0088CC] overflow-hidden
+    @apply w-full h-10 flex relative justify-center items-center ps-3 pe-4 py-2 text-xl font-bold transition duration-150 ease-in-out border-transparent text-black hover:text-white hover:text-shadow-xl hover:text-shadow-black overflow-hidden
 }
 
 .enlaceHeaderMovilActivo {
-    @apply w-full flex items-start ps-3 pe-4 py-2 border-b-4 text-base font-medium text-black bg-[]
+    @apply w-full flex justify-center items-center ps-3 pe-4 py-2 text-xl font-bold text-white bg-[#18338d] text-shadow-xl text-shadow-black ;
 }
-
 /* Pseudo-elementos por defecto */
 *:before,
 *:after {
@@ -82,23 +78,23 @@ main {
 .enlaceHeaderMovil::before,
 .enlaceHeaderMovil::after {
   content: '';
-  @apply absolute top-0 right-0 bottom-0 left-0 transition-transform duration-300 ease-in-out;
+  @apply absolute top-0 right-0 bottom-0 left-0 transition-transform duration-150 ease-in-out;
 }
 
 .enlaceHeaderMovil::before {
   @apply right-[-50px] transform -translate-x-full;
-  border-bottom: 40px solid rgb(0, 191, 255);
+  border-bottom: 40px solid #1E40AF;
   border-right: 50px solid transparent;
 }
 
 .enlaceHeaderMovil::after {
   @apply left-[-50px] transform translate-x-full;
-  border-top: 40px solid rgb(0, 191, 255);
+  border-top: 40px solid #1E40AF;
   border-left: 50px solid transparent;
 }
 
 .enlaceHeaderMovil:hover {
-  @apply z-0 text-black;
+  @apply z-0 text-white;
 }
 
 .enlaceHeaderMovil:hover::before {
@@ -106,7 +102,11 @@ main {
 }
 
 .enlaceHeaderMovil:hover::after {
-  transform: translateX(51%);
+  transform: translateX(49%);
 }
 
-
+/* Clases Main */
+main {
+    @apply
+    min-h-screen w-full
+}
