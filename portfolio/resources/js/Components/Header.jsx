@@ -14,17 +14,17 @@ export default function Header({ user }) {
         <div className='flex flex-col'>
             <nav className="contenedorHeader">
                 <div className="contenedorMenuNavegacion">
+                    <div className="contenedorLogoHeader">
+                        <Link href={route('/')} className='flex items-center justify-center'>
+                            <ApplicationLogo />
+                        </Link>
+                    </div>
                     <div className="contenedorEnlacesHeader">
-                        {/* <div className="contenedorLogoHeader">
-                            <Link href={route('/')}>
-                                <ApplicationLogo />
-                            </Link>
-                        </div> */}
                             <NavLink href={route('/')} active={route().current('/')}>
                                 Inicio
                             </NavLink>
                             <NavLink href={route('/')}>
-                                Sobre mi
+                                Sobre mí
                             </NavLink>
                             <NavLink href={route('/')}>
                                 Conocimientos
