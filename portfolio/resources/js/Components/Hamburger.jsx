@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import '../../css/hamburger.css';
 
 const Hamburger = ({ setShowingNavigationDropdown }) => {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
   const toggleBurger = () => {
     setIsOpen(prev => !prev);

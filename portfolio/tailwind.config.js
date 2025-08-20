@@ -21,10 +21,10 @@ module.exports = {
         require("@designbycode/tailwindcss-text-shadow"
         )
         ({
-            shadowColor: "rgba(0, 0, 0, 0.5)",
+            shadowColor: "rgba(0, 0, 0, 1)",
             shadowBlur: "0px",
-            shadowOffsetX: "-0.1px",
-            shadowOffsetY: "0.1px",
+            shadowOffsetX: "-0.2px",
+            shadowOffsetY: "0.2px",
             shadowOpacity: "1",
             shadowSpread: "0px",
             experimental: true
