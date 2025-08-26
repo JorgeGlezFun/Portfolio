@@ -120,7 +120,7 @@ export default function Header({ user }) {
                     </div>
                 </div>
 
-                <div className={(showingNavigationDropdown ? 'block w-full transition ' : 'hidden') + ' xl:hidden'}>
+                <div className={(showingNavigationDropdown ? 'block w-full transition ' : 'hidden') + ' 2xl:hidden'}>
                     <div className="contenedorMenuNavegacionMovil">
                         <ResponsiveNavLink href={route('/')} active={route().current('/')}>
                             Inicio
