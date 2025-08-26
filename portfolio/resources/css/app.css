@@ -22,6 +22,11 @@ html {
     /* bg-gradient-to-bl from-[#111827] from-[8%] via-[#4B5563] via-[38%] to-[#F9FAFB] to-95% */
 }
 
+main {
+    @apply
+    min-h-screen w-full
+}
+
 /* Clases Header */
 .contenedorHeader {
     @apply
@@ -29,16 +34,16 @@ html {
 }
 
 .contenedorLogoHeader {
-    @apply flex xl:flex-shrink-0 pl-10 items-center w-full justify-center xl:w-auto
+    @apply flex 2xl:flex-shrink-0 pl-10 items-center w-full justify-center 2xl:w-auto
 }
 
 .contenedorMenuNavegacion {
-    @apply flex justify-between xl:justify-end xl:px-4 xl:py-5 w-full xl:h-fit sm:h-24 sm:px-4;
+    @apply flex justify-between 2xl:justify-end 2xl:px-4 2xl:py-5 w-full 2xl:h-fit sm:h-24 sm:px-4;
 }
 
 .contenedorEnlacesHeader {
     @apply
-    hidden xl:flex items-center space-x-10 w-full justify-end
+    hidden 2xl:flex items-center space-x-10 w-full justify-end
 }
 
 .contenedorNavLink {
@@ -59,7 +64,7 @@ html {
 .contenedorBotonMenuMovil {
     @apply
     -me-2 flex flex-col items-center
-    xl:hidden
+    2xl:hidden
 }
 
 .contenedorMenuNavegacionMovil {
@@ -67,11 +72,11 @@ html {
 }
 
 .enlaceHeaderMovil {
-    @apply w-full h-10 flex relative justify-center items-center ps-3 pe-4 py-2 text-xl font-bold transition duration-150 ease-in-out border-transparent text-black hover:text-white hover:text-shadow-xl hover:text-shadow-black overflow-hidden
+    @apply w-full flex relative justify-center items-center pe-4 py-2 text-4xl font-bold transition duration-0 ease-out border-transparent text-black hover:text-white hover:text-shadow-xl hover:text-shadow-black overflow-hidden
 }
 
 .enlaceHeaderMovilActivo {
-    @apply w-full flex justify-center items-center ps-3 pe-4 py-2 text-xl font-bold text-white bg-[#18338d] text-shadow-xl text-shadow-black ;
+    @apply w-full flex justify-center items-center pe-4 py-2 text-4xl font-bold text-white bg-[#18338d] text-shadow-xl text-shadow-black ;
 }
 /* Pseudo-elementos por defecto */
 *:before,
@@ -87,18 +92,18 @@ html {
 
 .enlaceHeaderMovil::before {
   @apply right-[-50px] transform -translate-x-full;
-  border-bottom: 40px solid #1E40AF;
+  border-bottom: 60px solid #1E40AF;
   border-right: 50px solid transparent;
 }
 
 .enlaceHeaderMovil::after {
   @apply left-[-50px] transform translate-x-full;
-  border-top: 40px solid #1E40AF;
+  border-top: 60px solid #1E40AF;
   border-left: 50px solid transparent;
 }
 
 .enlaceHeaderMovil:hover {
-  @apply z-0 text-white;
+  @apply z-0;
 }
 
 .enlaceHeaderMovil:hover::before {
@@ -114,3 +119,67 @@ main {
     @apply
     min-h-screen w-full
 }
+
+/* Clases Inicio */
+.bloqueInicio {
+    @apply
+    flex items-start m-20 justify-between
+}
+
+.fotoInicio {
+    @apply
+    hidden 2xl:block bg-white rounded-2xl h-[40rem] w-[40rem] fade-up
+}
+
+.cuadroTextoInicio {
+    @apply
+    text-white h-[40rem] w-full 2xl:w-[55rem] fade-up
+}
+.tituloInicio {
+    @apply
+    text-[75px] font-bold h-auto
+}
+
+.textoInicio {
+    @apply
+    text-4xl leading-relaxed
+}
+
+/* Clases Sobre Mí */
+/* Clases Conocimientos */
+/* Clases Proyectos */
+/* Clases Contacto */
+
+/* .animacionEscritura {
+    @apply
+    text-4xl font-bold text-center text-white animate-ping;
+} */
+/* Animaciones*/
+@layer utilities {
+  @keyframes blink {
+    0%, 49% { opacity: 1; }
+    50%, 100% { opacity: 0; }
+  }
+  .animacionEscritura {
+    @apply
+    animate-ping;
+    animation: blink 1s steps(1) infinite;
+  }
+}
+
+/* Animación Fade Up -  */
+@keyframes fadeUp {
+    0% {
+      opacity: 0;
+      transform: translateY(80px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .fade-up {
+    animation: fadeUp 1s ease-out forwards;
+  }
+
