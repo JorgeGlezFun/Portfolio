@@ -1,7 +1,7 @@
 import { Head, Link } from '@inertiajs/react';
 import { useState, useEffect } from "react";
 import Header from '@/Components/Header';
-// import Prueba from '@/Components/prueba';
+import SobreMi from '@/Components/SobreMi';
 import Inicio from '@/Components/Inicio';
 // import Main from '@/Components/Footer';
 // import Footer from '@/Components/Footer';
@@ -34,7 +34,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                 <Header user={auth.user} />
                 <main>
                     <Inicio displayedText={displayedText}/>
-                    {/* <Prueba/> */}
+                    <SobreMi/>
 
                 </main>
                 <footer className="">

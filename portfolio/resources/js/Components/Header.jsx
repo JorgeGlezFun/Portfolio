@@ -14,19 +14,24 @@ export default function Header({ user }) {
         <div className='flex flex-col'>
             <nav className="contenedorHeader">
                 <div className="contenedorMenuNavegacion">
-                    <div className="contenedorLogoHeader">
+                <div
+                    className={`2xl:hidden top-0 left-0 fixed w-full bg-[#3d3d3d] z-0 transition-all duration-500 ${
+                        showingNavigationDropdown ? 'h-[100%]' : 'h-[96px]'
+                    }`}
+                    />
+                    <div className="contenedorLogoHeader z-10">
                         <Link href={route('/')} className='flex items-center justify-center'>
                             <ApplicationLogo />
                         </Link>
                     </div>
                     <div className="contenedorEnlacesHeader">
-                            <NavLink href={route('/')} active={route().current('/')}>
+                            <NavLink href="#Inicio">
                                 Inicio
                             </NavLink>
-                            <NavLink href={route('/')}>
+                            <NavLink href="#SobreMi">
                                 Sobre mí
                             </NavLink>
-                            <NavLink href={route('/')}>
+                            <NavLink href="#Conocimientos">
                                 Conocimientos
                             </NavLink>
                             <NavLink href={route('/')}>
@@ -120,12 +125,12 @@ export default function Header({ user }) {
                     </div>
                 </div>
 
-                <div className={(showingNavigationDropdown ? 'block w-full transition ' : 'hidden') + ' 2xl:hidden'}>
+                <div className={(showingNavigationDropdown ? 'fixed w-full  top-[96px] ' : 'h-0 w-0 top-0 ') + 'transition 2xl:hidden'}>
                     <div className="contenedorMenuNavegacionMovil">
-                        <ResponsiveNavLink href={route('/')} active={route().current('/')}>
+                        <ResponsiveNavLink href='#Inicio'>
                             Inicio
                         </ResponsiveNavLink>
-                        <ResponsiveNavLink href={route('/')}>
+                        <ResponsiveNavLink href="#SobreMi">
                             Sobre mi
                         </ResponsiveNavLink>
                         <ResponsiveNavLink href={route('/')}>

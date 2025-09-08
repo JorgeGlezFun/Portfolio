@@ -3,34 +3,44 @@
 @tailwind components;
 @tailwind utilities;
 
+
+/**/
+.modoClaro {
+    @apply bg-[#F5E6CC] text-[#9a1a23]
+
+    /*text-[#c01c28]*/
+}
 * {
     font-family: 'League Spartan', sans-serif;
 }
 
 html {
     @apply
-    min-h-screen w-full
-    /* bg-gradient-to-bl from-[#1E3A8A] from-[8%] via-[#3B82F6] via-[38%] to-[#E0F2FE] to-95%
-    bg-gradient-to-bl from-[#312E81] from-[8%] via-[#6366F1] via-40% to-[#EEF2FF] to-95%
-    bg-gradient-to-bl from-[#0F172A] from-[8%] via-[#2563EB] via-40% to-[#E0F7FA] to-95%
-    bg-gradient-to-bl from-[#1E293B] from-[8%] via-[#3B82F6] via-[38%] to-[#F1F5F9] to-95%
-    bg-gradient-to-bl from-[#1E1B4B] from-[8%] via-[#6D28D9] via-40% to-[#F5F3FF] to-95%
-    bg-gradient-to-bl from-[#0B253A] from-[8%] via-[#0EA5E9] via-[38%] to-[#E0F2F1] to-95%
-    bg-gradient-to-bl from-[#1E1B4B] from-[8%] via-[#6366F1] via-[38%] to-[#FDE68A] to-95%
-    bg-gradient-to-bl from-[#0F172A] from-[8%] via-[#14B8A6] via-[38%] to-[#ECFDF5] to-95% */
-    bg-gradient-to-bl from-[#1E40AF] from-[8%] via-[#60A5FA] via-[38%] to-[#FFFFFF] to-95%
-    /* bg-gradient-to-bl from-[#111827] from-[8%] via-[#4B5563] via-[38%] to-[#F9FAFB] to-95% */
+    min-h-screen w-full scroll-smooth
+    bg-[#3d3d3d]
+    /* bg-gradient-to-bl from-[#1E40AF] from-[8%] via-[#60A5FA] via-[38%] to-[#FFFFFF] to-95% */
+
 }
 
 main {
     @apply
-    min-h-screen w-full
+    min-h-screen w-full pt-[96px]
 }
 
+/* Clases troncales */
+.titulos {
+    @apply
+    text-6xl font-bold text-[#66baf4] h-auto
+}
+
+.textos {
+    @apply
+    text-4xl leading-relaxed
+}
 /* Clases Header */
 .contenedorHeader {
     @apply
-    flex flex-col items-center justify-center w-full h-auto text-4xl
+    2xl:flex 2xl:flex-col fixed items-center justify-center w-full h-auto text-4xl z-20 bg-[#3d3d3d]
 }
 
 .contenedorLogoHeader {
@@ -53,22 +63,22 @@ main {
 
 .headerActivado {
     @apply
-    text-white text-shadow-xl text-shadow-black translate-x-1 -translate-y-[0.1rem]
+    text-[#66baf4] text-shadow-xl text-shadow-black translate-x-1 -translate-y-[0.1rem]
 }
 
 .headerSinActivar {
     @apply
-    text-white transition ease-in-out hover:translate-x-1 hover:-translate-y-[0.1rem] hover:text-shadow-xl hover:text-shadow-black
+    text-white transition ease-in-out hover:translate-x-1 hover:-translate-y-[0.1rem] hover:text-shadow-xl hover:text-shadow-black hover:text-[#66baf4]
 }
 
 .contenedorBotonMenuMovil {
     @apply
-    -me-2 flex flex-col items-center
+    -me-2 flex flex-col items-center z-20
     2xl:hidden
 }
 
 .contenedorMenuNavegacionMovil {
-    @apply flex flex-col w-full
+    @apply flex flex-col w-full min-h-screen
 }
 
 .enlaceHeaderMovil {
@@ -123,7 +133,7 @@ main {
 /* Clases Inicio */
 .bloqueInicio {
     @apply
-    flex items-start m-20 justify-between
+    flex items-start m-20 justify-between mb-72
 }
 
 .fotoInicio {
@@ -135,17 +145,15 @@ main {
     @apply
     text-white h-[40rem] w-full 2xl:w-[55rem] fade-up
 }
-.tituloInicio {
-    @apply
-    text-[75px] font-bold h-auto
-}
 
-.textoInicio {
-    @apply
-    text-4xl leading-relaxed
-}
+
 
 /* Clases Sobre Mí */
+.bloqueSobreMi {
+    @apply
+    flex flex-col space-y-12 min-h-screen items-start m-20 justify-between leading-relaxed 2xl:space-y-32 text-white
+
+}
 /* Clases Conocimientos */
 /* Clases Proyectos */
 /* Clases Contacto */
@@ -167,7 +175,7 @@ main {
   }
 }
 
-/* Animación Fade Up -  */
+/* Animaciones Fade  */
 @keyframes fadeUp {
     0% {
       opacity: 0;
@@ -181,5 +189,50 @@ main {
 
   .fade-up {
     animation: fadeUp 1s ease-out forwards;
+  }
+
+  @keyframes fadeDown {
+    0% {
+      opacity: 0;
+      transform: translateY(-80px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .fade-down {
+    animation: fadeDown 1s ease-out forwards;
+  }
+
+  @keyframes fadeLeft {
+    0% {
+      opacity: 0;
+      transform: translateX(80px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .fade-left {
+    animation: fadeLeft 1s ease-out forwards;
+  }
+
+  @keyframes fadeRight {
+    0% {
+      opacity: 0;
+      transform: translateX(-80px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .fade-right {
+    animation: fadeRight 1s ease-out forwards;
   }
 
