@@ -14,11 +14,6 @@ export default function Header({ user }) {
         <div className='flex flex-col'>
             <nav className="contenedorHeader">
                 <div className="contenedorMenuNavegacion">
-                <div
-                    className={`2xl:hidden top-0 left-0 fixed w-full bg-[#3d3d3d] z-0 transition-all duration-500 ${
-                        showingNavigationDropdown ? 'h-[100%]' : 'h-[96px]'
-                    }`}
-                    />
                     <div className="contenedorLogoHeader z-10">
                         <Link href={route('/')} className='flex items-center justify-center'>
                             <ApplicationLogo />
@@ -101,73 +96,31 @@ export default function Header({ user }) {
                         <Hamburger
                             setShowingNavigationDropdown={setShowingNavigationDropdown}
                         />
-                        {/* <button
-                            onClick={() => setShowingNavigationDropdown((previousState) => !previousState)}
-                            className="botonMenuMovil"
-                        >
-                            <svg className="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
-                                <path
-                                    className={!showingNavigationDropdown ? 'inline-flex' : 'hidden'}
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth="2"
-                                    d="M4 6h16M4 12h16M4 18h16"
-                                />
-                                <path
-                                    className={showingNavigationDropdown ? 'inline-flex' : 'hidden'}
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth="2"
-                                    d="M6 18L18 6M6 6l12 12"
-                                />
-                            </svg>
-                        </button> */}
                     </div>
                 </div>
 
-                <div className={(showingNavigationDropdown ? 'fixed w-full  top-[96px] ' : 'h-0 w-0 top-0 ') + 'transition 2xl:hidden'}>
+                <div
+                    className={`fixed top-[96px] left-0 w-full h-screen bg-[#3d3d3d] transition-transform duration-500 ease-in-out 2xl:hidden ${
+                        showingNavigationDropdown ? "-translate-x-0" : "translate-x-full"
+                    }`}
+                    >
                     <div className="contenedorMenuNavegacionMovil">
-                        <ResponsiveNavLink href='#Inicio'>
-                            Inicio
-                        </ResponsiveNavLink>
-                        <ResponsiveNavLink href="#SobreMi">
-                            Sobre mi
-                        </ResponsiveNavLink>
-                        <ResponsiveNavLink href={route('/')}>
-                            Conocimientos
-                        </ResponsiveNavLink>
-                        <ResponsiveNavLink href={route('/')}>
-                            Proyectos
-                        </ResponsiveNavLink>
-                        <ResponsiveNavLink href={route('/')}>
-                            Contacto
-                        </ResponsiveNavLink>
-                        {/* <ResponsiveNavLink href={route('sobremi')} active={route().current('sobremi')}>
-                            Sobre Mi
-                        </ResponsiveNavLink>
-                        <ResponsiveNavLink href={route('conocimientos.index')} active={route().current('conocimientos.index') || route().current('conocimientos.create') || route().current('conocimientos.edit') || route().current('conocimientos.show')}>
-                            Conocimientos
-                        </ResponsiveNavLink>
-                        <ResponsiveNavLink href={route('proyectos.index')} active={route().current('proyectos.index') || route().current('proyectos.create') || route().current('proyectos.edit') || route().current('proyectos.show')}>
-                            Proyectos
-                        </ResponsiveNavLink>
-                        <ResponsiveNavLink href={route('contacto.index')} active={route().current('contacto.index') || route().current('contacto.create') || route().current('contacto.edit') || route().current('contacto.show')}>
-                            Contacto
-                        </ResponsiveNavLink> */}
+                        <ResponsiveNavLink href="#Inicio">INICIO</ResponsiveNavLink>
+                        <ResponsiveNavLink href="#SobreMi">SOBRE MÍ</ResponsiveNavLink>
+                        <ResponsiveNavLink href={route("/")}>CONOCIMIENTOS</ResponsiveNavLink>
+                        <ResponsiveNavLink href={route("/")}>PROYECTOS</ResponsiveNavLink>
+                        <ResponsiveNavLink href={route("/")}>CONTACTO</ResponsiveNavLink>
                         {user && (
-                            <div>
-                                <ResponsiveNavLink href={route('profile.edit')}>
-                                    Perfil
-                                </ResponsiveNavLink>
-                                <ResponsiveNavLink method="post" href={route('logout')} as="button">
-                                    Cerrar Sesión
-                                </ResponsiveNavLink>
-                            </div>
-
+                        <div>
+                            <ResponsiveNavLink href={route("profile.edit")}>Perfil</ResponsiveNavLink>
+                            <ResponsiveNavLink method="post" href={route("logout")} as="button">
+                            Cerrar Sesión
+                            </ResponsiveNavLink>
+                        </div>
                         )}
-
                     </div>
                 </div>
+
             </nav>
         </div>
     );

@@ -54,7 +54,7 @@ export default function SobreMi() {
         Si quieres saber más sobre mi trabajo o colaborar en un proyecto, estaré encantado de hablar contigo.
         </p>
       </div>
-      <div className="flex flex-col 2xl:flex-row justify-between w-full  space-y-12 2xl:space-y-0 textos">
+      <div className="flex flex-col 2xl:flex-row justify-between w-full space-y-12 2xl:space-y-0 textos">
         <div
             data-animate
             data-fade-right
@@ -64,8 +64,8 @@ export default function SobreMi() {
             <ol>
                 <li>Experiencia en atención al cliente.</li>
                 <li>Manejo y resolución de problemas con clientes.</li>
-                <li>Conocimientos de programación web y microinformatica.</li>
-                <li>Desarrollo prototipos web aplicando herramientas de diseño especializadas.</li>
+                <li>Conocimientos de programación web y microinformática.</li>
+                <li>Desarrollo de prototipos web aplicando herramientas de diseño especializadas.</li>
 
             </ol>
         </div>
@@ -77,7 +77,7 @@ export default function SobreMi() {
             <h2 className="titulos">&gt; Actitudes</h2>
             <ol>
                 <li>Concentración absoluta en el trabajo.</li>
-                <li>Gran interes por aprender nuevas tecnologias.</li>
+                <li>Gran interés por aprender nuevas tecnologías.</li>
                 <li>Creatividad para el diseño web.</li>
                 <li>Adaptabilidad a los cambios.</li>
             </ol>
