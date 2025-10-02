@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import "../../css/app.css"; // aquí está el @keyframes fadeUp
 
-export default function SobreMi() {
+export default function Conocimientos() {
       useEffect(() => {
         const elements = document.querySelectorAll("[data-animate]");
 
@@ -38,15 +38,15 @@ export default function SobreMi() {
       }, []);
 
   return (
-    <div id="SobreMi" className="bloqueSobreMi">
+    <div id="Conocimientos" className="bloqueSobreMi">
       <div
         data-animate
         data-fade-down
         className="opacity-0 transition-all duration-700 ease-out w-full"
       >
-        <h1 className="titulos">// Sobre mí</h1>
+        <h1 className="titulos">// Conocimientos</h1>
         <p className="textos">
-        Bienvenido, soy Jorge, un desarrollador web apasionado por crear experiencias digitales limpias, funcionales y centradas en el usuario. Trabajo con tecnologías como Laravel, React y TailwindCSS, combinando el lado técnico con un enfoque en el diseño UI/UX para dar vida a proyectos modernos y atractivos.
+        Hola, soy Jorge, un desarrollador web apasionado por crear experiencias digitales limpias, funcionales y centradas en el usuario. Trabajo con tecnologías como Laravel, React y TailwindCSS, combinando el lado técnico con un enfoque en el diseño UI/UX para dar vida a proyectos modernos y atractivos.
         <br />
         Me motiva el aprendizaje continuo y disfruto enfrentarme a nuevos retos que me permitan crecer como profesional. Creo en la importancia de la creatividad, la colaboración y la búsqueda de soluciones prácticas que aporten valor real.
         <br />

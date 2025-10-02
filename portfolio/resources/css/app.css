@@ -25,7 +25,7 @@
 html {
     @apply
     min-h-screen w-full scroll-smooth scroll-pt-24
-    bg-[#3d3d3d]
+    bg-[#2d343f]
     /* bg-gradient-to-bl from-[#1E40AF] from-[8%] via-[#60A5FA] via-[38%] to-[#FFFFFF] to-95% */
 
 }
@@ -33,7 +33,7 @@ html {
 /* Clases troncales */
 .titulos {
     @apply
-    text-6xl font-bold text-[#66baf4] h-auto
+    text-7xl font-bold text-[#66baf4] h-auto
 }
 
 .textos {
@@ -43,7 +43,7 @@ html {
 /* Clases Header */
 .contenedorHeader {
     @apply
-    2xl:flex 2xl:flex-col fixed items-center justify-center w-full h-auto text-4xl z-20 bg-[#3d3d3d]
+    2xl:flex 2xl:flex-col fixed items-center justify-center w-full h-auto text-4xl z-20 bg-[#2d343f]
 }
 
 .contenedorLogoHeader {
@@ -136,27 +136,62 @@ main {
 /* Clases Inicio */
 .bloqueInicio {
     @apply
-    flex 2xl:min-h-screen items-start p-24 2xl:items-center 2xl:p-20 justify-between 2xl:mb-0
+    flex items-start p-24 justify-between 2xl:min-h-screen 2xl:mb-0 2xl:items-center 2xl:p-20
+}
+
+.contenedorFotoInicio {
+    @apply flex w-1/2 overflow-hidden items-center justify-center
 }
 
 .fotoInicio {
     @apply
-    hidden 2xl:block bg-white rounded-2xl h-[40rem] w-[40rem] fade-up
+    hidden bg-white fade-left
+    2xl:block 2xl:w-[24rem]
+    3xl:w-[30rem]
+    4xl:w-[40rem]
 }
 
 .cuadroTextoInicio {
     @apply
-    text-white h-[68.5rem] 2xl:h-[40rem] w-full 2xl:w-[55rem] fade-up
+    text-white h-96 flex flex-col justify-center text-right
 }
+
+.tituloInicio {
+    @apply
+    text-8xl font-semibold text-white h-auto tracking-[-0.3rem] w-full fade-right
+    4xl:text-8xl
+    3xl:text-7xl
+    2xl:text-6xl
+}
+
+.tituloDev {
+    @apply
+    text-6xl font-semibold text-white h-auto  w-full  fade-right
+    4xl:text-6xl 4xl:tracking-[2rem] 4xl:ml-[2rem]
+    3xl:text-5xl 3xl:tracking-[1.5rem] 3xl:ml-[1.5rem]
+    2xl:text-4xl 2xl:tracking-[1.2rem] 2xl:ml-[1.2rem]
+}
+
+.barraSeparacion {
+    @apply flex bg-white w-4
+    2xl:h-[24rem]
+    3xl:h-[30rem]
+    4xl:h-[40rem]
+}
+
 
 /* Clases Sobre Mí */
 .bloqueSobreMi {
     @apply
-    flex flex-col space-y-12 min-h-screen items-center p-20 leading-relaxed 2xl:m-0 text-white
+    flex flex-col space-y-20 min-h-screen items-center p-20 leading-relaxed 2xl:m-0 text-white overflow-hidden
+}
 
+.bloqueHabilidades {
+    @apply flex flex-col justify-between w-full space-y-12 2xl:space-y-0 2xl:flex-row textos overflow-hidden
 }
 
 /* Clases Conocimientos */
+
 /* Clases Proyectos */
 /* Clases Contacto */
 
@@ -182,7 +217,7 @@ main {
 @keyframes fadeUp {
     0% {
       opacity: 0;
-      transform: translateY(80px);
+      transform: translateY(100%);
     }
     100% {
       opacity: 1;
@@ -197,7 +232,7 @@ main {
   @keyframes fadeDown {
     0% {
       opacity: 0;
-      transform: translateY(-80px);
+      transform: translateY(-100%);
     }
     100% {
       opacity: 1;
@@ -212,11 +247,11 @@ main {
   @keyframes fadeLeft {
     0% {
       opacity: 0;
-      transform: translateX(80px);
+      transform: translateX(100%);
     }
     100% {
       opacity: 1;
-      transform: translateX(0);
+      transform: translateX(0%);
     }
   }
 
@@ -227,7 +262,7 @@ main {
   @keyframes fadeRight {
     0% {
       opacity: 0;
-      transform: translateX(-80px);
+      transform: translateX(-100%);
     }
     100% {
       opacity: 1;
