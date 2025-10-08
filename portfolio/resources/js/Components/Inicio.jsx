@@ -11,8 +11,8 @@ export default function Inicio() {
             <img src={logoPO} className="fotoInicio" />
         </div>
         <div className="barraSeparacion" />
-        <div className="cuadroTextoInicio w-1/2 overflow-hidden">
-            <h1 className="tituloInicio pr-1">Jorge González Fuentes</h1>
+        <div className="cuadroTextoInicio">
+            <h1 className="tituloInicio">Jorge González Fuentes</h1>
             <h1 className="tituloDev">DESARROLLADOR WEB</h1>
         </div>
     </div>

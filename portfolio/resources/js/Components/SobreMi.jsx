@@ -1,47 +1,59 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "../../css/app.css"; // aquí está el @keyframes fadeUp
 
 export default function SobreMi() {
-      useEffect(() => {
-        const elements = document.querySelectorAll("[data-animate]");
+    useEffect(() => {
+    const elements = document.querySelectorAll("[data-animate]");
 
-        const animationMap = {
-          "data-fade-up": { translate: "fade-up", remove: "opacity-0" },
-          "data-fade-down": { translate: "fade-down", remove: "opacity-0" },
-          "data-fade-left": { translate: "fade-left", remove: "opacity-0" },
-          "data-fade-right": { translate: "fade-right", remove: "opacity-0" },
+    const animationMap = {
+        "data-fade-up": { translate: "fade-up", remove: "opacity-0" },
+        "data-fade-down": { translate: "fade-down", remove: "opacity-0" },
+        "data-fade-left": { translate: "fade-left", remove: "opacity-0" },
+        "data-fade-right": { translate: "fade-right", remove: "opacity-0" },
+    };
+
+    const observer = new IntersectionObserver(
+        (entries) => {
+        entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+
+            const el = entry.target;
+
+            Object.keys(animationMap).forEach((attr) => {
+            if (el.hasAttribute(attr)) {
+                el.classList.add("transition-all", "duration-700", "ease-out", animationMap[attr].translate);
+                el.classList.remove(...animationMap[attr].remove);
+            }
+            });
+
+            observer.unobserve(el);
+        });
+        },
+        { threshold: 0.3 }
+    );
+
+    elements.forEach((el) => observer.observe(el));
+
+    return () => observer.disconnect();
+    }, []);
+
+    const [res, setRes] = useState(false);
+    useEffect(() => {
+        const handleResize = () => {
+            setRes(window.innerWidth >= 1536);
         };
 
-        const observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (!entry.isIntersecting) return;
+        window.addEventListener("resize", handleResize);
+        handleResize();
 
-              const el = entry.target;
-
-              Object.keys(animationMap).forEach((attr) => {
-                if (el.hasAttribute(attr)) {
-                  el.classList.add("transition-all", "duration-700", "ease-out", animationMap[attr].translate);
-                  el.classList.remove(...animationMap[attr].remove);
-                }
-              });
-
-              observer.unobserve(el);
-            });
-          },
-          { threshold: 0.3 }
-        );
-
-        elements.forEach((el) => observer.observe(el));
-
-        return () => observer.disconnect();
-      }, []);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
 
   return (
     <div id="SobreMi" className="bloqueSobreMi">
       <div
         data-animate
-        data-fade-down
+        {...(res ? { "data-fade-down": true } : { "data-fade-right": true })}
         className="opacity-0 transition-all duration-700 ease-out w-full"
       >
         <h1 className="titulos">// Sobre mí</h1>
@@ -69,10 +81,9 @@ export default function SobreMi() {
 
             </ol>
         </div>
-        {/* <div className='w-full'/> */}
         <div
             data-animate
-            data-fade-left
+            {...(res ? { "data-fade-left": true } : { "data-fade-right": true })}
             className="opacity-0 transition-all duration-700 ease-out w-auto"
         >
             <h2 className="titulos">&gt; Actitudes</h2>
