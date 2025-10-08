@@ -1,52 +1,64 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "../../css/app.css"; // aquí está el @keyframes fadeUp
 
 export default function SobreMi() {
-      useEffect(() => {
-        const elements = document.querySelectorAll("[data-animate]");
+    useEffect(() => {
+    const elements = document.querySelectorAll("[data-animate]");
 
-        const animationMap = {
-          "data-fade-up": { translate: "fade-up", remove: "opacity-0" },
-          "data-fade-down": { translate: "fade-down", remove: "opacity-0" },
-          "data-fade-left": { translate: "fade-left", remove: "opacity-0" },
-          "data-fade-right": { translate: "fade-right", remove: "opacity-0" },
+    const animationMap = {
+        "data-fade-up": { translate: "fade-up", remove: "opacity-0" },
+        "data-fade-down": { translate: "fade-down", remove: "opacity-0" },
+        "data-fade-left": { translate: "fade-left", remove: "opacity-0" },
+        "data-fade-right": { translate: "fade-right", remove: "opacity-0" },
+    };
+
+    const observer = new IntersectionObserver(
+        (entries) => {
+        entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+
+            const el = entry.target;
+
+            Object.keys(animationMap).forEach((attr) => {
+            if (el.hasAttribute(attr)) {
+                el.classList.add("transition-all", "duration-700", "ease-out", animationMap[attr].translate);
+                el.classList.remove(...animationMap[attr].remove);
+            }
+            });
+
+            observer.unobserve(el);
+        });
+        },
+        { threshold: 0.3 }
+    );
+
+    elements.forEach((el) => observer.observe(el));
+
+    return () => observer.disconnect();
+    }, []);
+
+    const [res, setRes] = useState(false);
+    useEffect(() => {
+        const handleResize = () => {
+            setRes(window.innerWidth >= 1536);
         };
 
-        const observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (!entry.isIntersecting) return;
+        window.addEventListener("resize", handleResize);
+        handleResize();
 
-              const el = entry.target;
-
-              Object.keys(animationMap).forEach((attr) => {
-                if (el.hasAttribute(attr)) {
-                  el.classList.add("transition-all", "duration-700", "ease-out", animationMap[attr].translate);
-                  el.classList.remove(...animationMap[attr].remove);
-                }
-              });
-
-              observer.unobserve(el);
-            });
-          },
-          { threshold: 0.3 }
-        );
-
-        elements.forEach((el) => observer.observe(el));
-
-        return () => observer.disconnect();
-      }, []);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
 
   return (
     <div id="SobreMi" className="bloqueSobreMi">
       <div
         data-animate
-        data-fade-down
+        {...(res ? { "data-fade-down": true } : { "data-fade-right": true })}
         className="opacity-0 transition-all duration-700 ease-out w-full"
       >
         <h1 className="titulos">// Sobre mí</h1>
         <p className="textos">
-        Hola, soy Jorge, un desarrollador web apasionado por crear experiencias digitales limpias, funcionales y centradas en el usuario. Trabajo con tecnologías como Laravel, React y TailwindCSS, combinando el lado técnico con un enfoque en el diseño UI/UX para dar vida a proyectos modernos y atractivos.
+        Bienvenido, soy Jorge, un desarrollador web apasionado por crear experiencias digitales limpias, funcionales y centradas en el usuario. Trabajo con tecnologías como Laravel, React y TailwindCSS, combinando el lado técnico con un enfoque en el diseño UI/UX para dar vida a proyectos modernos y atractivos.
         <br />
         Me motiva el aprendizaje continuo y disfruto enfrentarme a nuevos retos que me permitan crecer como profesional. Creo en la importancia de la creatividad, la colaboración y la búsqueda de soluciones prácticas que aporten valor real.
         <br />
@@ -54,11 +66,11 @@ export default function SobreMi() {
         Si quieres saber más sobre mi trabajo o colaborar en un proyecto, estaré encantado de hablar contigo.
         </p>
       </div>
-      <div className="flex flex-col 2xl:flex-row justify-between w-full space-y-12 2xl:space-y-0 textos">
+      <div className="bloqueHabilidades">
         <div
             data-animate
             data-fade-right
-            className="opacity-0 transition-all duration-700 ease-out w-full"
+            className="opacity-0 transition-all duration-700 ease-out w-auto"
         >
             <h2 className="titulos">&gt; Aptitudes</h2>
             <ol>
@@ -71,8 +83,8 @@ export default function SobreMi() {
         </div>
         <div
             data-animate
-            data-fade-left
-            className="opacity-0 transition-all duration-700 ease-out w-full"
+            {...(res ? { "data-fade-left": true } : { "data-fade-right": true })}
+            className="opacity-0 transition-all duration-700 ease-out w-auto"
         >
             <h2 className="titulos">&gt; Actitudes</h2>
             <ol>

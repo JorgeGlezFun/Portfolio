@@ -100,14 +100,14 @@ export default function Header({ user }) {
                 </div>
 
                 <div
-                    className={`fixed top-[96px] left-0 w-full h-screen bg-[#3d3d3d] transition-transform duration-500 ease-in-out 2xl:hidden ${
-                        showingNavigationDropdown ? "-translate-x-0" : "translate-x-full"
+                    className={`menuNavegacionMovil ${
+                        showingNavigationDropdown ? "menuAbierto" : "menuCerrado"
                     }`}
                     >
                     <div className="contenedorMenuNavegacionMovil">
                         <ResponsiveNavLink href="#Inicio">INICIO</ResponsiveNavLink>
                         <ResponsiveNavLink href="#SobreMi">SOBRE MÍ</ResponsiveNavLink>
-                        <ResponsiveNavLink href={route("/")}>CONOCIMIENTOS</ResponsiveNavLink>
+                        <ResponsiveNavLink href="#Conocimientos">CONOCIMIENTOS</ResponsiveNavLink>
                         <ResponsiveNavLink href={route("/")}>PROYECTOS</ResponsiveNavLink>
                         <ResponsiveNavLink href={route("/")}>CONTACTO</ResponsiveNavLink>
                         {user && (
@@ -118,6 +118,7 @@ export default function Header({ user }) {
                             </ResponsiveNavLink>
                         </div>
                         )}
+                        <div className='trampaMovil'/>
                     </div>
                 </div>
 

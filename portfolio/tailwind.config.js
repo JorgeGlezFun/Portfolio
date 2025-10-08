@@ -14,13 +14,15 @@ module.exports = {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
+            screens: {
+                '3xl': '1920px', // min-width: 1920px
+                '4xl': '2560px', // min-width: 2560px
+            },
         },
     },
     plugins: [
         forms,
-        require("@designbycode/tailwindcss-text-shadow"
-        )
-        ({
+        require("@designbycode/tailwindcss-text-shadow")({
             shadowColor: "rgba(0, 0, 0, 1)",
             shadowBlur: "0px",
             shadowOffsetX: "-0.2px",
