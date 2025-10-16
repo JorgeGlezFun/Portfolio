@@ -403,7 +403,7 @@ main {
 
 .textoListaConocimientos {
     @apply
-    text-xl space-y-2
+    text-xl space-y-4
     lg:text-2xl
     3xl:text-3xl
 }
@@ -413,8 +413,31 @@ main {
     flex flex-col w-full h-full bg-[#1d232c] rounded-3xl p-4 opacity-0 transition-all duration-700 ease-out overflow-hidden
 }
 
+.imagenLista {
+    @apply flex items-center gap-2
+}
+
 
 /* Clases Proyectos */
+.bloqueProyectos {
+    @apply
+    flex flex-col min-h-screen items-center p-6 justify-center leading-relaxed text-white overflow-hidden space-y-8 bg-[#1d232c]
+    md:p-[1.8125rem]
+    lg:p-[2.375rem]
+    xl:p-12
+    2xl:p-24 2xl:space-y-40 2xl:m-0
+}
+
+.bloqueListasProyectos {
+    @apply
+    w-full h-auto flex flex-col justify-center items-center gap-6
+    2xl:flex-row 2xl:h-[30rem]
+}
+
+.proyecto {
+    @apply
+    flex flex-shrink w-96 h-96  rounded-3xl p-4
+}
 /* Clases Contacto */
 
 /* .animacionEscritura {
