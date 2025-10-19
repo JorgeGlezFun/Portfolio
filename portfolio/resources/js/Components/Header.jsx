@@ -29,7 +29,7 @@ export default function Header({ user }) {
                             <NavLink href="#Conocimientos">
                                 Conocimientos
                             </NavLink>
-                            <NavLink href={route('/')}>
+                            <NavLink href="#Proyectos">
                                 Proyectos
                             </NavLink>
                             <NavLink href={route('/')}>
@@ -108,7 +108,7 @@ export default function Header({ user }) {
                         <ResponsiveNavLink href="#Inicio">INICIO</ResponsiveNavLink>
                         <ResponsiveNavLink href="#SobreMi">SOBRE MÍ</ResponsiveNavLink>
                         <ResponsiveNavLink href="#Conocimientos">CONOCIMIENTOS</ResponsiveNavLink>
-                        <ResponsiveNavLink href={route("/")}>PROYECTOS</ResponsiveNavLink>
+                        <ResponsiveNavLink href="#Proyectos">PROYECTOS</ResponsiveNavLink>
                         <ResponsiveNavLink href={route("/")}>CONTACTO</ResponsiveNavLink>
                         {user && (
                         <div>

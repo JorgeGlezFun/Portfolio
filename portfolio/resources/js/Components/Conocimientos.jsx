@@ -97,31 +97,31 @@ export default function Conocimientos() {
             data-animate
             data-fade-right
             >
-                <li className="flex items-center gap-2">
+                <li className="imagenLista">
                     <img src={javascript} alt="" />
                     JavaScript
                 </li>
-                <li className="flex items-center gap-2">
+                <li className="imagenLista">
                     <img src={python} alt="" />
                     Python
                 </li>
-                <li className="flex items-center gap-2">
+                <li className="imagenLista">
                     <img src={java} alt="" />
                     Java
                 </li>
-                <li className="flex items-center gap-2">
+                <li className="imagenLista">
                     <img src={php} alt="" />
                     PHP
                 </li>
-                <li className="flex items-center gap-2">
+                <li className="imagenLista">
                     <img src={html} alt="" />
                     HTML5
                 </li>
-                <li className="flex items-center gap-2">
+                <li className="imagenLista">
                     <img src={css} alt="" />
                     CSS3
                 </li>
-                <li className="flex items-center gap-2">
+                <li className="imagenLista">
                     <img src={postgresql} alt="" />
                     PostgreSQL
                 </li>
@@ -141,15 +141,15 @@ export default function Conocimientos() {
             data-animate
             data-fade-right
             >
-                <li className="flex items-center gap-2">
+                <li className="imagenLista">
                     <img src={react} alt="" />
                     React
                 </li>
-                <li className="flex items-center gap-2">
+                <li className="imagenLista">
                     <img src={laravel} alt="" />
                     Laravel
                 </li>
-                <li className="flex items-center gap-2">
+                <li className="imagenLista">
                     <img src={tailwindcss} alt="" />
                     TailwindCSS
                 </li>
@@ -170,23 +170,23 @@ export default function Conocimientos() {
             data-animate
             data-fade-right
             >
-                <li className="flex items-center gap-2">
+                <li className="imagenLista">
                     <img src={git} alt="" />
                     Git
                 </li>
-                <li className="flex items-center gap-2">
+                <li className="imagenLista">
                     <img src={github} alt="" />
                     GitHub
                 </li>
-                <li className="flex items-center gap-2">
+                <li className="imagenLista">
                     <img src={apache} alt="" />
                     Apache
                 </li>
-                <li className="flex items-center gap-2">
+                <li className="imagenLista">
                     <img src={figma} alt="" />
                     Figma
                 </li>
-                <li className="flex items-center gap-2">
+                <li className="imagenLista">
                     <img src={canva} alt="" />
                     Canva
                 </li>

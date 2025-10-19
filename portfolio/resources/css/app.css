@@ -47,6 +47,110 @@ html {
     3xl:text-4xl
 }
 
+.bloqueCarrusel {
+    @apply flex flex-col w-full items-center justify-center gap-6 text-white
+}
+
+.bloqueSlides {
+    @apply relative flex items-center justify-center h-[30rem] w-full max-w-5xl overflow-visible
+}
+
+.slidePrincipal {
+    @apply absolute w-64 h-64 flex items-center justify-center rounded-2xl shadow-xl transition-all duration-500 bg-[#2d343f] cursor-pointer hover:scale-105
+    sm:w-[30rem] sm:h-[30rem]
+    md:w-[29rem] md:h-[29rem]
+    lg:w-[28rem] lg:h-[28rem]
+    xl:w-[25rem] xl:h-[25rem]
+    2xl:w-[26rem] 2xl:h-[26rem]
+    3xl:w-[27rem] 3xl:h-[27rem]
+    4xl:w-[28rem] 4xl:h-[28rem]
+}
+
+.fotoSlide {
+    @apply object-contain max-h-full
+}
+
+.contenedorBotonesSlide {
+    @apply flex gap-4 mt-6
+}
+
+.btnSlide {
+    @apply bg-black/40 px-6 py-3 rounded-xl hover:bg-black/60
+    sm:px-16 sm:py-8 sm:text-2xl sm:font-bold
+    xl:px-6 xl:py-3 xl:text-base xl:font-normal
+}
+
+.contenedorDots {
+    @apply flex items-center justify-center gap-3 sm:gap-6
+}
+
+.dotsSlide {
+    @apply
+    rounded-full bg-white/50 hover:bg-white cursor-pointer transition-all duration-300 ease-in-out
+    sm:w-6 sm:h-6
+    xl:w-4 xl:h-4
+}
+
+.dotsSlideActivo {
+    @apply w-6 h-6 rounded-full bg-white cursor-pointer transition-all duration-300 ease-in-out
+}
+
+.dotsSlideInactivo {
+    @apply w-4 h-4 rounded-full bg-white/40 hover:bg-white/60 cursor-pointer transition-all duration-300 ease-in-out
+}
+
+.nextSlide {
+    @apply bg-black/40 px-6 py-3 rounded-xl hover:bg-black/60
+}
+
+.contenedorModal {
+    @apply
+    w-full flex flex-col items-center p-6 text-white
+    xl:flex-row
+}
+
+.fotoModal {
+    @apply
+    flex items-end w-full h-96 object-contain mb-6
+    4xl:h-[30rem]
+}
+
+.contenedorTextoModal {
+    @apply
+    w-full h-full
+}
+
+.tituloModal {
+    @apply
+    text-4xl font-semibold
+}
+
+.contenedorTecnologias {
+    @apply
+    flex flex-wrap gap-2
+}
+
+.tecnologiasModal {
+    @apply
+    bg-black/40 px-3 py-1 rounded-full text-xl
+}
+
+.textoModal {
+    @apply
+    text-2xl mb-4
+}
+
+.panelModal {
+    @apply flex mb-6 transform overflow-hidden rounded-lg bg-[#1d232c] shadow-2xl transition-all mx-auto
+    sm:w-[35rem]
+    md:w-[40rem]
+    lg:w-[50rem]
+    xl:w-[70rem]
+    2xl:w-[85rem]
+    3xl:w-[100rem]
+    4xl:w-[120rem]
+}
+
 /* Clases Header */
 .contenedorHeader {
     @apply
@@ -403,7 +507,7 @@ main {
 
 .textoListaConocimientos {
     @apply
-    text-xl space-y-2
+    text-xl space-y-4
     lg:text-2xl
     3xl:text-3xl
 }
@@ -413,8 +517,31 @@ main {
     flex flex-col w-full h-full bg-[#1d232c] rounded-3xl p-4 opacity-0 transition-all duration-700 ease-out overflow-hidden
 }
 
+.imagenLista {
+    @apply flex items-center gap-2
+}
+
 
 /* Clases Proyectos */
+.bloqueProyectos {
+    @apply
+    flex flex-col min-h-screen items-center p-6 justify-center leading-relaxed text-white overflow-hidden space-y-8 bg-[#1d232c]
+    md:p-[1.8125rem]
+    lg:p-[2.375rem]
+    xl:p-12
+    2xl:p-24 2xl:space-y-20 2xl:m-0
+}
+
+.bloqueListasProyectos {
+    @apply
+    w-full h-auto flex flex-col justify-center items-center gap-6
+    2xl:flex-row 2xl:h-[30rem]
+}
+
+.proyecto {
+    @apply
+    flex flex-shrink w-96 h-96 rounded-3xl p-4
+}
 /* Clases Contacto */
 
 /* .animacionEscritura {
