@@ -45,7 +45,7 @@ export default function CoverflowCarousel() {
 
   return (
     <div
-    className="bloqueCarrusel"
+    className="bloqueCarrusel opacity-0 transition-all duration-700 ease-out w-full"
     data-animate
     data-fade-up
     >
