@@ -44,7 +44,11 @@ export default function CoverflowCarousel() {
   };
 
   return (
-    <div className="bloqueCarrusel">
+    <div
+    className="bloqueCarrusel"
+    data-animate
+    data-fade-up
+    >
       <div className="bloqueSlides">
         {slides.map((slide, i) => {
           const offset = i - current;
@@ -75,7 +79,7 @@ export default function CoverflowCarousel() {
 
       {/* Controles del carrusel */}
       <div className="contenedorBotonesSlide">
-        <button onClick={prev} className="prevSlide">
+        <button onClick={prev} className="btnSlide">
           {"<"}
         </button>
 
@@ -94,7 +98,7 @@ export default function CoverflowCarousel() {
           ))}
         </div>
 
-        <button onClick={next} className="nextSlide">
+        <button onClick={next} className="btnSlide">
           {">"}
         </button>
       </div>

@@ -54,7 +54,7 @@ export default function Modal({
                     leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
                 >
                     <DialogPanel
-                        className={`flex mb-6 transform overflow-hidden rounded-lg bg-[#1d232c] shadow-2xl transition-all mx-auto w-[100rem]`}
+                        className={`panelModal`}
                     >
                         {children}
                     </DialogPanel>

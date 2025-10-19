@@ -56,7 +56,14 @@ html {
 }
 
 .slidePrincipal {
-    @apply absolute w-64 sm:w-72 md:w-80 lg:w-96 h-64 sm:h-72 md:h-80 lg:h-96 flex items-center justify-center rounded-2xl shadow-xl transition-all duration-500 bg-[#2d343f] cursor-pointer hover:scale-105
+    @apply absolute w-64 h-64 flex items-center justify-center rounded-2xl shadow-xl transition-all duration-500 bg-[#2d343f] cursor-pointer hover:scale-105
+    sm:w-[30rem] sm:h-[30rem]
+    md:w-[29rem] md:h-[29rem]
+    lg:w-[28rem] lg:h-[28rem]
+    xl:w-[25rem] xl:h-[25rem]
+    2xl:w-[26rem] 2xl:h-[26rem]
+    3xl:w-[27rem] 3xl:h-[27rem]
+    4xl:w-[28rem] 4xl:h-[28rem]
 }
 
 .fotoSlide {
@@ -67,8 +74,10 @@ html {
     @apply flex gap-4 mt-6
 }
 
-.prevSlide {
+.btnSlide {
     @apply bg-black/40 px-6 py-3 rounded-xl hover:bg-black/60
+    sm:px-16 sm:py-8 sm:text-2xl sm:font-bold
+    xl:px-6 xl:py-3 xl:text-base xl:font-normal
 }
 
 .contenedorDots {
@@ -76,7 +85,10 @@ html {
 }
 
 .dotsSlide {
-    @apply w-4 h-4 rounded-full bg-white/50 hover:bg-white cursor-pointer transition-all duration-300 ease-in-out
+    @apply
+    rounded-full bg-white/50 hover:bg-white cursor-pointer transition-all duration-300 ease-in-out
+    sm:w-6 sm:h-6
+    xl:w-4 xl:h-4
 }
 
 .dotsSlideActivo {
@@ -93,12 +105,14 @@ html {
 
 .contenedorModal {
     @apply
-    w-full flex flex-row items-center p-6 text-white
+    w-full flex flex-col items-center p-6 text-white
+    xl:flex-row
 }
 
 .fotoModal {
     @apply
-    w-full h-96 object-contain mb-6
+    flex items-end w-full h-96 object-contain mb-6
+    4xl:h-[30rem]
 }
 
 .contenedorTextoModal {
@@ -124,6 +138,17 @@ html {
 .textoModal {
     @apply
     text-2xl mb-4
+}
+
+.panelModal {
+    @apply flex mb-6 transform overflow-hidden rounded-lg bg-[#1d232c] shadow-2xl transition-all mx-auto
+    sm:w-[35rem]
+    md:w-[40rem]
+    lg:w-[50rem]
+    xl:w-[70rem]
+    2xl:w-[85rem]
+    3xl:w-[100rem]
+    4xl:w-[120rem]
 }
 
 /* Clases Header */
