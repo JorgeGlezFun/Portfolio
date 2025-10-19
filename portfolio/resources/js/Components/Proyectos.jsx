@@ -66,9 +66,7 @@ export default function Proyectos() {
             Los conocimientos que verás aquí son parte de todo ese aprendizaje, el resultado de muchas horas de práctica, curiosidad y ganas de crear cosas que realmente funcionen y se vean bien.
         </p>
       </div>
-
         <Carrusel />
-
     </div>
   );
 }
