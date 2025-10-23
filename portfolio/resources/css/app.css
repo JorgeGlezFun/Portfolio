@@ -543,6 +543,15 @@ main {
     flex flex-shrink w-96 h-96 rounded-3xl p-4
 }
 /* Clases Contacto */
+.bloqueContactos {
+    @apply
+    flex flex-col min-h-screen items-center p-6 justify-center leading-relaxed text-white overflow-hidden space-y-8
+    md:p-[1.8125rem]
+    lg:p-[2.375rem]
+    xl:p-12
+    2xl:p-24 2xl:space-y-20 2xl:m-0
+}
+
 
 /* .animacionEscritura {
     @apply
