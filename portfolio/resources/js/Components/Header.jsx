@@ -32,7 +32,7 @@ export default function Header({ user }) {
                             <NavLink href="#Proyectos">
                                 Proyectos
                             </NavLink>
-                            <NavLink href={route('/')}>
+                            <NavLink href="#Contacto">
                                 Contacto
                             </NavLink>
                             {/* <NavLink href={route('sobremi')} active={route().current('sobremi')}>
@@ -109,7 +109,7 @@ export default function Header({ user }) {
                         <ResponsiveNavLink href="#SobreMi">SOBRE MÍ</ResponsiveNavLink>
                         <ResponsiveNavLink href="#Conocimientos">CONOCIMIENTOS</ResponsiveNavLink>
                         <ResponsiveNavLink href="#Proyectos">PROYECTOS</ResponsiveNavLink>
-                        <ResponsiveNavLink href={route("/")}>CONTACTO</ResponsiveNavLink>
+                        <ResponsiveNavLink href="#Contacto">CONTACTO</ResponsiveNavLink>
                         {user && (
                         <div>
                             <ResponsiveNavLink href={route("profile.edit")}>Perfil</ResponsiveNavLink>

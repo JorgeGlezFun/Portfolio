@@ -98,31 +98,31 @@ export default function Conocimientos() {
             data-fade-right
             >
                 <li className="imagenLista">
-                    <img src={javascript} alt="" />
+                    <img src={javascript} alt="Logo de Javascript" />
                     JavaScript
                 </li>
                 <li className="imagenLista">
-                    <img src={python} alt="" />
+                    <img src={python} alt="Logo de Python" />
                     Python
                 </li>
                 <li className="imagenLista">
-                    <img src={java} alt="" />
+                    <img src={java} alt="Logo de Java" />
                     Java
                 </li>
                 <li className="imagenLista">
-                    <img src={php} alt="" />
+                    <img src={php} alt="Logo de PHP" />
                     PHP
                 </li>
                 <li className="imagenLista">
-                    <img src={html} alt="" />
+                    <img src={html} alt="Logo de HTML5" />
                     HTML5
                 </li>
                 <li className="imagenLista">
-                    <img src={css} alt="" />
+                    <img src={css} alt="Logo de CSS3" />
                     CSS3
                 </li>
                 <li className="imagenLista">
-                    <img src={postgresql} alt="" />
+                    <img src={postgresql} alt="Logo de PostgreSQL" />
                     PostgreSQL
                 </li>
             </ol>
@@ -142,15 +142,15 @@ export default function Conocimientos() {
             data-fade-right
             >
                 <li className="imagenLista">
-                    <img src={react} alt="" />
+                    <img src={react} alt="Logo de React" />
                     React
                 </li>
                 <li className="imagenLista">
-                    <img src={laravel} alt="" />
+                    <img src={laravel} alt="Logo de Laravel" />
                     Laravel
                 </li>
                 <li className="imagenLista">
-                    <img src={tailwindcss} alt="" />
+                    <img src={tailwindcss} alt="Logo de TailwindCSS" />
                     TailwindCSS
                 </li>
             </ol>
@@ -171,23 +171,23 @@ export default function Conocimientos() {
             data-fade-right
             >
                 <li className="imagenLista">
-                    <img src={git} alt="" />
+                    <img src={git} alt="Logo de Git" />
                     Git
                 </li>
                 <li className="imagenLista">
-                    <img src={github} alt="" />
+                    <img src={github} alt="Logo de GitHub" />
                     GitHub
                 </li>
                 <li className="imagenLista">
-                    <img src={apache} alt="" />
+                    <img src={apache} alt="Logo de Apache" />
                     Apache
                 </li>
                 <li className="imagenLista">
-                    <img src={figma} alt="" />
+                    <img src={figma} alt="Logo de Figma" />
                     Figma
                 </li>
                 <li className="imagenLista">
-                    <img src={canva} alt="" />
+                    <img src={canva} alt="Logo de Canva" />
                     Canva
                 </li>
             </ol>
