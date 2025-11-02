@@ -4,6 +4,8 @@ import github from "../../img/logos/github2logo.png";
 import linkedin from "../../img/logos/linkedinlogo.png";
 import telefono from "../../img/logos/telefonologo.png";
 import gmail from "../../img/logos/emaillogo.png";
+import logoCV from "../../img/logos/LogoCV.png";
+import CV from "../../assets/CV_Jorge_Gonzalez_Fuentes.pdf";
 
 export default function Contacto() {
 
@@ -62,24 +64,28 @@ export default function Contacto() {
             <div className="contenedorContactos">
                 <div className="contenedorOtrosMetodos">
                     <div id="contenedorEnlaces">
-                        <div className="enlacesContacto">
+                        <a href="https://www.linkedin.com/in/jorgegfdev" target="_blank" className="enlacesContacto">
                             <img src={linkedin} alt="Logo de LinkedIn" className="imagenContacto" />
-                            <a href="https://www.linkedin.com/in/jorgegfdev" target="_blank">LinkedIn: Jorge González Fuentes</a>
-                        </div>
-                        <div className="enlacesContacto">
+                            <span className="tituloOtrosMetodos">LinkedIn: Jorge González Fuentes</span>
+                        </a>
+                        <a href="https://github.com/JorgeGlezFun" target="_blank" className="enlacesContacto">
                             <img src={github} alt="Logo de GitHub" className="imagenContacto" />
-                            <a href="https://github.com/JorgeGlezFun" target="_blank">GitHub: @JorgeGlezFun </a>
+                            <span className="tituloOtrosMetodos">GitHub: @JorgeGlezFun </span>
 
-                        </div>
-                        <div className="enlacesContacto">
+                        </a>
+                        <a href="mailto:jorge.gonzalez.fuentes.dev@gmail.com" target="_blank" className="enlacesContacto">
                             <img src={gmail} alt="Logo de Correo Electrónico" className="imagenContacto" />
-                            <a href="mailto:jorge.gonzalez.fuentes.dev@gmail.com" target="_blank">E-Mail: jorge.gonzalez.fuentes.dev@gmail.com</a>
+                            <span className="tituloOtrosMetodos">E-Mail: jorge.gonzalez.fuentes.dev@gmail.com</span>
 
-                        </div>
-                        <div className="enlacesContacto">
+                        </a>
+                        <a target="_blank" className="enlacesContacto">
                             <img src={telefono} alt="Logo de Teléfono" className="imagenContacto" />
-                            <a target="_blank">Teléfono: +34 671 71 04 04</a>
-                        </div>
+                            <span className="tituloOtrosMetodos">Teléfono: +34 671 71 04 04</span>
+                        </a>
+                        <a href={CV} download target="_blank" className="enlacesContacto">
+                            <img src={logoCV} alt="Logo de Curriculum Vitae" className="imagenContacto" />
+                            <span className="tituloOtrosMetodos">Curriculum Vitae</span>
+                        </a>
                     </div>
                 </div>
                 <div className="barraSeparacionContacto" />
@@ -115,7 +121,7 @@ export default function Contacto() {
                         <textarea
                             name="mensaje"
                             placeholder="Mensaje"
-                            className="inputsContacto"
+                            className="inputsContacto h-64"
                             value={mensaje}
                             onChange={(e) => setMensaje(e.target.value)}
                         ></textarea>
