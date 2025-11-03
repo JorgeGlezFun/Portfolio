@@ -352,7 +352,6 @@ main {
     @apply
     flex w-full overflow-hidden items-center justify-center h-1/2
     2xl:w-1/2 2xl:h-auto
-
 }
 
 .fotoInicio {
@@ -509,7 +508,7 @@ main {
     @apply
     text-xl space-y-4
     lg:text-2xl
-    3xl:text-3xl
+    3xl:text-4xl
 }
 
 .listaConocimientos {
@@ -520,7 +519,6 @@ main {
 .imagenLista {
     @apply flex items-center gap-2
 }
-
 
 /* Clases Proyectos */
 .bloqueProyectos {
@@ -543,6 +541,113 @@ main {
     flex flex-shrink w-96 h-96 rounded-3xl p-4
 }
 /* Clases Contacto */
+.bloqueContactos {
+    @apply
+    flex flex-col min-h-screen items-center p-6 justify-center leading-relaxed text-white overflow-hidden space-y-8
+    md:p-[1.8125rem]
+    lg:p-[2.375rem]
+    xl:p-12
+    2xl:p-24 2xl:space-y-20 2xl:m-0
+}
+
+.barraSeparacionContacto {
+    @apply bg-white h-4 w-full
+    2xl:h-[24rem] 2xl:block 2xl:w-2
+    3xl:h-[30rem]
+    4xl:h-[40rem]
+}
+
+.inputsContacto {
+    @apply
+    w-full p-4 mb-4 bg-white text-black text-lg rounded
+    focus:outline-none focus:ring-4 focus:ring-[#66baf4] focus:border-transparent
+    lg:text-2xl
+
+}
+
+.botonContacto {
+    @apply
+    bg-[#66baf4] text-white font-bold p-4 rounded text-xl w-full
+    hover:bg-[#4aa6eb] hover:shadow-black hover:shadow-blur hover:translate-x-2 hover:-translate-y-2 transition ease-in-out duration-200
+    active:bg-[#2b91e1] active:translate-x-0 active:translate-y-0 active:shadow-none
+    lg:text-2xl
+    2xl:text-4xl
+}
+
+.imagenContacto {
+    @apply w-14 h-14 object-contain me-4
+}
+
+.contenedorContactos {
+    @apply flex flex-col w-full p-8 items-center justify-between
+    2xl:flex-row
+}
+
+.contenedorOtrosMetodos {
+    @apply w-full space-y-8 p-2 pb-8 overflow-hidden
+    lg:p-4
+    xl:p-8
+    2xl:w-1/2
+}
+
+#contenedorEnlaces {
+    @apply flex flex-col space-y-4 w-full
+}
+
+@layer utilities {
+    @media (min-width: 640px) {
+        #contenedorEnlaces {
+            @apply fade-up;
+        }
+    }
+}
+
+@layer utilities {
+    @media (min-width: 1536px) {
+        #contenedorEnlaces {
+            @apply fade-left;
+        }
+    }
+}
+
+.tituloOtrosMetodos {
+    @apply text-xl mb-0
+    lg:text-2xl
+    2xl:text-4xl
+}
+
+.enlacesContacto {
+    @apply flex space-x-2 h-fit items-center mb-2 rounded p-4 text-3xl bg-[#1d232c] cursor-pointer
+    hover:shadow-black hover:shadow-blur hover:translate-x-2 hover:-translate-y-2 hover:bg-[#66baf4] transition ease-in-out duration-200
+    active:bg-[#2b91e1] active:translate-x-0 active:translate-y-0 active:shadow-none
+}
+
+.contenedorFormulario {
+    @apply w-full p-2 pt-8 overflow-hidden
+    lg:p-4
+    xl:p-8
+    2xl:w-1/2
+}
+
+@layer utilities {
+    @media (min-width: 640px) {
+        form {
+            @apply fade-down;
+        }
+    }
+}
+
+@layer utilities {
+    @media (min-width: 1536px) {
+        form {
+            @apply fade-right;
+        }
+    }
+}
+
+.filaNombre {
+    @apply flex space-x-4
+}
 
 /* .animacionEscritura {
     @apply
@@ -637,6 +742,3 @@ animation: fadeRight 1s ease-out forwards;
 .fade-left-out {
 animation: fadeLeftOut 1s ease-out forwards;
 }
-
-
-

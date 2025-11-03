@@ -18,15 +18,20 @@ module.exports = {
                 '3xl': '1920px', // min-width: 1920px
                 '4xl': '2560px', // min-width: 2560px
             },
+
+            boxShadow: {
+                'blur': '-8px 8px 0 rgba(0, 0, 0, 1)',
+            }
         },
+
     },
     plugins: [
         forms,
         require("@designbycode/tailwindcss-text-shadow")({
             shadowColor: "rgba(0, 0, 0, 1)",
             shadowBlur: "0px",
-            shadowOffsetX: "-0.2px",
-            shadowOffsetY: "0.2px",
+            shadowOffsetX: "-0.4px",
+            shadowOffsetY: "0.4px",
             shadowOpacity: "1",
             shadowSpread: "0px",
             experimental: true
