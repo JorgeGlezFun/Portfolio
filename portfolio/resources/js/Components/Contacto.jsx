@@ -60,6 +60,12 @@ export default function Contacto() {
                 className="opacity-0 transition-all duration-700 ease-out w-full"
             >
                 <h1 className="titulos">// Contacto</h1>
+                <p className="textos">
+                    Si deseas ponerte en contacto conmigo, ya sea para colaborar, preguntar sobre mi trabajo o cualquier otra consulta,
+                    no dudes en hacerlo a través de los siguientes métodos que dejo a tu disposicion
+                    Puedes visitar mis redes sociales o rellenar el formulario de contacto para enviarme un mensaje directamente.
+                    Estaré encantado de conversar contigo. ¡Muchas gracias por visitar mi web!
+                </p>
             </div>
             <div className="contenedorContactos">
                 <div className="contenedorOtrosMetodos">

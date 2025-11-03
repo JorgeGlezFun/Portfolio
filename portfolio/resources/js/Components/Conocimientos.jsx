@@ -75,7 +75,7 @@ export default function Conocimientos() {
         className="opacity-0 transition-all duration-700 ease-out w-full"
       >
         <h1 className="titulos">// Conocimientos</h1>
-        <p className="textoListaConocimientos">
+        <p className="textos">
             A lo largo de mi camino como desarrollador web he ido aprendiendo y probando diferentes tecnologías que me han ayudado a entender mejor cómo dar forma a mis ideas. <br/>
             Me gusta experimentar, mejorar con cada proyecto y descubrir nuevas formas de hacer las cosas. <br/>
             Los conocimientos que verás aquí son parte de todo ese aprendizaje, el resultado de muchas horas de práctica, curiosidad y ganas de crear cosas que realmente funcionen y se vean bien.

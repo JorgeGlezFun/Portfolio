@@ -60,10 +60,17 @@ export default function Proyectos() {
         className="opacity-0 transition-all duration-700 ease-out w-full"
       >
         <h1 className="titulos">// Proyectos</h1>
-        <p className="textoListaConocimientos">
-            A lo largo de mi camino como desarrollador web he ido aprendiendo y probando diferentes tecnologías que me han ayudado a entender mejor cómo dar forma a mis ideas. <br/>
-            Me gusta experimentar, mejorar con cada proyecto y descubrir nuevas formas de hacer las cosas. <br/>
-            Los conocimientos que verás aquí son parte de todo ese aprendizaje, el resultado de muchas horas de práctica, curiosidad y ganas de crear cosas que realmente funcionen y se vean bien.
+        <p className="textos">
+            En esta sección comparto una selección de proyectos web que reflejan mi trabajo como desarrollador
+            front-end y mi interés por crear experiencias digitales funcionales, atractivas y bien estructuradas.
+            Cada proyecto representa una oportunidad para aplicar distintas tecnologías,
+            experimentar con nuevas ideas y perfeccionar mi enfoque en la usabilidad y el diseño.
+            <br />
+            A través de esta galería podrás conocer brevemente el propósito de cada desarrollo, las herramientas
+            que utilicé y el proceso detrás de su realización. Si deseas explorar más a fondo los detalles de un proyecto,
+            puedes hacerlo navegando por el carrusel y descubriendo cada propuesta en mayor profundidad.
+            <br />
+            Mi objetivo con este espacio es mostrar no solo los resultados, sino también la manera en que enfrento los desafíos del desarrollo web y la pasión que pongo en cada línea de código.
         </p>
       </div>
         <Carrusel />

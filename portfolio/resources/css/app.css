@@ -508,7 +508,7 @@ main {
     @apply
     text-xl space-y-4
     lg:text-2xl
-    3xl:text-3xl
+    3xl:text-4xl
 }
 
 .listaConocimientos {
@@ -519,7 +519,6 @@ main {
 .imagenLista {
     @apply flex items-center gap-2
 }
-
 
 /* Clases Proyectos */
 .bloqueProyectos {
