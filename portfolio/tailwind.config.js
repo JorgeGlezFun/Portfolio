@@ -8,6 +8,10 @@ module.exports = {
         './storage/framework/views/*.php',
         './resources/views/**/*.blade.php',
         './resources/js/**/*.jsx',
+
+        // 👇 Agrega estas líneas para Flowbite
+        './node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}',
+        './node_modules/flowbite/**/*.js',
     ],
     theme: {
         extend: {
@@ -15,15 +19,13 @@ module.exports = {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
             screens: {
-                '3xl': '1920px', // min-width: 1920px
-                '4xl': '2560px', // min-width: 2560px
+                '3xl': '1920px',
+                '4xl': '2560px',
             },
-
             boxShadow: {
                 'blur': '-8px 8px 0 rgba(0, 0, 0, 1)',
             }
         },
-
     },
     plugins: [
         forms,
@@ -35,6 +37,9 @@ module.exports = {
             shadowOpacity: "1",
             shadowSpread: "0px",
             experimental: true
-        })
+        }),
+
+        // 👇 Importante: añade el plugin de Flowbite aquí
+        require('flowbite/plugin'),
     ],
 };

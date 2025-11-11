@@ -1,5 +1,6 @@
 import { Head, Link } from '@inertiajs/react';
 import { useState, useEffect } from "react";
+import '../../css/app.css';
 import Header from '@/Components/Header';
 import Inicio from '@/Components/Inicio';
 import SobreMi from '@/Components/SobreMi';

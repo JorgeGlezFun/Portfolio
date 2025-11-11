@@ -1,0 +1,209 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* Resoluciones
+    sm: 640px
+    md: 768px
+    lg: 1024px
+    xl: 1280px
+    2xl: 1536px
+    3xl: 1920px
+    4xl: 2560px
+*/
+
+/* Modo Claro y Oscuro */
+.modoClaroCRUD {
+    @apply bg-[#F5E6CC] text-[#9a1a23]
+
+    /*text-[#c01c28]*/
+}
+* {
+    font-family: 'League Spartan', sans-serif;
+}
+
+html {
+    @apply
+    min-h-screen w-full scroll-smooth scroll-pt-[6.8677rem]
+    bg-gray-100
+    /* bg-gradient-to-bl from-[#1E40AF] from-[8%] via-[#60A5FA] via-[38%] to-[#FFFFFF] to-95% */
+
+}
+
+/* Clases troncales */
+.titulosCRUD {
+    @apply
+    text-4xl font-bold text-[#66baf4] h-auto
+    lg:text-5xl
+    3xl:text-7xl
+}
+
+.textosCRUD {
+    @apply
+    text-xl leading-relaxed
+    lg:text-2xl
+    3xl:text-4xl
+}
+
+/* Clases Header */
+.contenedorHeaderCRUD {
+    @apply
+    fixed items-center justify-center w-full h-auto text-4xl z-20 bg-white shadow-md
+    2xl:flex 2xl:flex-col
+}
+
+.contenedorLogoHeaderCRUD {
+    @apply
+    flex pl-10 items-center w-full justify-center
+    2xl:flex-shrink-0 2xl:w-auto
+}
+
+.contenedorMenuNavegacionCRUD {
+    @apply
+    flex justify-between w-full
+    sm:h-24 sm:px-4
+    2xl:justify-end 2xl:px-4 2xl:py-5 2xl:h-fit
+}
+
+.contenedorEnlacesHeaderCRUD {
+    @apply
+    hidden 2xl:flex items-center space-x-10 w-full justify-end
+}
+
+.contenedorNavLinkCRUD {
+    @apply
+    inline-flex flex-col items-center w-auto h-auto mx-1 my-1 text-4xl font-medium
+}
+
+.headerActivadoCRUD {
+    @apply
+    text-[#66baf4]
+}
+
+.headerSinActivarCRUD {
+    @apply
+    text-black transition ease-in-out hover:text-[#66baf4]
+}
+
+.contenedorBotonMenuMovilCRUD {
+    @apply
+    -me-2 flex flex-col items-center z-20
+    2xl:hidden
+}
+
+.menuNavegacionMovilCRUD {
+    @apply
+    fixed top-[96px] left-0 w-full h-screen transition-transform duration-500 ease-linear 2xl:hidden
+}
+
+.menuAbiertoCRUD {
+    @apply
+    -translate-x-0
+}
+
+.menuCerradoCRUD {
+    @apply
+    translate-x-full
+}
+
+.trampaMovilCRUD {
+    @apply min-h-screen w-full bg-[#232931]
+}
+
+.contenedorMenuNavegacionMovilCRUD {
+    @apply flex flex-col w-full min-h-screen
+}
+
+.menuAbiertoCRUD .contenedorMenuNavegacionMovilCRUD > * {
+    @apply opacity-0
+}
+
+.menuCerradoCRUD .contenedorMenuNavegacionMovilCRUD > * {
+    @apply opacity-100
+}
+
+.menuAbiertoCRUD .contenedorMenuNavegacionMovilCRUD {
+  @apply fade-left;
+  animation-delay: 0s;
+}
+
+.menuCerradoCRUD .contenedorMenuNavegacionMovilCRUD {
+  @apply fade-left-out;
+  animation-delay: 0s;
+}
+
+.enlaceHeaderMovilCRUD {
+    @apply w-full flex relative justify-center items-center pe-4 py-2 text-4xl font-bold transition duration-0 ease-out border-transparent bg-[#232931] text-black hover:text-white hover:text-shadow-xl hover:text-shadow-black overflow-hidden
+}
+
+.enlaceHeaderMovilActivoCRUD {
+    @apply w-full flex justify-center items-center pe-4 py-2 text-4xl font-bold text-white bg-[#18338d] text-shadow-xl text-shadow-black;
+}
+/* Pseudo-elementos por defecto */
+*:before,
+*:after {
+  z-index: -1;
+}
+
+.enlaceHeaderMovilCRUD::before,
+.enlaceHeaderMovilCRUD::after {
+  content: '';
+  @apply absolute top-0 right-0 bottom-0 left-0 transition-transform duration-[400ms] ease-in-out;
+}
+
+.enlaceHeaderMovilCRUD::before {
+  @apply right-[-60px] transform -translate-x-full;
+  /* border-top: 60px solid #1E40AF; */
+  border-bottom: 2px solid #3cde13;
+  /* border-right: 60px solid transparent; */
+}
+
+.enlaceHeaderMovilCRUD:hover {
+  @apply z-0;
+}
+
+.enlaceHeaderMovilCRUD:hover::before {
+  transform: translateX(-0%);
+}
+
+.enlaceHeaderMovilCRUD:hover::after {
+  transform: translateX(0%);
+}
+
+/* Clases Main */
+main {
+    @apply
+    min-h-screen w-full pt-[6.8677rem]
+}
+
+@keyframes fadeLeft {
+0% {
+    opacity: 0;
+    transform: translateX(100%);
+}
+100% {
+    opacity: 1;
+    transform: translateX(0%);
+}
+}
+
+.fade-left {
+animation: fadeLeft 1s ease-out forwards;
+}
+
+@keyframes fadeLeftOut {
+0% {
+    opacity: 1;
+    transform: translateX(0);
+}
+100% {
+    opacity: 0;
+    transform: translateX(100%);
+}
+}
+
+.fade-left-out {
+animation: fadeLeftOut 1s ease-out forwards;
+}

@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ContactoController;
+use App\Http\Controllers\ProyectoController;
+use App\Http\Controllers\TecnologiaController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -26,5 +28,8 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::post('/contacto', [ContactoController::class, 'send']);
+
+Route::resource('/proyectos', ProyectoController::class);
+Route::resource('/tecnologias', TecnologiaController::class);
 
 require __DIR__.'/auth.php';

@@ -164,7 +164,7 @@ export default function Conocimientos() {
             className="tituloListaConocimientos"
             data-animate
             data-fade-right
-            >Tecnologías y herramientas de desarrollo</h1>
+            >Herramientas de desarrollo</h1>
             <ol
             className="textoListaConocimientos"
             data-animate
