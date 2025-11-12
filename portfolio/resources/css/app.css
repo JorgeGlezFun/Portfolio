@@ -67,7 +67,7 @@ html {
 }
 
 .fotoSlide {
-    @apply object-contain max-h-full
+    @apply object-contain max-h-full w-full h-full p-2
 }
 
 .contenedorBotonesSlide {
@@ -109,10 +109,15 @@ html {
     xl:flex-row
 }
 
+.fotoEnlaceModal {
+    @apply
+    flex items-center justify-center w-full h-96 object-contain mb-6
+    4xl:h-[30rem]
+}
+
 .fotoModal {
     @apply
-    flex items-end w-full h-96 object-contain mb-6
-    4xl:h-[30rem]
+    h-full
 }
 
 .contenedorTextoModal {
@@ -561,6 +566,7 @@ main {
     @apply
     w-full p-4 mb-4 bg-white text-black text-lg rounded
     focus:outline-none focus:ring-4 focus:ring-[#66baf4] focus:border-transparent
+    placeholder:text-gray-500
     lg:text-2xl
 
 }
