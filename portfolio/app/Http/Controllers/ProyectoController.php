@@ -43,6 +43,7 @@ class ProyectoController extends Controller
         $proyecto = $request->validate([
             'nombre' => 'required|string|max:255',
             'descripcion' => 'required|string',
+            'enlace' => 'nullable|string|max:255',
             'imagen' => 'nullable|image|max:2048',
         ]);
 
@@ -92,6 +93,7 @@ class ProyectoController extends Controller
         $data = $request->validate([
             'nombre' => 'sometimes|required|string|max:255',
             'descripcion' => 'sometimes|required|string',
+            'enlace' => 'sometimes|nullable|string|max:255',
             'imagen' => 'sometimes|nullable|image|max:2048',
         ]);
 
@@ -110,8 +112,7 @@ class ProyectoController extends Controller
         $proyecto->tecnologias()->sync($tecnologiasIds);
 
         // ⚡ En lugar de JSON, hacemos redirect con Inertia
-        return redirect()->route('proyectos.edit', $proyecto->id)
-                        ->with('success', 'Proyecto actualizado correctamente');
+        return redirect()->route('proyectos.index')->with('success', 'Proyecto actualizado correctamente');
     }
 
 
@@ -128,5 +129,11 @@ class ProyectoController extends Controller
         $proyecto->delete();
 
         return response()->json(null, 204);
+    }
+
+    public function carrusel()
+    {
+        $proyectos = Proyecto::with('tecnologias')->get();
+        return response()->json($proyectos);
     }
 }

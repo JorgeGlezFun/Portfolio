@@ -6,6 +6,7 @@ export default function Create({ auth, laravelVersion, phpVersion, tecnologiasEx
 
     const [nombre, setNombre] = useState("");
     const [descripcion, setDescripcion] = useState("");
+    const [enlace, setEnlace] = useState("");
     const [imagen, setImagen] = useState(null);
     const [tecnologias, setTecnologias] = useState([]);
 
@@ -19,8 +20,11 @@ export default function Create({ auth, laravelVersion, phpVersion, tecnologiasEx
         const formData = new FormData();
         formData.append("nombre", nombre);
         formData.append("descripcion", descripcion);
+        formData.append("enlace", enlace);
         formData.append("imagen", imagen);
         formData.append("tecnologias", JSON.stringify(tecnologias));
+
+        console.log(...formData);
 
         const response = await fetch("/proyectos", {
             method: "POST",
@@ -36,6 +40,7 @@ export default function Create({ auth, laravelVersion, phpVersion, tecnologiasEx
             alert("Proyecto creado ✅");
             setNombre("");
             setDescripcion("");
+            setEnlace("");
             setImagen(null);
             setTecnologias([]);
         } else {
@@ -51,8 +56,6 @@ export default function Create({ auth, laravelVersion, phpVersion, tecnologiasEx
             setTecnologias([...tecnologias, id]);
         }
     };
-
-    console.log(tecnologiasExistentes);
 
     return (
         <>
@@ -101,6 +104,20 @@ export default function Create({ auth, laravelVersion, phpVersion, tecnologiasEx
                                                 required
                                                 value={descripcion}
                                                 onChange={(e) => setDescripcion(e.target.value)}
+                                            ></textarea>
+                                        </div>
+                                        {/* Enlace */}
+                                        {/* Descripción */}
+                                        <div className="flex flex-col mb-4">
+                                            <label htmlFor="enlace" className="labelCRUD">Enlace:</label>
+                                            <textarea
+                                                id="enlace"
+                                                name="enlace"
+                                                className="inputCRUD inset-shadow-xs rounded-md bg-gray-100 placeholder:text-gray-600"
+                                                placeholder="Descripción del Proyecto"
+                                                required
+                                                value={enlace}
+                                                onChange={(e) => setEnlace(e.target.value)}
                                             ></textarea>
                                         </div>
 

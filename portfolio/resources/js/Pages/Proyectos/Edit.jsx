@@ -7,6 +7,7 @@ export default function Edit({ auth, laravelVersion, phpVersion, proyecto, tecno
     // Inicializamos los estados con los valores actuales del proyecto
     const [nombre, setNombre] = useState(proyecto.nombre || "");
     const [descripcion, setDescripcion] = useState(proyecto.descripcion || "");
+    const [enlace, setEnlace] = useState(proyecto.enlace || "");
     const [imagen, setImagen] = useState(null); // solo nueva imagen si se sube
     const [tecnologias, setTecnologias] = useState(
         proyecto.tecnologias?.map(t => t.id) || []
@@ -26,6 +27,7 @@ export default function Edit({ auth, laravelVersion, phpVersion, proyecto, tecno
         const formData = new FormData();
         formData.append("nombre", nombre);
         formData.append("descripcion", descripcion);
+        formData.append("enlace", enlace);
         if (imagen) formData.append("imagen", imagen);
         formData.append("tecnologias", JSON.stringify(tecnologias));
 
@@ -87,6 +89,20 @@ export default function Edit({ auth, laravelVersion, phpVersion, proyecto, tecno
                                             ></textarea>
                                         </div>
 
+                                        {/* Enlace */}
+                                        <div className="flex flex-col mb-4">
+                                            <label htmlFor="enlace" className="labelCRUD">Enlace:</label>
+                                            <textarea
+                                                id="enlace"
+                                                name="enlace"
+                                                className="inputCRUD inset-shadow-xs rounded-md bg-gray-100 placeholder:text-gray-600"
+                                                placeholder="Descripción del Proyecto"
+                                                required
+                                                value={enlace}
+                                                onChange={(e) => setEnlace(e.target.value)}
+                                            ></textarea>
+                                        </div>
+
                                         {/* Imagen */}
                                         <div className="flex flex-col mb-4">
                                             <label htmlFor="imagen" className="labelCRUD">Imagen (opcional):</label>
@@ -102,6 +118,8 @@ export default function Edit({ auth, laravelVersion, phpVersion, proyecto, tecno
                                                 <img src={`/${proyecto.imagen}`} alt={proyecto.nombre} className="mt-2 w-32 h-auto" />
                                             )}
                                         </div>
+
+
 
                                         {/* Tecnologías existentes */}
                                         <div className="flex flex-col mb-4">

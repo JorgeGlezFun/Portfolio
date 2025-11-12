@@ -59,8 +59,9 @@ export default function Show({ auth, proyecto }) {
                                 {proyecto.tecnologias && proyecto.tecnologias.length > 0 ? (
                                     <ul className="list-disc list-inside space-y-1">
                                         {proyecto.tecnologias.map((tec) => (
+                                            console.log(tec),
                                             <li key={tec.id}>
-                                                {tec.nombre} ({tec.tipoTecnologias?.nombre || 'Sin tipo'})
+                                                {tec.nombre}
                                             </li>
                                         ))}
                                     </ul>

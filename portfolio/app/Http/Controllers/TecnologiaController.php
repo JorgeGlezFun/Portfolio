@@ -13,12 +13,12 @@ class TecnologiaController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-{
-    $tecnologias = Tecnologia::with('tipoTecnologia')->get();
-    return Inertia::render('Tecnologias/Index', [
-        'tecnologias' => $tecnologias,
-    ]);
-}
+    {
+        $tecnologias = Tecnologia::with('tipoTecnologia')->get();
+        return Inertia::render('Tecnologias/Index', [
+            'tecnologias' => $tecnologias,
+        ]);
+    }
 
 
     /**
@@ -114,5 +114,15 @@ class TecnologiaController extends Controller
         $tecnologia->delete();
 
         return response()->json(null, 204);
+    }
+
+    public function conocimientos()
+    {
+        $tecnologias = Tecnologia::with('tipoTecnologia')->get();
+        $tiposExistentes = TipoTecnologia::all();
+        return response()->json([
+            'tecnologias' => $tecnologias,
+            'tiposExistentes' => $tiposExistentes,
+        ]);
     }
 }

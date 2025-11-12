@@ -32,4 +32,7 @@ Route::post('/contacto', [ContactoController::class, 'send']);
 Route::resource('/proyectos', ProyectoController::class);
 Route::resource('/tecnologias', TecnologiaController::class);
 
+Route::get('/carrusel', [ProyectoController::class, 'carrusel']);
+Route::get('/conocimientos', [TecnologiaController::class, 'conocimientos']);
+
 require __DIR__.'/auth.php';

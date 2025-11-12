@@ -61,6 +61,7 @@ export default function Index({ auth, proyectos: proyectosIniciales }) {
                                         <TableHeadCell>ID</TableHeadCell>
                                         <TableHeadCell>Nombre</TableHeadCell>
                                         <TableHeadCell>Descripción</TableHeadCell>
+                                        <TableHeadCell>Enlace</TableHeadCell>
                                         <TableHeadCell>Imagen</TableHeadCell>
                                         <TableHeadCell className="flex flex-col items-center">Acciones</TableHeadCell>
                                     </TableRow>
@@ -73,6 +74,11 @@ export default function Index({ auth, proyectos: proyectosIniciales }) {
                                                 <TableCell className="celdaCRUD">{proyecto.id}</TableCell>
                                                 <TableCell className="celdaCRUD">{proyecto.nombre}</TableCell>
                                                 <TableCell className="celdaCRUD">{proyecto.descripcion}</TableCell>
+                                                <TableCell className="celdaCRUD">
+                                                    <a href={"https://" + proyecto.enlace} target="_blank" rel="noopener noreferrer">
+                                                        {proyecto.enlace}
+                                                    </a>
+                                                </TableCell>
                                                 <TableCell className="celdaCRUD">
                                                     {proyecto.imagen ? (
                                                         <img
@@ -112,7 +118,7 @@ export default function Index({ auth, proyectos: proyectosIniciales }) {
                                         ))
                                     ) : (
                                         <TableRow>
-                                            <TableCell colSpan="5" className="celdaCRUD text-center py-6">
+                                            <TableCell colSpan="6" className="celdaCRUD text-center py-6">
                                                 No hay proyectos disponibles.
                                             </TableCell>
                                         </TableRow>
