@@ -18,7 +18,7 @@
 .modoClaro {
     @apply bg-[#F5E6CC] text-[#9a1a23]
 
-    /*text-[#c01c28]*/
+    /* text-[#c01c28] */
 }
 * {
     font-family: 'League Spartan', sans-serif;
@@ -28,8 +28,6 @@ html {
     @apply
     min-h-screen w-full scroll-smooth scroll-pt-[6.8677rem]
     bg-[#2d343f]
-    /* bg-gradient-to-bl from-[#1E40AF] from-[8%] via-[#60A5FA] via-[38%] to-[#FFFFFF] to-95% */
-
 }
 
 /* Clases troncales */
@@ -38,6 +36,7 @@ html {
     text-4xl font-bold text-[#66baf4] h-auto
     lg:text-5xl
     3xl:text-7xl
+    dark:text-[#9a1a23]
 }
 
 .textos {
@@ -48,7 +47,8 @@ html {
 }
 
 .bloqueCarrusel {
-    @apply flex flex-col w-full items-center justify-center gap-6 text-white
+    @apply flex flex-col w-full items-center justify-center gap-6 text-white transition-colors duration-500 ease-in-out
+    dark:text-black
 }
 
 .bloqueSlides {
@@ -64,6 +64,7 @@ html {
     2xl:w-[26rem] 2xl:h-[26rem]
     3xl:w-[27rem] 3xl:h-[27rem]
     4xl:w-[28rem] 4xl:h-[28rem]
+    dark:bg-[#f5e6cc]
 }
 
 .fotoSlide {
@@ -75,9 +76,12 @@ html {
 }
 
 .btnSlide {
-    @apply bg-black/40 px-6 py-3 rounded-xl hover:bg-black/60
+    @apply
+    bg-black/40 px-6 py-3 rounded-xl
+    hover:bg-black/60
     sm:px-16 sm:py-8 sm:text-2xl sm:font-bold
     xl:px-6 xl:py-3 xl:text-base xl:font-normal
+    dark:bg-white/40 dark:hover:bg-white/60
 }
 
 .contenedorDots {
@@ -89,24 +93,33 @@ html {
     rounded-full bg-white/50 hover:bg-white cursor-pointer transition-all duration-300 ease-in-out
     sm:w-6 sm:h-6
     xl:w-4 xl:h-4
+    dark:bg-black/50 dark:hover:bg-black
 }
 
 .dotsSlideActivo {
     @apply w-6 h-6 rounded-full bg-white cursor-pointer transition-all duration-300 ease-in-out
+    dark:bg-black
 }
 
 .dotsSlideInactivo {
-    @apply w-4 h-4 rounded-full bg-white/40 hover:bg-white/60 cursor-pointer transition-all duration-300 ease-in-out
+    @apply
+    w-4 h-4 rounded-full bg-white/40 cursor-pointer transition-all duration-300 ease-in-out
+    hover:bg-white/60
+    dark:bg-black/40 dark:hover:bg-black/60
 }
 
 .nextSlide {
-    @apply bg-black/40 px-6 py-3 rounded-xl hover:bg-black/60
+    @apply
+    bg-black/40 px-6 py-3 rounded-xl
+    hover:bg-black/60
+    dark:bg-white/40 dark:hover:bg-white/60
 }
 
 .contenedorModal {
     @apply
     w-full flex flex-col items-center p-6 text-white
     xl:flex-row
+    dark:text-black
 }
 
 .fotoEnlaceModal {
@@ -138,6 +151,7 @@ html {
 .tecnologiasModal {
     @apply
     bg-black/40 px-3 py-1 rounded-full text-xl
+    dark:bg-white/40
 }
 
 .textoModal {
@@ -154,13 +168,15 @@ html {
     2xl:w-[85rem]
     3xl:w-[100rem]
     4xl:w-[120rem]
+    dark:bg-[#f1d7ac]
 }
 
 /* Clases Header */
 .contenedorHeader {
     @apply
-    fixed items-center justify-center w-full h-auto text-4xl z-20 bg-[#2d343f]
+    fixed items-center justify-center w-full h-auto text-4xl z-20 bg-[#2d343f] transition-colors duration-500 ease-in-out
     2xl:flex 2xl:flex-col
+    dark:bg-[#f5e6cc]
 }
 
 .contenedorLogoHeader {
@@ -171,7 +187,7 @@ html {
 
 .contenedorMenuNavegacion {
     @apply
-    flex justify-between w-full
+    flex justify-between w-full items-center
     sm:h-24 sm:px-4
     2xl:justify-end 2xl:px-4 2xl:py-5 2xl:h-fit
 }
@@ -189,11 +205,14 @@ html {
 .headerActivado {
     @apply
     text-[#66baf4] text-shadow-xl text-shadow-black translate-x-1 -translate-y-[0.1rem]
+    dark:text-[#9a1a23] dark:text-shadow-white
 }
 
 .headerSinActivar {
     @apply
-    text-white transition ease-in-out hover:translate-x-1 hover:-translate-y-[0.1rem] hover:text-shadow-xl hover:text-shadow-black hover:text-[#66baf4]
+    text-white transition ease-in-out
+    hover:translate-x-1 hover:-translate-y-[0.1rem] hover:text-shadow-xl hover:text-shadow-black hover:text-[#66baf4]
+    dark:hover:text-[#9a1a23] dark:text-black dark:text-shadow-white
 }
 
 .contenedorBotonMenuMovil {
@@ -294,7 +313,10 @@ html {
 }
 
 .enlaceHeaderMovil {
-    @apply w-full flex relative justify-center items-center pe-4 py-2 text-4xl font-bold transition duration-0 ease-out border-transparent bg-[#232931] text-black hover:text-white hover:text-shadow-xl hover:text-shadow-black overflow-hidden
+    @apply
+    w-full flex relative justify-center items-center pe-4 py-2 text-4xl font-bold transition duration-0 ease-out border-transparent bg-[#232931] text-black
+    hover:text-white hover:text-shadow-xl hover:text-shadow-black overflow-hidden
+
 }
 
 .enlaceHeaderMovilActivo {
@@ -346,11 +368,12 @@ main {
 /* Clases Inicio */
 .bloqueInicio {
     @apply
-    flex flex-col items-start justify-center pt-24 p-6 min-h-screen space-y-10
+    flex flex-col items-start justify-center pt-24 p-6 min-h-screen space-y-10 bg-[#2d343f] transition-colors duration-500 ease-in-out
     md:p-[1.8125rem]
     lg:p-[2.375rem]
     xl:p-12
     2xl:mb-0 2xl:items-center 2xl:p-24 2xl:flex-row 2xl:justify-between 2xl:space-y-0
+    dark:bg-[#f5e6cc]
 }
 
 .contenedorFotoInicio {
@@ -387,6 +410,7 @@ main {
     @apply
     text-white h-1/2 justify-center text-center w-full overflow-hidden
     2xl:w-1/2 2xl:text-right 2xl:flex 2xl:flex-col 2xl:h-96
+    dark:text-black
 }
 
 .tituloInicio {
@@ -395,6 +419,7 @@ main {
     2xl:text-6xl 2xl:pr-1
     3xl:text-7xl
     4xl:text-8xl
+    dark:text-black
 }
 
 @layer utilities {
@@ -419,6 +444,7 @@ main {
     2xl:ml-[1rem]
     3xl:text-5xl 3xl:tracking-[1.2rem] 3xl:ml-[1.2rem]
     4xl:text-6xl 4xl:tracking-[2rem] 4xl:ml-[2rem]
+    dark:text-black
 }
 
 @layer utilities {
@@ -442,16 +468,18 @@ main {
     2xl:h-[24rem] 2xl:block 2xl:w-2
     3xl:h-[30rem]
     4xl:h-[40rem]
+    dark:bg-black
 }
 
 /* Clases Sobre Mí */
 .bloqueSobreMi {
     @apply
-    flex flex-col min-h-screen items-center p-6 justify-center leading-relaxed text-white overflow-hidden space-y-8 bg-[#1d232c]
+    flex flex-col min-h-screen items-center p-6 justify-center leading-relaxed text-white overflow-hidden space-y-8 bg-[#1d232c] transition-colors duration-500 ease-in-out
     md:p-[1.8125rem]
     lg:p-[2.375rem]
     xl:p-12
     2xl:p-24 2xl:space-y-80 2xl:m-0
+    dark:text-black dark:bg-[#f1d7ac]
 }
 
 .bloqueHabilidades {
@@ -463,11 +491,12 @@ main {
 /* Clases Conocimientos */
 .bloqueConocimientos {
     @apply
-    flex flex-col min-h-screen items-center justify-center p-6 leading-relaxed 2xl:m-0 text-white overflow-hidden space-y-8
+    flex flex-col min-h-screen items-center justify-center p-6 leading-relaxed 2xl:m-0 text-white overflow-hidden space-y-8 bg-[#2d343f] transition-colors duration-500 ease-in-out
     md:p-[1.8125rem]
     lg:p-[2.375rem]
     xl:p-12
     2xl:p-24 2xl:space-y-48
+    dark:text-black dark:bg-[#f5e6cc]
 }
 
 .bloqueListasConocimientos {
@@ -507,6 +536,7 @@ main {
     @apply
     text-4xl font-semibold text-white h-auto
     3xl:text-5xl
+    dark:text-black
 }
 
 .textoListaConocimientos {
@@ -519,6 +549,7 @@ main {
 .listaConocimientos {
     @apply
     flex flex-col w-full h-full bg-[#1d232c] rounded-3xl p-4 opacity-0 transition-all duration-700 ease-out overflow-hidden
+    dark:bg-[#f1d7ac]
 }
 
 .imagenLista {
@@ -528,11 +559,12 @@ main {
 /* Clases Proyectos */
 .bloqueProyectos {
     @apply
-    flex flex-col min-h-screen items-center p-6 justify-center leading-relaxed text-white overflow-hidden space-y-8 bg-[#1d232c]
+    flex flex-col min-h-screen items-center p-6 justify-center leading-relaxed text-white overflow-hidden space-y-8 bg-[#1d232c] transition-colors duration-500 ease-in-out
     md:p-[1.8125rem]
     lg:p-[2.375rem]
     xl:p-12
     2xl:p-24 2xl:space-y-20 2xl:m-0
+    dark:text-black dark:bg-[#f1d7ac]
 }
 
 .bloqueListasProyectos {
@@ -548,11 +580,12 @@ main {
 /* Clases Contacto */
 .bloqueContactos {
     @apply
-    flex flex-col min-h-screen items-center p-6 justify-center leading-relaxed text-white overflow-hidden space-y-8
+    flex flex-col min-h-screen items-center p-6 justify-center leading-relaxed text-white overflow-hidden space-y-8 bg-[#2d343f] transition-colors duration-500 ease-in-out
     md:p-[1.8125rem]
     lg:p-[2.375rem]
     xl:p-12
     2xl:p-24 2xl:space-y-20 2xl:m-0
+    dark:text-black dark:bg-[#f5e6cc]
 }
 
 .barraSeparacionContacto {
@@ -560,6 +593,7 @@ main {
     2xl:h-[24rem] 2xl:block 2xl:w-2
     3xl:h-[30rem]
     4xl:h-[40rem]
+    dark:bg-black
 }
 
 .inputsContacto {
@@ -567,6 +601,7 @@ main {
     w-full p-4 mb-4 bg-white text-black text-lg rounded
     focus:outline-none focus:ring-4 focus:ring-[#66baf4] focus:border-transparent
     placeholder:text-gray-500
+    dark:focus:ring-[#9a1a23]
     lg:text-2xl
 
 }
@@ -576,6 +611,7 @@ main {
     bg-[#66baf4] text-white font-bold p-4 rounded text-xl w-full
     hover:bg-[#4aa6eb] hover:shadow-black hover:shadow-blur hover:translate-x-2 hover:-translate-y-2 transition ease-in-out duration-200
     active:bg-[#2b91e1] active:translate-x-0 active:translate-y-0 active:shadow-none
+    dark:bg-[#9a1a23] dark:hover:bg-[#94030a] dark:active:bg-[#8e0000]
     lg:text-2xl
     2xl:text-4xl
 }
@@ -626,6 +662,7 @@ main {
     @apply flex space-x-2 h-fit items-center mb-2 rounded p-4 text-3xl bg-[#1d232c] cursor-pointer
     hover:shadow-black hover:shadow-blur hover:translate-x-2 hover:-translate-y-2 hover:bg-[#66baf4] transition ease-in-out duration-200
     active:bg-[#2b91e1] active:translate-x-0 active:translate-y-0 active:shadow-none
+    dark:bg-[#f1d7ac] dark:hover:bg-[#94030a] dark:active:bg-[#8e0000]
 }
 
 .contenedorFormulario {

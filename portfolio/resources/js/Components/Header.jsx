@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { ThemeContext } from "@/Components/ThemeContext";
 import ApplicationLogo from '@/Components/ApplicationLogo';
 import Hamburger from '@/Components/Hamburger';
-import Dropdown from '@/Components/Dropdown';
 import NavLink from '@/Components/NavLink';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink';
 import { Link } from '@inertiajs/react';
@@ -9,9 +9,10 @@ import "../../css/app.css";
 
 export default function Header({ user }) {
     const [showingNavigationDropdown, setShowingNavigationDropdown] = useState(false);
+    const { modo, toggleModo } = useContext(ThemeContext);
 
     return (
-        <div className='flex flex-col'>
+        <div className={`flex flex-col ${modo ? "dark" : ""}`}>
             <nav className="contenedorHeader">
                 <div className="contenedorMenuNavegacion">
                     <div className="contenedorLogoHeader z-10">
@@ -36,7 +37,20 @@ export default function Header({ user }) {
                             Contacto
                         </NavLink>
                     </div>
-
+                    <button
+                    onClick={toggleModo}
+                    className="relative w-24 h-full ml-4"
+                    >
+                        <div
+                        className={`absolute z-20 top-1/2 left-1/2 -translate-y-1/2 w-8 h-8 bg-white rounded-full transition duration-500 ease-in-out ${modo ? "translate-x-[-150%]" : "translate-x-[50%]"}`}
+                        />
+                        <div className="w-24 h-full rounded-xl overflow-hidden">
+                            <div className={`flex flex-row w-48 h-6 bg-black shadow-inner shadow-red-500/90 overflow-hidden transition duration-500 ease-in-out ${modo ? "translate-x-[-50%]" : "translate-x-0"}`}>
+                                <div className="w-1/2 h-full bg-[#66baf4]" />
+                                <div className="w-1/2 h-full bg-[#9a1a23]" />
+                            </div>
+                        </div>
+                    </button>
                     <div className="contenedorBotonMenuMovil">
                         <Hamburger
                             setShowingNavigationDropdown={setShowingNavigationDropdown}

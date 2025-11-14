@@ -1,26 +1,41 @@
-import logoGO from "../../img/LW_1A.png"
-import logoPO from "../../img/LW_1B.png"
-import logoGC from "../../img/LW_2A.png"
-import logoPC from "../../img/LW_2B.png"
-import { useState, useEffect } from "react";
-export default function ApplicationLogo(className) {
-    const [logo, setLogo] = useState(false);
+import { useState, useEffect, useContext } from "react";
+import { ThemeContext } from "@/Components/ThemeContext";
+
+import logoGO from "../../img/LW_1A.png"; // Grande Oscuro
+import logoPO from "../../img/LW_1B.png"; // Pequeño Oscuro
+import logoGC from "../../img/LW_2A.png"; // Grande Claro
+import logoPC from "../../img/LW_2B.png"; // Pequeño Claro
+
+export default function ApplicationLogo({ className = "" }) {
+    const { modo } = useContext(ThemeContext);
+    const [isLarge, setIsLarge] = useState(false);
+
     useEffect(() => {
-        const handleResize = () => {
-            setLogo(window.innerWidth >= 1536); // 1536px es el punto de quiebre '2xl' en Tailwind CSS
-        };
-
+        const handleResize = () => setIsLarge(window.innerWidth >= 1536);
         window.addEventListener("resize", handleResize);
-        handleResize(); // Verificar el tamaño inicial
-
+        handleResize();
         return () => window.removeEventListener("resize", handleResize);
     }, []);
 
+    // Mapeo de logos según modo y tamaño
+    const logos = {
+        dark: {
+            large: logoGC,
+            small: logoPC
+        },
+        light: {
+            large: logoGO,
+            small: logoPO
+        }
+    };
+
+    const logoSrc = logos[modo ? "dark" : "light"][isLarge ? "large" : "small"];
+
     return (
         <img
-            src={logo ? logoGO : logoPO}
+            src={logoSrc}
             alt="Jorge Gonzalez Fuentes - Web Developer"
-            className={`${logo ? "w-48" : "w-24"}`}
+            className={`${isLarge ? "w-48" : "w-24"} ${className}`}
         />
     );
 }

@@ -1,7 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
+import { ThemeContext } from "@/Components/ThemeContext";
 import "../../css/app.css"; // aquí está el @keyframes fadeUp
 
 export default function SobreMi() {
+    const { modo } = useContext(ThemeContext);
+
     useEffect(() => {
     const elements = document.querySelectorAll("[data-animate]");
 
@@ -50,51 +53,53 @@ export default function SobreMi() {
     }, []);
 
   return (
-    <div id="SobreMi" className="bloqueSobreMi">
-      <div
-        data-animate
-        {...(res ? { "data-fade-down": true } : { "data-fade-right": true })}
-        className="opacity-0 transition-all duration-700 ease-out w-full"
-      >
-        <h1 className="titulos">// Sobre mí</h1>
-        <p className="textos">
-        Bienvenido, soy Jorge, un desarrollador web apasionado por crear experiencias digitales limpias, funcionales y centradas en el usuario. Trabajo con tecnologías como Laravel, React y TailwindCSS, combinando el lado técnico con un enfoque en el diseño UI/UX para dar vida a proyectos modernos y atractivos.
-        <br />
-        Me motiva el aprendizaje continuo y disfruto enfrentarme a nuevos retos que me permitan crecer como profesional. Creo en la importancia de la creatividad, la colaboración y la búsqueda de soluciones prácticas que aporten valor real.
-        <br />
-        Cuando no estoy programando, me gusta explorar el diseño gráfico y mantenerme al día con las últimas tendencias tecnológicas. 🚀 <br />
-        Si quieres saber más sobre mi trabajo o colaborar en un proyecto, estaré encantado de hablar contigo.
-        </p>
-      </div>
-      <div className="bloqueHabilidades">
+    <div className={modo ? "dark" : ""}>
+        <div id="SobreMi" className="bloqueSobreMi">
         <div
             data-animate
-            data-fade-right
-            className="opacity-0 transition-all duration-700 ease-out w-auto"
+            {...(res ? { "data-fade-down": true } : { "data-fade-right": true })}
+            className="opacity-0 transition-all duration-700 ease-out w-full"
         >
-            <h2 className="titulos">&gt; Aptitudes</h2>
-            <ol>
-                <li>Experiencia en atención al cliente.</li>
-                <li>Manejo y resolución de problemas con clientes.</li>
-                <li>Conocimientos de programación web y microinformática.</li>
-                <li>Desarrollo de prototipos web aplicando herramientas de diseño especializadas.</li>
+            <h1 className="titulos">// Sobre mí</h1>
+            <p className="textos">
+            Bienvenido, soy Jorge, un desarrollador web apasionado por crear experiencias digitales limpias, funcionales y centradas en el usuario. Trabajo con tecnologías como Laravel, React y TailwindCSS, combinando el lado técnico con un enfoque en el diseño UI/UX para dar vida a proyectos modernos y atractivos.
+            <br />
+            Me motiva el aprendizaje continuo y disfruto enfrentarme a nuevos retos que me permitan crecer como profesional. Creo en la importancia de la creatividad, la colaboración y la búsqueda de soluciones prácticas que aporten valor real.
+            <br />
+            Cuando no estoy programando, me gusta explorar el diseño gráfico y mantenerme al día con las últimas tendencias tecnológicas. 🚀 <br />
+            Si quieres saber más sobre mi trabajo o colaborar en un proyecto, estaré encantado de hablar contigo.
+            </p>
+        </div>
+        <div className="bloqueHabilidades">
+            <div
+                data-animate
+                data-fade-right
+                className="opacity-0 transition-all duration-700 ease-out w-auto"
+            >
+                <h2 className="titulos">&gt; Aptitudes</h2>
+                <ol>
+                    <li>Experiencia en atención al cliente.</li>
+                    <li>Manejo y resolución de problemas con clientes.</li>
+                    <li>Conocimientos de programación web y microinformática.</li>
+                    <li>Desarrollo de prototipos web aplicando herramientas de diseño especializadas.</li>
 
-            </ol>
+                </ol>
+            </div>
+            <div
+                data-animate
+                {...(res ? { "data-fade-left": true } : { "data-fade-right": true })}
+                className="opacity-0 transition-all duration-700 ease-out w-auto"
+            >
+                <h2 className="titulos">&gt; Actitudes</h2>
+                <ol>
+                    <li>Concentración absoluta en el trabajo.</li>
+                    <li>Gran interés por aprender nuevas tecnologías.</li>
+                    <li>Creatividad para el diseño web.</li>
+                    <li>Adaptabilidad a los cambios.</li>
+                </ol>
+            </div>
         </div>
-        <div
-            data-animate
-            {...(res ? { "data-fade-left": true } : { "data-fade-right": true })}
-            className="opacity-0 transition-all duration-700 ease-out w-auto"
-        >
-            <h2 className="titulos">&gt; Actitudes</h2>
-            <ol>
-                <li>Concentración absoluta en el trabajo.</li>
-                <li>Gran interés por aprender nuevas tecnologías.</li>
-                <li>Creatividad para el diseño web.</li>
-                <li>Adaptabilidad a los cambios.</li>
-            </ol>
         </div>
-      </div>
     </div>
   );
 }
