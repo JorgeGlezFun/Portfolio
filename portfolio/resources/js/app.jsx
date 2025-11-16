@@ -2,10 +2,12 @@ import './bootstrap';
 import 'flowbite';
 import 'flowbite-react';
 
-
 import { createInertiaApp } from '@inertiajs/react';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import { createRoot } from 'react-dom/client';
+
+// ⬅️ IMPORTA tu ThemeProvider
+import { ThemeProvider } from "@/Components/ThemeContext";
 
 const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
 
@@ -19,7 +21,12 @@ createInertiaApp({
     setup({ el, App, props }) {
         const root = createRoot(el);
 
-        root.render(<App {...props} />);
+        root.render(
+            // ⬅️ ENVUELVE TODA LA APP AQUÍ
+            <ThemeProvider>
+                <App {...props} />
+            </ThemeProvider>
+        );
     },
     progress: {
         color: '#4B5563',

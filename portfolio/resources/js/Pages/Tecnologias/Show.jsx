@@ -36,16 +36,30 @@ export default function Show({ auth, tecnologia }) {
 
                         {/* Detalles del tecnologia */}
                         <div className="overflow-hidden bg-white shadow-sm sm:rounded-lg p-6 space-y-4">
-                            {/* Imagen */}
-                            {tecnologia.imagen ? (
-                                <img
-                                    src={`/${tecnologia.imagen}`}
-                                    alt={tecnologia.nombre}
-                                    className="w-full max-h-80 object-cover rounded-md"
-                                />
-                            ) : (
-                                <span className="text-gray-500 italic">Sin imagen</span>
-                            )}
+                            <div className="flex flex-col">
+                                <h2 className="text-xl font-semibold mb-2">Imagen modo claro: </h2>
+                                {/* Imagen */}
+                                {tecnologia.imagen_clara ? (
+                                    <img
+                                        src={`/${tecnologia.imagen_clara}`}
+                                        alt={tecnologia.nombre}
+                                        className="w-fit max-h-80 object-cover rounded-md"
+                                    />
+                                ) : (
+                                    <span className="text-gray-500 italic">Sin imagen</span>
+                                )}
+
+                                <h2 className="text-xl font-semibold mb-2">Imagen modo oscuro: </h2>
+                                {tecnologia.imagen_oscura ? (
+                                    <img
+                                        src={`/${tecnologia.imagen_oscura}`}
+                                        alt={tecnologia.nombre}
+                                        className="w-fit max-h-80 object-cover rounded-md"
+                                    />
+                                ) : (
+                                    <span className="text-gray-500 italic">Sin imagen</span>
+                                )}
+                            </div>
 
                             {/* Descripción */}
                             <div>

@@ -5,7 +5,8 @@ import HeaderCRUD from '../../Components/CRUD/HeaderCRUD.jsx';
 export default function Create({ auth, laravelVersion, phpVersion, tiposExistentes }) {
 
     const [nombre, setNombre] = useState("");
-    const [imagen, setImagen] = useState(null);
+    const [imagenClara, setImagenClara] = useState(null);
+    const [imagenOscura, setImagenOscura] = useState(null);
     const [tipoSeleccionado, setTipoSeleccionado] = useState("");
 
     const handleSubmit = async (e) => {
@@ -17,7 +18,8 @@ export default function Create({ auth, laravelVersion, phpVersion, tiposExistent
 
         const formData = new FormData();
         formData.append("nombre", nombre);
-        formData.append("imagen", imagen);
+        formData.append("imagen_clara", imagenClara);
+        formData.append("imagen_oscura", imagenOscura);
         formData.append("tipo_tecnologia_id", tipoSeleccionado);
 
         const response = await fetch("/tecnologias", {
@@ -33,7 +35,8 @@ export default function Create({ auth, laravelVersion, phpVersion, tiposExistent
         if (response.ok) {
             alert("Tecnología creada ✅");
             setNombre("");
-            setImagen(null);
+            setImagenClara(null);
+            setImagenOscura(null);
             setTipoSeleccionado("");
         } else {
             alert("Error al crear la tecnología ❌");
@@ -77,14 +80,26 @@ export default function Create({ auth, laravelVersion, phpVersion, tiposExistent
 
                                     {/* Imagen */}
                                     <div className="flex flex-col mb-4">
-                                        <label htmlFor="imagen" className="labelCRUD">Imagen:</label>
+                                        <label htmlFor="imagen_clara" className="labelCRUD">Imagen para el modo claro (opcional):</label>
                                         <input
                                             type="file"
-                                            id="imagen"
-                                            name="imagen"
+                                            id="imagen_clara"
+                                            name="imagen_clara"
                                             className="inputImagenCRUD p-4 rounded-md bg-gray-100 placeholder:text-gray-600"
                                             accept="image/*"
-                                            onChange={(e) => setImagen(e.target.files[0])}
+                                            onChange={(e) => setImagenClara(e.target.files[0])}
+                                        />
+                                    </div>
+
+                                    <div className="flex flex-col mb-4">
+                                        <label htmlFor="imagen_oscura" className="labelCRUD">Imagen para el modo oscuro (opcional):</label>
+                                        <input
+                                            type="file"
+                                            id="imagen_oscura"
+                                            name="imagen_oscura"
+                                            className="inputImagenCRUD p-4 rounded-md bg-gray-100 placeholder:text-gray-600"
+                                            accept="image/*"
+                                            onChange={(e) => setImagenOscura(e.target.files[0])}
                                         />
                                     </div>
 

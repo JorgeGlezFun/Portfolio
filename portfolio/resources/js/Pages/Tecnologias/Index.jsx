@@ -26,6 +26,7 @@ export default function Index({ auth, tecnologias: tecnologiasIniciales }) {
                 setTecnologias(tecnologias.filter(t => t.id !== tecnologiaSeleccionada.id));
                 setOpenModal(false);
                 setTecnologiaSeleccionada(null);
+                router.reload();
             },
             onError: (errors) => {
                 console.error(errors);
@@ -65,7 +66,8 @@ export default function Index({ auth, tecnologias: tecnologiasIniciales }) {
                                         <TableHeadCell>ID</TableHeadCell>
                                         <TableHeadCell>Nombre</TableHeadCell>
                                         <TableHeadCell>Tipo</TableHeadCell>
-                                        <TableHeadCell>Imagen</TableHeadCell>
+                                        <TableHeadCell>Imagen para el modo claro</TableHeadCell>
+                                        <TableHeadCell>Imagen para el modo oscuro</TableHeadCell>
                                         <TableHeadCell className="flex flex-col items-center">Acciones</TableHeadCell>
                                     </TableRow>
                                 </TableHead>
@@ -78,9 +80,20 @@ export default function Index({ auth, tecnologias: tecnologiasIniciales }) {
                                                 <TableCell className="celdaCRUD">{tec.nombre}</TableCell>
                                                 <TableCell className="celdaCRUD">{tec.tipo_tecnologia.nombre || "Sin tipo"}</TableCell>
                                                 <TableCell className="celdaCRUD">
-                                                    {tec.imagen ? (
+                                                    {tec.imagen_clara ? (
                                                         <img
-                                                            src={`/${tec.imagen}`}
+                                                            src={`/${tec.imagen_clara}`}
+                                                            alt={tec.nombre}
+                                                            className="h-16 rounded-md object-cover"
+                                                        />
+                                                    ) : (
+                                                        <span className="text-gray-500 italic">Sin imagen</span>
+                                                    )}
+                                                </TableCell>
+                                                <TableCell className="celdaCRUD">
+                                                    {tec.imagen_oscura ? (
+                                                        <img
+                                                            src={`/${tec.imagen_oscura}`}
                                                             alt={tec.nombre}
                                                             className="h-16 rounded-md object-cover"
                                                         />

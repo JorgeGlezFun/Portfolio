@@ -8,7 +8,8 @@ export default function Edit({ auth, laravelVersion, phpVersion, proyecto, tecno
     const [nombre, setNombre] = useState(proyecto.nombre || "");
     const [descripcion, setDescripcion] = useState(proyecto.descripcion || "");
     const [enlace, setEnlace] = useState(proyecto.enlace || "");
-    const [imagen, setImagen] = useState(null); // solo nueva imagen si se sube
+    const [imagenClara, setImagenClara] = useState(null); // solo nueva imagen si se sube
+    const [imagenOscura, setImagenOscura] = useState(null); // solo nueva imagen si se sube
     const [tecnologias, setTecnologias] = useState(
         proyecto.tecnologias?.map(t => t.id) || []
     );
@@ -28,7 +29,8 @@ export default function Edit({ auth, laravelVersion, phpVersion, proyecto, tecno
         formData.append("nombre", nombre);
         formData.append("descripcion", descripcion);
         formData.append("enlace", enlace);
-        if (imagen) formData.append("imagen", imagen);
+        if (imagenClara) formData.append("imagen_clara", imagenClara);
+        if (imagenOscura) formData.append("imagen_oscura", imagenOscura);
         formData.append("tecnologias", JSON.stringify(tecnologias));
 
         // ⚡ Spoofing PUT para que Laravel acepte la actualización
@@ -105,21 +107,34 @@ export default function Edit({ auth, laravelVersion, phpVersion, proyecto, tecno
 
                                         {/* Imagen */}
                                         <div className="flex flex-col mb-4">
-                                            <label htmlFor="imagen" className="labelCRUD">Imagen (opcional):</label>
+                                            <label htmlFor="imagen_clara" className="labelCRUD">Imagen para el modo claro (opcional):</label>
                                             <input
                                                 type="file"
-                                                id="imagen"
-                                                name="imagen"
+                                                id="imagen_clara"
+                                                name="imagen_clara"
                                                 className="inputImagenCRUD p-4 rounded-md bg-gray-100 placeholder:text-gray-600"
                                                 accept="image/*"
-                                                onChange={(e) => setImagen(e.target.files[0])}
+                                                onChange={(e) => setImagenClara(e.target.files[0])}
                                             />
-                                            {proyecto.imagen && (
-                                                <img src={`/${proyecto.imagen}`} alt={proyecto.nombre} className="mt-2 w-32 h-auto" />
+                                            {proyecto.imagen_clara && (
+                                                <img src={`/${proyecto.imagen_clara}`} alt={proyecto.nombre} className="mt-2 w-32 h-auto" />
                                             )}
                                         </div>
 
-
+                                        <div className="flex flex-col mb-4">
+                                            <label htmlFor="imagen_oscura" className="labelCRUD">Imagen para el modo oscuro (opcional):</label>
+                                            <input
+                                                type="file"
+                                                id="imagen_oscura"
+                                                name="imagen_oscura "
+                                                className="inputImagenCRUD p-4 rounded-md bg-gray-100 placeholder:text-gray-600"
+                                                accept="image/*"
+                                                onChange={(e) => setImagenOscura(e.target.files[0])}
+                                            />
+                                            {proyecto.imagen_oscura && (
+                                                <img src={`/${proyecto.imagen_oscura}`} alt={proyecto.nombre} className="mt-2 w-32 h-auto" />
+                                            )}
+                                        </div>
 
                                         {/* Tecnologías existentes */}
                                         <div className="flex flex-col mb-4">

@@ -1,5 +1,4 @@
 import { Head } from '@inertiajs/react';
-import { ThemeProvider } from "@/Components/ThemeContext";
 import Header from '@/Components/Header';
 import Inicio from '@/Components/Inicio';
 import SobreMi from '@/Components/SobreMi';
@@ -12,7 +11,6 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
     return (
         <>
             <Head title="JorgeGlezDev" />
-            <ThemeProvider>
                 <div>
                     <Header user={auth.user} />
                     <main>
@@ -26,7 +24,6 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                         Laravel v{laravelVersion} (PHP v{phpVersion})
                     </footer>
                 </div>
-            </ThemeProvider>
         </>
     );
 }

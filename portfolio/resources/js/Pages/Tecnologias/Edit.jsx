@@ -5,7 +5,8 @@ import HeaderCRUD from '../../Components/CRUD/HeaderCRUD.jsx';
 export default function Edit({ auth, laravelVersion, phpVersion, tiposExistentes, tecnologia }) {
 
     const [nombre, setNombre] = useState(tecnologia.nombre || "");
-    const [imagen, setImagen] = useState(null);
+    const [imagenClara, setImagenClara] = useState(null);
+    const [imagenOscura, setImagenOscura] = useState(null);
     const [tipoSeleccionado, setTipoSeleccionado] = useState(tecnologia.tipo_tecnologia_id || "");
 
     const handleSubmit = async (e) => {
@@ -17,7 +18,8 @@ export default function Edit({ auth, laravelVersion, phpVersion, tiposExistentes
 
         const formData = new FormData();
         formData.append("nombre", nombre);
-        if (imagen) formData.append("imagen", imagen); // solo si hay nueva imagen
+        if (imagenClara) formData.append("imagen_clara", imagenClara); // solo si hay nueva imagen
+        if (imagenOscura) formData.append("imagen_oscura", imagenOscura); // solo si hay nueva imagen
         formData.append("tipo_tecnologia_id", tipoSeleccionado);
         formData.append("_method", "PUT"); // Laravel necesita esto para PUT en forms
 
@@ -75,23 +77,35 @@ export default function Edit({ auth, laravelVersion, phpVersion, tiposExistentes
 
                                     {/* Imagen */}
                                     <div className="flex flex-col mb-4">
-                                        <label htmlFor="imagen" className="labelCRUD">Imagen:</label>
-                                        {tecnologia.imagen && !imagen && (
-                                            <img
-                                                src={`/${tecnologia.imagen}`}
-                                                alt={tecnologia.nombre}
-                                                className="h-20 w-20 rounded-md object-cover mb-2"
-                                            />
-                                        )}
+                                        <label htmlFor="imagen_clara" className="labelCRUD">Imagen para el modo claro (opcional):</label>
+                                        {tecnologia.imagen_clara && (
+                                                <img src={`/${tecnologia.imagen_clara}`} alt={tecnologia.nombre} className="mt-2 w-32 h-auto" />
+                                            )}
                                         <input
                                             type="file"
-                                            id="imagen"
-                                            name="imagen"
+                                            id="imagen_clara"
+                                            name="imagen_clara"
                                             className="inputImagenCRUD p-4 rounded-md bg-gray-100 placeholder:text-gray-600"
                                             accept="image/*"
-                                            onChange={(e) => setImagen(e.target.files[0])}
+                                            onChange={(e) => setImagenClara(e.target.files[0])}
                                         />
                                     </div>
+
+                                    <div className="flex flex-col mb-4">
+                                        <label htmlFor="imagen_oscura" className="labelCRUD">Imagen para el modo oscuro (opcional):</label>
+                                        {tecnologia.imagen_oscura && (
+                                                <img src={`/${tecnologia.imagen_oscura}`} alt={tecnologia.nombre} className="mt-2 w-32 h-auto" />
+                                            )}
+                                        <input
+                                            type="file"
+                                            id="imagen_oscura"
+                                            name="imagen_oscura"
+                                            className="inputImagenCRUD p-4 rounded-md bg-gray-100 placeholder:text-gray-600"
+                                            accept="image/*"
+                                            onChange={(e) => setImagenOscura(e.target.files[0])}
+                                        />
+                                    </div>
+
 
                                     {/* Tipo de Tecnología */}
                                     <div className="flex flex-col mb-4">

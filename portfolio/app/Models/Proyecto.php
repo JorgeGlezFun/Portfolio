@@ -10,7 +10,8 @@ class Proyecto extends Model
         'nombre',
         'descripcion',
         'enlace',
-        'imagen',
+        'imagen_clara',
+        'imagen_oscura'
     ];
 
     public function tecnologias()

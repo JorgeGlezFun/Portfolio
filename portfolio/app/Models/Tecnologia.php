@@ -8,7 +8,8 @@ class Tecnologia extends Model
 {
     protected $fillable = [
         'nombre',
-        'imagen',
+        'imagen_clara',
+        'imagen_oscura',
         'tipo_tecnologia_id',
     ];
 
