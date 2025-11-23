@@ -110,7 +110,7 @@ export default function Conocimientos() {
                     .filter((tec) => tec.tipo_tecnologia_id === tipo.id)
                     .map((tec) => (
                     <li key={tec.id} className="imagenLista">
-                        <img src={tec.imagen} alt={`Logo de ${tec.nombre}`} />
+                        <img src={modo ? tec.imagen_oscura : tec.imagen_clara} alt={`Logo de ${tec.nombre}`} />
                         {tec.nombre}
                     </li>
                     ))}

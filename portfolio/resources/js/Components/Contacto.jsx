@@ -1,11 +1,16 @@
 import React, { useEffect, useState, useContext } from "react";
 import { ThemeContext } from "@/Components/ThemeContext";
 import "../../css/app.css";
-import github from "../../img/logos/github2logo.png";
-import linkedin from "../../img/logos/linkedinlogo.png";
-import telefono from "../../img/logos/telefonologo.png";
-import gmail from "../../img/logos/emaillogo.png";
-import logoCV from "../../img/logos/LogoCV.png";
+import githubclaro from "../../img/logos/logos_tecnologias/modo_claro/githublogoblanco.png";
+import githuboscuro from "../../img/logos/logos_tecnologias/modo_oscuro/githublogooscuronegro.png";
+import linkedinclaro from "../../img/logos/logos_tecnologias/modo_claro/linkedinlogoclaro.png";
+import linkedinoscuro from "../../img/logos/logos_tecnologias/modo_oscuro/linkedinlogooscuro.png";
+import telefonoclaro from "../../img/logos/logos_tecnologias/modo_claro/telefonologoclaro.png";
+import telefonooscuro from "../../img/logos/logos_tecnologias/modo_oscuro/telefonologooscuro.png";
+import gmailclaro from "../../img/logos/logos_tecnologias/modo_claro/gmaillogoclaro.png";
+import gmailoscuro from "../../img/logos/logos_tecnologias/modo_oscuro/gmaillogooscuro.png";
+import logoCVclaro from "../../img/logos/logos_tecnologias/modo_claro/LogoCVclaro.png";
+import logoCVoscuro from "../../img/logos/logos_tecnologias/modo_oscuro/LogoCVoscuro.png";
 import CV from "../../assets/CV_Jorge_Gonzalez_Fuentes.pdf";
 
 export default function Contacto() {
@@ -64,7 +69,7 @@ export default function Contacto() {
                     <h1 className="titulos">// Contacto</h1>
                     <p className="textos">
                         Si deseas ponerte en contacto conmigo, ya sea para colaborar, preguntar sobre mi trabajo o cualquier otra consulta,
-                        no dudes en hacerlo a través de los siguientes métodos que dejo a tu disposicion
+                        no dudes en hacerlo a través de los siguientes métodos que dejo a tu disposicion. <br />
                         Puedes visitar mis redes sociales o rellenar el formulario de contacto para enviarme un mensaje directamente.
                         Estaré encantado de conversar contigo. ¡Muchas gracias por visitar mi web!
                     </p>
@@ -73,25 +78,25 @@ export default function Contacto() {
                     <div className="contenedorOtrosMetodos">
                         <div id="contenedorEnlaces">
                             <a href="https://www.linkedin.com/in/jorgegfdev" target="_blank" className="enlacesContacto">
-                                <img src={linkedin} alt="Logo de LinkedIn" className="imagenContacto" />
+                                <img src={!modo ? linkedinclaro : linkedinoscuro} alt="Logo de LinkedIn" className="imagenContacto" />
                                 <span className="tituloOtrosMetodos">LinkedIn: Jorge González Fuentes</span>
                             </a>
                             <a href="https://github.com/JorgeGlezFun" target="_blank" className="enlacesContacto">
-                                <img src={github} alt="Logo de GitHub" className="imagenContacto" />
+                                <img src={!modo ? githubclaro : githuboscuro} alt="Logo de GitHub" className="imagenContacto" />
                                 <span className="tituloOtrosMetodos">GitHub: @JorgeGlezFun </span>
 
                             </a>
                             <a href="mailto:jorge.gonzalez.fuentes.dev@gmail.com" target="_blank" className="enlacesContacto">
-                                <img src={gmail} alt="Logo de Correo Electrónico" className="imagenContacto" />
+                                <img src={!modo ? gmailclaro : gmailoscuro} alt="Logo de Correo Electrónico" className="imagenContacto" />
                                 <span className="tituloOtrosMetodos">E-Mail: jorge.gonzalez.fuentes.dev@gmail.com</span>
 
                             </a>
                             <a target="_blank" className="enlacesContacto">
-                                <img src={telefono} alt="Logo de Teléfono" className="imagenContacto" />
+                                <img src={!modo ? telefonoclaro : telefonooscuro} alt="Logo de Teléfono" className="imagenContacto" />
                                 <span className="tituloOtrosMetodos">Teléfono: +34 671 71 04 04</span>
                             </a>
                             <a href={CV} download target="_blank" className="enlacesContacto">
-                                <img src={logoCV} alt="Logo de Curriculum Vitae" className="imagenContacto" />
+                                <img src={!modo ? logoCVclaro : logoCVoscuro} alt="Logo de Curriculum Vitae" className="imagenContacto" />
                                 <span className="tituloOtrosMetodos">Curriculum Vitae</span>
                             </a>
                         </div>

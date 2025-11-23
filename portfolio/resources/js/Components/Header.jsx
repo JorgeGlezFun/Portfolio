@@ -39,13 +39,13 @@ export default function Header({ user }) {
                     </div>
                     <button
                     onClick={toggleModo}
-                    className="relative w-24 h-full ml-4"
+                    className="flex flex-col items-center justify-center relative w-24 h-full 2xl:ml-4"
                     >
                         <div
                         className={`absolute z-20 top-1/2 left-1/2 -translate-y-1/2 w-8 h-8 bg-white rounded-full transition duration-500 ease-in-out ${modo ? "translate-x-[-150%]" : "translate-x-[50%]"}`}
                         />
-                        <div className="w-24 h-full rounded-xl overflow-hidden">
-                            <div className={`flex flex-row w-48 h-6 bg-black shadow-inner shadow-red-500/90 overflow-hidden transition duration-500 ease-in-out ${modo ? "translate-x-[-50%]" : "translate-x-0"}`}>
+                        <div className="flex flex-shrink-0 flex-none w-24 h-full overflow-hidden">
+                            <div className={`flex flex-row w-48 h-6 rounded-xl bg-black overflow-hidden transition duration-500 ease-in-out ${modo ? "translate-x-[-50%]" : "translate-x-0"}`}>
                                 <div className="w-1/2 h-full bg-[#66baf4]" />
                                 <div className="w-1/2 h-full bg-[#9a1a23]" />
                             </div>

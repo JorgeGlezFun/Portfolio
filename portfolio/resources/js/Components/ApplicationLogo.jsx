@@ -3,10 +3,10 @@
 import { useState, useEffect, useContext } from "react";
 import { ThemeContext } from "@/Components/ThemeContext";
 
-import logoGO from "../../img/LW_1A.png"; // Grande Oscuro
-import logoPO from "../../img/LW_1B.png"; // Pequeño Oscuro
-import logoGC from "../../img/LW_2A.png"; // Grande Claro
-import logoPC from "../../img/LW_2B.png"; // Pequeño Claro
+import logoGO from "../../img/logos/logos_empresa/LW_1A.png"; // Grande Oscuro
+import logoPO from "../../img/logos/logos_empresa/LW_1B.png"; // Pequeño Oscuro
+import logoGC from "../../img/logos/logos_empresa/LW_2A.png"; // Grande Claro
+import logoPC from "../../img/logos/logos_empresa/LW_2B.png"; // Pequeño Claro
 
 export default function ApplicationLogo({ className = "" }) {
     const { modo } = useContext(ThemeContext);

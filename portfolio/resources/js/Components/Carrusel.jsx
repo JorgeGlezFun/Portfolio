@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Modal from "@/Components/Modal"; // 👈 Usa el modal de Laravel + React
-import img1 from "../../img/logos/arttattoo.png";
-import img2 from "../../img/logos/uca.png";
 
 export default function CoverflowCarousel() {
     const [proyectos, setProyectos] = useState([]);

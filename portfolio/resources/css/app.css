@@ -553,7 +553,7 @@ main {
 }
 
 .imagenLista {
-    @apply flex items-center gap-2
+    @apply flex items-center gap-2 w-10 h-10
 }
 
 /* Clases Proyectos */
