@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useContext } from "react";
-import axios from "axios";
 import { ThemeContext } from "@/Components/ThemeContext";
 import "../../css/app.css";
 import Carrusel from '@/Components/Carrusel';

@@ -47,14 +47,14 @@ class TecnologiaController extends Controller
 
         if ($request->hasFile('imagen_clara')) {
             $image = $request->file('imagen_clara');
-            $imageName = 'light' . '.' . $image->getClientOriginalExtension();
+            $imageName = uniqid() . '.' . $image->getClientOriginalExtension();
             $image->move(public_path('images/tecnologias'), $imageName);
             $tecnologia['imagen_clara'] = 'images/tecnologias/' . $imageName;
         }
 
         if ($request->hasFile('imagen_oscura')) {
             $image = $request->file('imagen_oscura');
-            $imageName = 'dark' . '.' . $image->getClientOriginalExtension();
+            $imageName = uniqid() . '.' . $image->getClientOriginalExtension();
             $image->move(public_path('images/tecnologias'), $imageName);
             $tecnologia['imagen_oscura'] = 'images/tecnologias/' . $imageName;
         }
@@ -133,7 +133,6 @@ class TecnologiaController extends Controller
 
         $tecnologia->delete();
 
-        return response()->json(null, 204);
         return redirect()->route('tecnologias.index')->with('success', 'Tecnología eliminada correctamente');
     }
 
