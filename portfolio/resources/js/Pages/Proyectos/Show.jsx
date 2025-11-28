@@ -36,16 +36,29 @@ export default function Show({ auth, proyecto }) {
 
                         {/* Detalles del proyecto */}
                         <div className="overflow-hidden bg-white shadow-sm sm:rounded-lg p-6 space-y-4">
-                            {/* Imagen */}
-                            {proyecto.imagen ? (
-                                <img
-                                    src={`/${proyecto.imagen}`}
-                                    alt={proyecto.nombre}
-                                    className="w-full max-h-80 object-cover rounded-md"
-                                />
-                            ) : (
-                                <span className="text-gray-500 italic">Sin imagen</span>
-                            )}
+                            <div className="flex flex-col">
+                                <h2 className="text-xl font-semibold mb-2">Imagenes: </h2>
+                                {/* Imagen */}
+                                {proyecto.imagen_clara ? (
+                                    <img
+                                        src={`/${proyecto.imagen_clara}`}
+                                        alt={proyecto.nombre}
+                                        className="w-full max-h-80 object-cover rounded-md"
+                                    />
+                                ) : (
+                                    <span className="text-gray-500 italic">Sin imagen</span>
+                                )}
+
+                                {proyecto.imagen_oscura ? (
+                                    <img
+                                        src={`/${proyecto.imagen_oscura}`}
+                                        alt={proyecto.nombre}
+                                        className="w-full max-h-80 object-cover rounded-md"
+                                    />
+                                ) : (
+                                    <span className="text-gray-500 italic">Sin imagen</span>
+                                )}
+                            </div>
 
                             {/* Descripción */}
                             <div>

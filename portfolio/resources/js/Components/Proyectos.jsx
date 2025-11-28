@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
+import { ThemeContext } from "@/Components/ThemeContext";
 import "../../css/app.css";
 import Carrusel from '@/Components/Carrusel';
 
 export default function Proyectos() {
+    const { modo } = useContext(ThemeContext);
     useEffect(() => {
     const elements = document.querySelectorAll("[data-animate]");
 
@@ -53,27 +55,29 @@ export default function Proyectos() {
 
 
   return (
-    <div id="Proyectos" className="bloqueProyectos">
-      <div
-        data-animate
-        {...(res ? { "data-fade-down": true } : { "data-fade-right": true })}
-        className="opacity-0 transition-all duration-700 ease-out w-full"
-      >
-        <h1 className="titulos">// Proyectos</h1>
-        <p className="textos">
-            En esta sección comparto una selección de proyectos web que reflejan mi trabajo como desarrollador
-            front-end y mi interés por crear experiencias digitales funcionales, atractivas y bien estructuradas.
-            Cada proyecto representa una oportunidad para aplicar distintas tecnologías,
-            experimentar con nuevas ideas y perfeccionar mi enfoque en la usabilidad y el diseño.
-            <br />
-            A través de esta galería podrás conocer brevemente el propósito de cada desarrollo, las herramientas
-            que utilicé y el proceso detrás de su realización. Si deseas explorar más a fondo los detalles de un proyecto,
-            puedes hacerlo navegando por el carrusel y descubriendo cada propuesta en mayor profundidad.
-            <br />
-            Mi objetivo con este espacio es mostrar no solo los resultados, sino también la manera en que enfrento los desafíos del desarrollo web y la pasión que pongo en cada línea de código.
-        </p>
-      </div>
-        <Carrusel />
+    <div className={modo ? "dark" : ""}>
+        <div id="Proyectos" className="bloqueProyectos">
+        <div
+            data-animate
+            {...(res ? { "data-fade-down": true } : { "data-fade-right": true })}
+            className="opacity-0 transition-all duration-700 ease-out w-full"
+        >
+            <h1 className="titulos">// Proyectos</h1>
+            <p className="textos">
+                En esta sección comparto una selección de proyectos web que reflejan mi trabajo como desarrollador
+                front-end y mi interés por crear experiencias digitales funcionales, atractivas y bien estructuradas.
+                Cada proyecto representa una oportunidad para aplicar distintas tecnologías,
+                experimentar con nuevas ideas y perfeccionar mi enfoque en la usabilidad y el diseño.
+                <br />
+                A través de esta galería podrás conocer brevemente el propósito de cada desarrollo, las herramientas
+                que utilicé y el proceso detrás de su realización. Si deseas explorar más a fondo los detalles de un proyecto,
+                puedes hacerlo navegando por el carrusel y descubriendo cada propuesta en mayor profundidad.
+                <br />
+                Mi objetivo con este espacio es mostrar no solo los resultados, sino también la manera en que enfrento los desafíos del desarrollo web y la pasión que pongo en cada línea de código.
+            </p>
+        </div>
+            <Carrusel />
+        </div>
     </div>
   );
 }

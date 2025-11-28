@@ -16,7 +16,8 @@ return new class extends Migration
             $table->string('nombre');
             $table->text('descripcion');
             $table->string('enlace');
-            $table->string('imagen')->nullable();
+            $table->string('imagen_clara')->nullable();
+            $table->string('imagen_oscura')->nullable();
             $table->timestamps();
         });
     }

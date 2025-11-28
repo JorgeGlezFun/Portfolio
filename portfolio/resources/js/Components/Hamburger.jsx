@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { ThemeContext } from "@/Components/ThemeContext";
 import '../../css/hamburger.css';
 
 const Hamburger = ({ setShowingNavigationDropdown }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const { modo } = useContext(ThemeContext);
 
   const toggleBurger = () => {
     setIsOpen(prev => !prev);
@@ -30,7 +32,7 @@ const Hamburger = ({ setShowingNavigationDropdown }) => {
           <path
             className="path"
             fill="none"
-            stroke="#fff"
+            stroke={!modo ? '#fff' : '#000'}
             strokeMiterlimit="10"
             strokeWidth="4"
             d="M 34 2 C 16.3 2 2 16.3 2 34 s 14.3 32 32 32 s 32 -14.3 32 -32 S 51.7 2 34 2"

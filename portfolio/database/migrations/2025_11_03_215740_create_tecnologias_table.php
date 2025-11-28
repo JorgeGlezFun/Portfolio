@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('tecnologias', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
-            $table->string('imagen')->nullable();
+            $table->string('imagen_clara')->nullable();
+            $table->string('imagen_oscura')->nullable();
             $table->foreignId('tipo_tecnologia_id')->constrained('tipo_tecnologias')->onDelete('cascade');
             $table->timestamps();
         });

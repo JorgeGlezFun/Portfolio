@@ -44,15 +44,24 @@ class ProyectoController extends Controller
             'nombre' => 'required|string|max:255',
             'descripcion' => 'required|string',
             'enlace' => 'nullable|string|max:255',
-            'imagen' => 'nullable|image|max:2048',
+            'imagen_clara' => 'nullable|image|max:2048',
+            'imagen_oscura' => 'nullable|image|max:2048',
         ]);
 
-        if ($request->hasFile('imagen')) {
-            $image = $request->file('imagen');
+        if ($request->hasFile('imagen_clara')) {
+            $image = $request->file('imagen_clara');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
             $imagePath = public_path('images/proyectos');
             $image->move($imagePath, $imageName);
-            $proyecto['imagen'] = 'images/proyectos/' . $imageName;
+            $proyecto['imagen_clara'] = 'images/proyectos/' . $imageName;
+        }
+
+        if ($request->hasFile('imagen_oscura')) {
+            $image = $request->file('imagen_oscura');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $imagePath = public_path('images/proyectos');
+            $image->move($imagePath, $imageName);
+            $proyecto['imagen_oscura'] = 'images/proyectos/' . $imageName;
         }
 
         $proyecto = Proyecto::create($proyecto);
@@ -94,15 +103,24 @@ class ProyectoController extends Controller
             'nombre' => 'sometimes|required|string|max:255',
             'descripcion' => 'sometimes|required|string',
             'enlace' => 'sometimes|nullable|string|max:255',
-            'imagen' => 'sometimes|nullable|image|max:2048',
+            'imagen_clara' => 'sometimes|nullable|image|max:2048',
+            'imagen_oscura' => 'sometimes|nullable|image|max:2048',
         ]);
 
-        if ($request->hasFile('imagen')) {
-            $image = $request->file('imagen');
+        if ($request->hasFile('imagen_clara')) {
+            $image = $request->file('imagen_clara');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
             $imagePath = public_path('images/proyectos');
             $image->move($imagePath, $imageName);
-            $data['imagen'] = 'images/proyectos/' . $imageName;
+            $data['imagen_clara'] = 'images/proyectos/' . $imageName;
+        }
+
+        if ($request->hasFile('imagen_oscura')) {
+            $image = $request->file('imagen_oscura');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $imagePath = public_path('images/proyectos');
+            $image->move($imagePath, $imageName);
+            $data['imagen_oscura'] = 'images/proyectos/' . $imageName;
         }
 
         $proyecto->update($data);
@@ -128,7 +146,7 @@ class ProyectoController extends Controller
 
         $proyecto->delete();
 
-        return response()->json(null, 204);
+        return redirect()->route('proyectos.index')->with('success', 'Proyecto eliminado correctamente');
     }
 
     public function carrusel()

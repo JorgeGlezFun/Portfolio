@@ -62,7 +62,8 @@ export default function Index({ auth, proyectos: proyectosIniciales }) {
                                         <TableHeadCell>Nombre</TableHeadCell>
                                         <TableHeadCell>Descripción</TableHeadCell>
                                         <TableHeadCell>Enlace</TableHeadCell>
-                                        <TableHeadCell>Imagen</TableHeadCell>
+                                        <TableHeadCell>Imagen para el modo claro</TableHeadCell>
+                                        <TableHeadCell>Imagen para el modo oscuro</TableHeadCell>
                                         <TableHeadCell className="flex flex-col items-center">Acciones</TableHeadCell>
                                     </TableRow>
                                 </TableHead>
@@ -80,9 +81,20 @@ export default function Index({ auth, proyectos: proyectosIniciales }) {
                                                     </a>
                                                 </TableCell>
                                                 <TableCell className="celdaCRUD">
-                                                    {proyecto.imagen ? (
+                                                    {proyecto.imagen_clara ? (
                                                         <img
-                                                            src={`/${proyecto.imagen}`}
+                                                            src={`/${proyecto.imagen_clara}`}
+                                                            alt={proyecto.nombre}
+                                                            className="h-16 rounded-md object-cover"
+                                                        />
+                                                    ) : (
+                                                        <span className="text-gray-500 italic">Sin imagen</span>
+                                                    )}
+                                                </TableCell>
+                                                <TableCell className="celdaCRUD">
+                                                    {proyecto.imagen_oscura ? (
+                                                        <img
+                                                            src={`/${proyecto.imagen_oscura}`}
                                                             alt={proyecto.nombre}
                                                             className="h-16 rounded-md object-cover"
                                                         />
