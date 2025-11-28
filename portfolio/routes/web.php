@@ -25,12 +25,14 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::resource('/proyectos', ProyectoController::class);
+    Route::resource('/tecnologias', TecnologiaController::class);
 });
 
 Route::post('/contacto', [ContactoController::class, 'send']);
 
-Route::resource('/proyectos', ProyectoController::class);
-Route::resource('/tecnologias', TecnologiaController::class);
+// Route::resource('/proyectos', ProyectoController::class);
+// Route::resource('/tecnologias', TecnologiaController::class);
 
 Route::get('/carrusel', [ProyectoController::class, 'carrusel']);
 Route::get('/conocimientos', [TecnologiaController::class, 'conocimientos']);

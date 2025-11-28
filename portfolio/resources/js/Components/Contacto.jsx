@@ -21,40 +21,78 @@ export default function Contacto() {
     const [email, setEmail] = useState("");
     const [mensaje, setMensaje] = useState("");
 
-    useEffect(() => {
-        const handleResize = () => {
-            setRes(window.innerWidth >= 1536);
-        };
+    // Estados de mensajes
+    const [mensajeError, setMensajeError] = useState("");
+    const [mensajeExito, setMensajeExito] = useState("");
 
+    useEffect(() => {
+        const handleResize = () => setRes(window.innerWidth >= 1536);
         window.addEventListener("resize", handleResize);
         handleResize();
-
         return () => window.removeEventListener("resize", handleResize);
     }, []);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const token = document
-        .querySelector('meta[name="csrf-token"]')
-        ?.getAttribute("content");
+        // Regex de seguridad
+        const safeTextRegex = /^[\w\s.,¡!¿?@()'"-]*$/;
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-        const response = await fetch("http://127.0.0.1:8000/contacto", {
-        method: "POST",
-        headers: { "Content-Type": "application/json", "X-CSRF-TOKEN": token },
-        body: JSON.stringify({ nombre, apellido, email, mensaje }),
-        });
+        if (!nombre.trim() || !apellido.trim() || !email.trim() || !mensaje.trim()) {
+            setMensajeError("Todos los campos son obligatorios.");
+            return;
+        }
 
-        const data = await response.json();
+        if (!safeTextRegex.test(nombre)) {
+            setMensajeError("Nombre contiene caracteres no permitidos.");
+            return;
+        }
 
-        if (data.success) {
-            alert("Mensaje enviado ✅");
-            setNombre("");
-            setApellido("");
-            setEmail("");
-            setMensaje("");
-        } else {
-            alert("Error al enviar el mensaje ❌");
+        if (!safeTextRegex.test(apellido)) {
+            setMensajeError("Apellido contiene caracteres no permitidos.");
+            return;
+        }
+
+        if (!emailRegex.test(email)) {
+            setMensajeError("Introduce un email válido.");
+            return;
+        }
+
+        if (!safeTextRegex.test(mensaje)) {
+            setMensajeError("Mensaje contiene caracteres no permitidos.");
+            return;
+        }
+
+        const token = document.querySelector('meta[name="csrf-token"]')?.getAttribute("content");
+
+        try {
+            const response = await fetch("http://127.0.0.1:8000/contacto", {
+                method: "POST",
+                headers: { "Content-Type": "application/json", "X-CSRF-TOKEN": token },
+                body: JSON.stringify({ nombre, apellido, email, mensaje }),
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                setMensajeExito("Mensaje enviado ✅");
+                setMensajeError("");
+                setNombre("");
+                setApellido("");
+                setEmail("");
+                setMensaje("");
+
+                // Desaparece automáticamente
+                setTimeout(() => setMensajeExito(""), 3000);
+            } else {
+                setMensajeError("Error al enviar el mensaje ❌");
+                setTimeout(() => setMensajeError(""), 3000);
+            }
+        } catch (error) {
+            console.error(error);
+            setMensajeError("Error al enviar el mensaje ❌");
+            setTimeout(() => setMensajeError(""), 3000);
         }
     };
 
@@ -74,6 +112,7 @@ export default function Contacto() {
                         Estaré encantado de conversar contigo. ¡Muchas gracias por visitar mi web!
                     </p>
                 </div>
+
                 <div className="contenedorContactos">
                     <div className="contenedorOtrosMetodos">
                         <div id="contenedorEnlaces">
@@ -84,12 +123,10 @@ export default function Contacto() {
                             <a href="https://github.com/JorgeGlezFun" target="_blank" className="enlacesContacto">
                                 <img src={!modo ? githubclaro : githuboscuro} alt="Logo de GitHub" className="imagenContacto" />
                                 <span className="tituloOtrosMetodos">GitHub: @JorgeGlezFun </span>
-
                             </a>
                             <a href="mailto:jorge.gonzalez.fuentes.dev@gmail.com" target="_blank" className="enlacesContacto">
                                 <img src={!modo ? gmailclaro : gmailoscuro} alt="Logo de Correo Electrónico" className="imagenContacto" />
                                 <span className="tituloOtrosMetodos">E-Mail: jorge.gonzalez.fuentes.dev@gmail.com</span>
-
                             </a>
                             <a target="_blank" className="enlacesContacto">
                                 <img src={!modo ? telefonoclaro : telefonooscuro} alt="Logo de Teléfono" className="imagenContacto" />
@@ -101,10 +138,22 @@ export default function Contacto() {
                             </a>
                         </div>
                     </div>
+
                     <div className="barraSeparacionContacto" />
+
                     <div className="contenedorFormulario">
                         <form onSubmit={handleSubmit}>
-                            <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
+                            {mensajeError && (
+                                <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-2 rounded mb-4 transition-opacity duration-500">
+                                    {mensajeError}
+                                </div>
+                            )}
+                            {mensajeExito && (
+                                <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-2 rounded mb-4 transition-opacity duration-500">
+                                    {mensajeExito}
+                                </div>
+                            )}
+
                             <div className="filaNombre">
                                 <input
                                     type="text"
@@ -123,6 +172,7 @@ export default function Contacto() {
                                     onChange={(e) => setApellido(e.target.value)}
                                 />
                             </div>
+
                             <input
                                 type="email"
                                 name="email"
@@ -138,10 +188,8 @@ export default function Contacto() {
                                 value={mensaje}
                                 onChange={(e) => setMensaje(e.target.value)}
                             ></textarea>
-                            <button
-                                type="submit"
-                                className="botonContacto"
-                            >
+
+                            <button type="submit" className="botonContacto">
                                 Enviar
                             </button>
                         </form>
