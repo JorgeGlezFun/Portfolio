@@ -1,9 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { ThemeContext } from "@/Components/ThemeContext";
 import axios from "axios";
 import Modal from "@/Components/Modal"; // 👈 Usa el modal de Laravel + React
 
 export default function CoverflowCarousel() {
+    const { modo } = useContext(ThemeContext);
     const [proyectos, setProyectos] = useState([]);
+
+    if (!proyectos || proyectos.length === 0) return null;
 
     useEffect(() => {
         axios.get("http://127.0.0.1:8000/carrusel")
@@ -60,7 +64,7 @@ export default function CoverflowCarousel() {
                 }}
                 onClick={() => handleSlideClick(i, slide)}
                 >
-                <img src={slide.imagen} alt={slide.nombre} className="fotoSlide" />
+                <img src={modo ? slide.imagen_clara : slide.imagen_oscura} alt={slide.nombre} className="fotoSlide" />
                 </div>
             );
             })}
@@ -98,7 +102,7 @@ export default function CoverflowCarousel() {
             <div className="contenedorModal">
                 <a href={"https://" + selected.enlace} className="fotoEnlaceModal" target="_blank" rel="noopener noreferrer">
                     <img
-                    src={selected.imagen}
+                    src={modo ? selected.imagen_clara : selected.imagen_oscura}
                     alt={selected.nombre}
                     className="fotoModal"
                     />
