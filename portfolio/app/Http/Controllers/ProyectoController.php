@@ -40,34 +40,41 @@ class ProyectoController extends Controller
      */
     public function store(Request $request)
     {
-        $proyecto = $request->validate([
+        $data = $request->validate([
             'nombre' => 'required|string|max:255',
             'descripcion' => 'required|string',
             'enlace' => 'nullable|string|max:255',
             'imagen_clara' => 'nullable|image|max:2048',
             'imagen_oscura' => 'nullable|image|max:2048',
+            'tecnologias' => 'nullable|array', // array de ids de tecnologías
+            'tecnologias.*' => 'exists:tecnologias,id',
         ]);
 
         if ($request->hasFile('imagen_clara')) {
             $image = $request->file('imagen_clara');
-            $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $imagePath = public_path('images/proyectos');
-            $image->move($imagePath, $imageName);
-            $proyecto['imagen_clara'] = 'images/proyectos/' . $imageName;
+            $imageName = uniqid() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('images/proyectos'), $imageName);
+            $data['imagen_clara'] = 'images/proyectos/' . $imageName;
         }
 
         if ($request->hasFile('imagen_oscura')) {
             $image = $request->file('imagen_oscura');
-            $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $imagePath = public_path('images/proyectos');
-            $image->move($imagePath, $imageName);
-            $proyecto['imagen_oscura'] = 'images/proyectos/' . $imageName;
+            $imageName = uniqid() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('images/proyectos'), $imageName);
+            $data['imagen_oscura'] = 'images/proyectos/' . $imageName;
         }
 
-        $proyecto = Proyecto::create($proyecto);
+        $proyecto = Proyecto::create($data);
 
-        return response()->json($proyecto, 201);
+        // Asociar tecnologías si vienen
+        if (!empty($data['tecnologias'])) {
+            $proyecto->tecnologias()->sync($data['tecnologias']);
+        }
+
+        return response()->json($proyecto->load('tecnologias'), 201);
     }
+
+
 
     /**
      * Display the specified resource.
@@ -109,7 +116,7 @@ class ProyectoController extends Controller
 
         if ($request->hasFile('imagen_clara')) {
             $image = $request->file('imagen_clara');
-            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $imageName = uniqid() . '.' . $image->getClientOriginalExtension();
             $imagePath = public_path('images/proyectos');
             $image->move($imagePath, $imageName);
             $data['imagen_clara'] = 'images/proyectos/' . $imageName;
@@ -117,7 +124,7 @@ class ProyectoController extends Controller
 
         if ($request->hasFile('imagen_oscura')) {
             $image = $request->file('imagen_oscura');
-            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $imageName = uniqid() . '.' . $image->getClientOriginalExtension();
             $imagePath = public_path('images/proyectos');
             $image->move($imagePath, $imageName);
             $data['imagen_oscura'] = 'images/proyectos/' . $imageName;
@@ -140,8 +147,12 @@ class ProyectoController extends Controller
      */
     public function destroy(Proyecto $proyecto)
     {
-        if ($proyecto->imagen && file_exists(public_path($proyecto->imagen))) {
-            unlink(public_path($proyecto->imagen));
+        if ($proyecto->imagen_clara && file_exists(public_path($proyecto->imagen_clara))) {
+            unlink(public_path($proyecto->imagen_clara));
+        }
+
+        if ($proyecto->imagen_oscura && file_exists(public_path($proyecto->imagen_oscura))) {
+            unlink(public_path($proyecto->imagen_oscura));
         }
 
         $proyecto->delete();

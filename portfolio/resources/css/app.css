@@ -90,22 +90,22 @@ html {
 
 .dotsSlide {
     @apply
-    rounded-full bg-white/50 hover:bg-white cursor-pointer transition-all duration-300 ease-in-out
+    rounded-full cursor-pointer transition-all duration-300 ease-in-out
     sm:w-6 sm:h-6
     xl:w-4 xl:h-4
-    dark:bg-black/50 dark:hover:bg-black
+   dark:hover:bg-black dark:text-[#9a1a23]
 }
 
 .dotsSlideActivo {
-    @apply w-6 h-6 rounded-full bg-white cursor-pointer transition-all duration-300 ease-in-out
-    dark:bg-black
+    @apply w-6 h-6 rounded-full bg-[#66baf4] cursor-pointer transition-all duration-300 ease-in-out
+    dark:bg-[#9a1a23]
 }
 
 .dotsSlideInactivo {
     @apply
-    w-4 h-4 rounded-full bg-white/40 cursor-pointer transition-all duration-300 ease-in-out
-    hover:bg-white/60
-    dark:bg-black/40 dark:hover:bg-black/60
+    w-4 h-4 rounded-full bg-[#66baf4]/40 cursor-pointer transition-all duration-300 ease-in-out
+    hover:bg-[#66baf4]/60
+    dark:bg-[#9a1a23]/40 dark:hover:bg-[#9a1a23]/60
 }
 
 .nextSlide {
@@ -119,7 +119,7 @@ html {
     @apply
     w-full flex flex-col items-center p-6 text-white
     xl:flex-row
-    dark:text-black
+    dark:text-black dark:bg-[#f5e6cc]
 }
 
 .fotoEnlaceModal {
@@ -135,7 +135,7 @@ html {
 
 .contenedorTextoModal {
     @apply
-    w-full h-full
+    w-full h-full space-y-4
 }
 
 .tituloModal {
@@ -150,8 +150,8 @@ html {
 
 .tecnologiasModal {
     @apply
-    bg-black/40 px-3 py-1 rounded-full text-xl
-    dark:bg-white/40
+    bg-[#66baf4]  px-3 py-1 rounded-full text-xl text-black
+    dark:bg-[#9a1a23] dark:text-white
 }
 
 .textoModal {

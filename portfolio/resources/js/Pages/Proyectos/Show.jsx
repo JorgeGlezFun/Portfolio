@@ -69,6 +69,7 @@ export default function Show({ auth, proyecto }) {
                             {/* Tecnologías */}
                             <div>
                                 <h2 className="text-xl font-semibold mb-2">Tecnologías asociadas:</h2>
+                                {console.log(proyecto)}
                                 {proyecto.tecnologias && proyecto.tecnologias.length > 0 ? (
                                     <ul className="list-disc list-inside space-y-1">
                                         {proyecto.tecnologias.map((tec) => (

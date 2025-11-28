@@ -94,30 +94,42 @@ export default function Conocimientos() {
         </div>
 
         {/* Listas de tecnologías */}
-        <div className="bloqueListasConocimientos">
-            {tiposExistentes.map((tipo) => (
-            <div
-                key={tipo.id}
-                className="listaConocimientos"
-                data-animate
-                {...(res ? { "data-fade-down": true } : { "data-fade-right": true })}
-            >
-                <h1 className="tituloListaConocimientos" data-animate data-fade-right>
-                {tipo.nombre}
-                </h1>
-                <ol className="textoListaConocimientos" data-animate data-fade-right>
-                {tecnologias
-                    .filter((tec) => tec.tipo_tecnologia_id === tipo.id)
-                    .map((tec) => (
-                    <li key={tec.id} className="imagenLista">
-                        <img src={modo ? tec.imagen_oscura : tec.imagen_clara} alt={`Logo de ${tec.nombre}`} />
-                        {tec.nombre}
-                    </li>
-                    ))}
-                </ol>
-            </div>
+        {tecnologias.length > 0 &&
+            <div className="bloqueListasConocimientos">
+                {tiposExistentes
+                .filter((tipo) =>
+                    tecnologias.some((tec) =>
+                    tec.tipo_tecnologia_id == tipo.id
+                    )
+                )
+                .map((tipo) => (
+                    <div
+                    key={tipo.id}
+                    className="listaConocimientos"
+                    data-animate
+                    {...(res ? { "data-fade-down": true } : { "data-fade-right": true })}
+                    >
+                    <h1 className="tituloListaConocimientos" data-animate data-fade-right>
+                        {tipo.nombre}
+                    </h1>
+                    <ol className="textoListaConocimientos" data-animate data-fade-right>
+                        {tecnologias
+                        .filter((tec) => tec.tipo_tecnologia_id == tipo.id)
+                        .map((tec) => (
+                            <li key={tec.id} className="imagenLista">
+                            <img
+                                src={modo ? tec.imagen_oscura : tec.imagen_clara}
+                                alt={`Logo de ${tec.nombre}`}
+                            />
+                            {tec.nombre}
+                            </li>
+                        ))}
+                    </ol>
+                    </div>
             ))}
         </div>
+        }
+
         </div>
     </div>
   );

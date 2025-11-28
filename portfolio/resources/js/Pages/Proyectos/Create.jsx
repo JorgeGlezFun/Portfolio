@@ -22,35 +22,41 @@ export default function Create({ auth, laravelVersion, phpVersion, tecnologiasEx
         formData.append("nombre", nombre);
         formData.append("descripcion", descripcion);
         formData.append("enlace", enlace);
-        formData.append("imagen_clara", imagenClara);
-        formData.append("imagen_oscura", imagenOscura);
-        formData.append("tecnologias", JSON.stringify(tecnologias));
+        if (imagenClara) formData.append("imagen_clara", imagenClara);
+        if (imagenOscura) formData.append("imagen_oscura", imagenOscura);
 
-        console.log(...formData);
+        // 👈 Enviar el array de tecnologías correctamente
+        tecnologias.forEach(id => formData.append("tecnologias[]", id));
 
-        const response = await fetch("/proyectos", {
-            method: "POST",
-            headers: {
-                "X-CSRF-TOKEN": token
-            },
-            body: formData,
-        });
+        try {
+            const response = await fetch("/proyectos", {
+                method: "POST",
+                headers: {
+                    "X-CSRF-TOKEN": token
+                },
+                body: formData,
+            });
 
-        const data = await response.json();
+            const data = await response.json();
 
-        if (response.ok) {
-            alert("Proyecto creado ✅");
-            setNombre("");
-            setDescripcion("");
-            setEnlace("");
-            setImagenClara(null);
-            setImagenOscura(null);
-            setTecnologias([]);
-        } else {
+            if (response.ok) {
+                alert("Proyecto creado ✅");
+                setNombre("");
+                setDescripcion("");
+                setEnlace("");
+                setImagenClara(null);
+                setImagenOscura(null);
+                setTecnologias([]);
+            } else {
+                alert("Error al crear el proyecto ❌");
+                console.log(data);
+            }
+        } catch (error) {
+            console.error("Error en la petición:", error);
             alert("Error al crear el proyecto ❌");
-            console.log(data);
         }
     };
+
 
     const toggleTecnologia = (id) => {
         if (tecnologias.includes(id)) {
@@ -107,21 +113,20 @@ export default function Create({ auth, laravelVersion, phpVersion, tecnologiasEx
                                                 required
                                                 value={descripcion}
                                                 onChange={(e) => setDescripcion(e.target.value)}
-                                            ></textarea>
+                                            />
                                         </div>
                                         {/* Enlace */}
-                                        {/* Descripción */}
                                         <div className="flex flex-col mb-4">
                                             <label htmlFor="enlace" className="labelCRUD">Enlace:</label>
-                                            <textarea
+                                            <input
                                                 id="enlace"
                                                 name="enlace"
                                                 className="inputCRUD inset-shadow-xs rounded-md bg-gray-100 placeholder:text-gray-600"
-                                                placeholder="Descripción del Proyecto"
+                                                placeholder="Enlace del Proyecto"
                                                 required
                                                 value={enlace}
                                                 onChange={(e) => setEnlace(e.target.value)}
-                                            ></textarea>
+                                            />
                                         </div>
 
                                         {/* Imagenes */}
