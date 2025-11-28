@@ -22,7 +22,6 @@ createInertiaApp({
         const root = createRoot(el);
 
         root.render(
-            // ⬅️ ENVUELVE TODA LA APP AQUÍ
             <ThemeProvider>
                 <App {...props} />
             </ThemeProvider>

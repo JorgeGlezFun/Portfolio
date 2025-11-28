@@ -185,6 +185,11 @@ html {
     2xl:flex-shrink-0 2xl:w-auto
 }
 
+.linkLogoHeader {
+    @apply
+    flex items-center justify-center
+}
+
 .contenedorMenuNavegacion {
     @apply
     flex justify-between w-full items-center
@@ -215,6 +220,37 @@ html {
     dark:hover:text-[#9a1a23] dark:text-black dark:text-shadow-white
 }
 
+.botonModo {
+    @apply
+    relative flex items-center justify-center w-24 h-10 mr-10
+    2xl:ml-6 2xl:mr-2
+}
+
+.bolaBotonModo {
+    @apply
+    absolute z-20 w-7 h-7 bg-white rounded-full transition-transform duration-500 ease-in-out
+    sm:w-8 sm:h-8
+}
+
+.contenedorBarraModo {
+    @apply w-full h-4 sm:h-5 rounded-full overflow-hidden bg-black/10
+}
+
+.carruselModo {
+    @apply
+    flex w-[200%] h-full transition-transform duration-500 ease-in-out
+}
+
+.barraOscuro {
+    @apply
+    w-1/2 h-full bg-[#66baf4]
+}
+
+.barraClaro {
+    @apply
+    w-1/2 h-full bg-[#9a1a23]
+}
+
 .contenedorBotonMenuMovil {
     @apply
     -me-2 flex flex-col items-center z-20
@@ -224,6 +260,7 @@ html {
 .menuNavegacionMovil {
     @apply
     fixed top-[96px] left-0 w-full h-screen transition-transform duration-500 ease-linear 2xl:hidden
+
 }
 
 .menuAbierto {
@@ -237,7 +274,8 @@ html {
 }
 
 .trampaMovil {
-    @apply min-h-screen w-full bg-[#232931]
+    @apply min-h-screen w-full bg-[#2d343f]
+    dark:bg-[#f5e6cc]
 }
 
 .contenedorMenuNavegacionMovil {
@@ -282,6 +320,11 @@ html {
   animation-delay: 0.5s;
 }
 
+.menuAbierto .contenedorMenuNavegacionMovil > *:nth-child(7) {
+  @apply fade-left;
+  animation-delay: 0.6s;
+}
+
 .menuCerrado .contenedorMenuNavegacionMovil > *:nth-child(1) {
   @apply fade-left-out;
   animation-delay: 0s;
@@ -312,16 +355,23 @@ html {
   animation-delay: 0.5s;
 }
 
+.menuCerrado .contenedorMenuNavegacionMovil > *:nth-child(7) {
+  @apply fade-left-out;
+  animation-delay: 0.6s;
+}
+
 .enlaceHeaderMovil {
     @apply
-    w-full flex relative justify-center items-center pe-4 py-2 text-4xl font-bold transition duration-0 ease-out border-transparent bg-[#232931] text-black
+    w-full flex relative justify-center items-center pe-4 py-2 text-4xl font-bold transition duration-0 ease-out border-transparent bg-[#2d343f] text-white
     hover:text-white hover:text-shadow-xl hover:text-shadow-black overflow-hidden
+    dark:bg-[#f5e6cc] dark:text-black dark:hover:text-white
 
 }
 
 .enlaceHeaderMovilActivo {
     @apply w-full flex justify-center items-center pe-4 py-2 text-4xl font-bold text-white bg-[#18338d] text-shadow-xl text-shadow-black;
 }
+
 /* Pseudo-elementos por defecto */
 *:before,
 *:after {
@@ -335,9 +385,10 @@ html {
 }
 
 .enlaceHeaderMovil::before {
-  @apply right-[-60px] transform -translate-x-full;
+  @apply right-[-60px] transform -translate-x-full border-b-[#66baf4] dark:border-b-[#9a1a23];
   /* border-top: 60px solid #1E40AF; */
-  border-bottom: 2px solid #3cde13;
+  border-bottom: 100px solid #66baf4 ;
+  /* #9a1a23 */
   /* border-right: 60px solid transparent; */
 }
 

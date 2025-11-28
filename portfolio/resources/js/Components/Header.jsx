@@ -16,7 +16,7 @@ export default function Header({ user }) {
             <nav className="contenedorHeader">
                 <div className="contenedorMenuNavegacion">
                     <div className="contenedorLogoHeader z-10">
-                        <Link href={route('/')} className='flex items-center justify-center'>
+                        <Link href={route('/')} className='linkLogoHeader'>
                             <ApplicationLogo />
                         </Link>
                     </div>
@@ -38,19 +38,27 @@ export default function Header({ user }) {
                         </NavLink>
                     </div>
                     <button
-                    onClick={toggleModo}
-                    className="flex flex-col items-center justify-center relative w-24 h-full 2xl:ml-4"
-                    >
+                        onClick={toggleModo}
+                        className="botonModo"
+                        >
+                        {/* círculo blanco */}
                         <div
-                        className={`absolute z-20 top-1/2 left-1/2 -translate-y-1/2 w-8 h-8 bg-white rounded-full transition duration-500 ease-in-out ${modo ? "translate-x-[-150%]" : "translate-x-[50%]"}`}
+                            className={`bolaBotonModo ${modo ? "translate-x-[-110%]" : "translate-x-[110%]"}`}
                         />
-                        <div className="flex flex-shrink-0 flex-none w-24 h-full overflow-hidden">
-                            <div className={`flex flex-row w-48 h-6 rounded-xl bg-black overflow-hidden transition duration-500 ease-in-out ${modo ? "translate-x-[-50%]" : "translate-x-0"}`}>
-                                <div className="w-1/2 h-full bg-[#66baf4]" />
-                                <div className="w-1/2 h-full bg-[#9a1a23]" />
+
+                        {/* contenedor barra */}
+                        <div className="contenedorBarraModo">
+                            <div
+                            className={`carruselModo
+                                ${modo ? "-translate-x-1/2" : "translate-x-0"}`}
+                            >
+                                <div className="barraOscuro" />
+                                <div className="barraClaro" />
                             </div>
                         </div>
                     </button>
+
+
                     <div className="contenedorBotonMenuMovil">
                         <Hamburger
                             setShowingNavigationDropdown={setShowingNavigationDropdown}
@@ -64,6 +72,7 @@ export default function Header({ user }) {
                     }`}
                     >
                     <div className="contenedorMenuNavegacionMovil">
+                        <div className='h-10 bg-[#2d343f] dark:bg-[#f5e6cc]'/>
                         <ResponsiveNavLink href="#Inicio">INICIO</ResponsiveNavLink>
                         <ResponsiveNavLink href="#SobreMi">SOBRE MÍ</ResponsiveNavLink>
                         <ResponsiveNavLink href="#Conocimientos">CONOCIMIENTOS</ResponsiveNavLink>

@@ -37,7 +37,7 @@ export default function ApplicationLogo({ className = "" }) {
         <img
             src={logoSrc}
             alt="Jorge Gonzalez Fuentes - Web Developer"
-            className={`${isLarge ? "w-48" : "w-24"} ${className}`}
+            className={`${isLarge ? "w-48" : "w-24 2xl:ml-[5.3rem] sm:ml-28"} ${className}`}
         />
     );
 }

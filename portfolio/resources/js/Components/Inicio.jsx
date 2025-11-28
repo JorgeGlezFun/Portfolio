@@ -21,11 +21,11 @@ export default function Inicio() {
 
     // Objeto para mapear modo + tamaño a logo
     const logos = {
-        dark: { large: logoPC, small: logoGC },
-        light: { large: logoPO, small: logoGO },
+        dark: logoPC,
+        light: logoPO,
     };
 
-    const logoSrc = logos[modo ? "dark" : "light"][isLarge ? "large" : "small"];
+    const logoSrc = logos[modo ? "dark" : "light"];
 
     return (
         <div className={modo ? "dark" : ""}>
