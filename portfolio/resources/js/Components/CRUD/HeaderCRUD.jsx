@@ -15,13 +15,13 @@ export default function Header({ user }) {
             <nav className="contenedorHeaderCRUD">
                 <div className="contenedorMenuNavegacionCRUD">
                     <div className="contenedorLogoHeaderCRUD z-10">
-                        <Link href={route('/')} className='flex items-center justify-center'>
+                        <Link href={route('admin')} className='flex items-center justify-center'>
                             <ApplicationLogo />
                         </Link>
                     </div>
                     <div className="contenedorEnlacesHeaderCRUD">
                         <NavLinkCRUD href={route('admin')} active={route().current('admin')}>
-                            Admin
+                            Inicio
                         </NavLinkCRUD>
                         <NavLinkCRUD href={route('proyectos.index')} active={route().current('proyectos.index')}>
                             Proyectos
@@ -29,7 +29,7 @@ export default function Header({ user }) {
                         <NavLinkCRUD href={route('tecnologias.index')} active={route().current('tecnologias.index')}>
                             Tecnologías
                         </NavLinkCRUD>
-                        <NavLinkCRUD>
+                        <NavLinkCRUD href={route('tipotecnologias.index')} active={route().current('tipotecnologias.index')}>
                             Tipos de Tecnologías
                         </NavLinkCRUD>
                             {user ?
@@ -39,12 +39,12 @@ export default function Header({ user }) {
                                         <span className="rounded-md">
                                         <button
                                             type="button"
-                                            className="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-[#121214] hover:text-[#F6F6F6] hover:bg-[#0088CC] focus:outline-none transition ease-in-out duration-150"
+                                            className="inline-flex items-center px-3 py-4 border border-transparent text-4xl leading-4 font-medium rounded-md text-[#121214] hover:text-[#F6F6F6] hover:bg-[#0088CC] focus:outline-none transition ease-in-out duration-150"
                                         >
                                             <span className="md:inline hidden">{user.name}</span>
 
                                             <svg
-                                                className="md:ms-2  h-4 w-4"
+                                                className="md:ms-2 h-4 w-4"
                                                 xmlns="http://www.w3.org/2000/svg"
                                                 viewBox="0 0 20 20"
                                                 fill="currentColor"
