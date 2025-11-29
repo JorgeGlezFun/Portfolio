@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreTipoTecnologiaRequest;
 use App\Http\Requests\UpdateTipoTecnologiaRequest;
 use App\Models\TipoTecnologia;
+use Inertia\Inertia;
 
 class TipoTecnologiaController extends Controller
 {
@@ -13,7 +14,9 @@ class TipoTecnologiaController extends Controller
      */
     public function index()
     {
-        //
+        return Inertia::render('TipoTecnologias/Index', [
+            'tipotecnologias' => TipoTecnologia::all(),
+        ]);
     }
 
     /**
@@ -35,10 +38,13 @@ class TipoTecnologiaController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(TipoTecnologia $tipoTecnologia)
+    public function show(TipoTecnologia $tipotecnologia)
     {
-        //
+        return Inertia::render('TipoTecnologias/Show', [
+            'tipotecnologia' => $tipotecnologia,
+        ]);
     }
+
 
     /**
      * Show the form for editing the specified resource.

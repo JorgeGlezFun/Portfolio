@@ -17,5 +17,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             TipoTecnologiaSeeder::class,
         ]);
+        // database/seeders/DatabaseSeeder.php
+        $this->call(UserSeeder::class);
+
     }
 }

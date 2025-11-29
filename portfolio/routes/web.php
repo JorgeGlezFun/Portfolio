@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ContactoController;
 use App\Http\Controllers\ProyectoController;
 use App\Http\Controllers\TecnologiaController;
+use App\Http\Controllers\TipoTecnologiaController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -27,6 +28,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::resource('/proyectos', ProyectoController::class);
     Route::resource('/tecnologias', TecnologiaController::class);
+    Route::resource('/tipotecnologias', TipoTecnologiaController::class);
 });
 
 Route::post('/contacto', [ContactoController::class, 'send']);
