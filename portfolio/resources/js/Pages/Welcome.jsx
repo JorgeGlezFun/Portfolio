@@ -5,6 +5,7 @@ import SobreMi from '@/Components/SobreMi';
 import Conocimientos from '@/Components/Conocimientos';
 import Proyectos from '@/Components/Proyectos';
 import Contacto from '@/Components/Contacto';
+import Footer from '@/Components/Footer';
 import '../../css/app.css';
 
 export default function Welcome({ auth, laravelVersion, phpVersion }) {
@@ -20,9 +21,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                         <Proyectos/>
                         <Contacto/>
                     </main>
-                    <footer className="">
-                        Laravel v{laravelVersion} (PHP v{phpVersion})
-                    </footer>
+                    <Footer/>
                 </div>
         </>
     );

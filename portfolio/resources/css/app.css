@@ -641,8 +641,7 @@ main {
 
 .barraSeparacionContacto {
     @apply bg-white h-4 w-full
-    2xl:h-[24rem] 2xl:block 2xl:w-2
-    3xl:h-[30rem]
+    2xl:h-[35rem] 2xl:block 2xl:w-2
     4xl:h-[40rem]
     dark:bg-black
 }
@@ -673,40 +672,26 @@ main {
 
 .contenedorContactos {
     @apply flex flex-col w-full p-8 items-center justify-between
-    2xl:flex-row
+    2xl:flex-row 2xl:px-0
 }
 
 .contenedorOtrosMetodos {
     @apply w-full space-y-8 p-2 pb-8 overflow-hidden
     lg:p-4
     xl:p-8
-    2xl:w-1/2
+    2xl:w-1/2 2xl:pl-0
+    3xl:p-8
 }
 
 #contenedorEnlaces {
     @apply flex flex-col space-y-4 w-full
 }
 
-/* @layer utilities {
-    @media (min-width: 640px) {
-        #contenedorEnlaces {
-            @apply fade-up;
-        }
-    }
-}
-
-@layer utilities {
-    @media (min-width: 1536px) {
-        #contenedorEnlaces {
-            @apply fade-left;
-        }
-    }
-} */
-
 .tituloOtrosMetodos {
     @apply text-xl mb-0
     lg:text-2xl
-    2xl:text-4xl
+    3xl:text-3xl
+    4xl:text-4xl
 }
 
 .enlacesContacto {
@@ -723,40 +708,57 @@ main {
     2xl:w-1/2
 }
 
-/* @layer utilities {
-    @media (min-width: 640px) {
-        form {
-            @apply fade-down;
-        }
-    }
-}
-
-@layer utilities {
-    @media (min-width: 1536px) {
-        form {
-            @apply fade-right;
-        }
-    }
-} */
-
 .filaNombre {
     @apply flex space-x-4
 }
 
-/* Animaciones*/
-@layer utilities {
-  @keyframes blink {
-    0%, 49% { opacity: 1; }
-    50%, 100% { opacity: 0; }
-  }
-  .animacionEscritura {
+/* Clases Footer */
+.contenedorFooter {
     @apply
-    animate-ping;
-    animation: blink 1s steps(1) infinite;
-  }
+    h-fit w-full flex flex-col items-center justify-center bg-[#1d232c] text-white transition duration-500 ease-in-out px-12
+    dark:text-black dark:bg-[#f1d7ac]
+    2xl:px-96
 }
 
-/* Animaciones Fade  */
+.contenedorPresentacion {
+    @apply  flex flex-col justify-between w-full py-8 space-y-6
+    lg:flex-row lg:space-y-0
+}
+
+.tituloFooter {
+    @apply
+    text-3xl font-bold
+}
+
+.textoFooter {
+    @apply
+    text-lg italic
+}
+
+.lineaSeparacionFooter {
+    @apply w-full h-[0.05rem] bg-white dark:bg-black
+}
+
+.enlacesFooter {
+    @apply
+    w-fit block hover:text-[#66baf4] transition duration-200 ease-in-out dark:hover:text-[#94030a]
+}
+
+.botonFooter {
+    @apply
+    flex flex-row space-x-4 my-4 p-4 text-white rounded-lg bg-[#2d343f] hover:bg-[#66baf4] transition duration-200 ease-in-out
+    dark:bg-[#f5e6cc] dark:hover:bg-[#94030a] dark:text-black
+}
+
+.contenedorLogosFooter {
+    @apply w-full flex flex-row items-start space-x-6 py-8
+}
+
+.iconoFooter {
+    @apply rounded-lg bg-[#2d343f] hover:bg-[#66baf4] dark:bg-[#f5e6cc] dark:hover:bg-[#94030a] p-2 transition duration-200 ease-in-out cursor-pointer
+}
+
+/* Animaciones */
 @keyframes fadeUp {
     0% {
       opacity: 0;
