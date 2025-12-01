@@ -45,7 +45,7 @@ export default function Footer() {
                 <div className="contenedorLogosFooter">
                     <a
                         className="iconoFooter"
-                        href="https://www.linkedin.com/in/jorge-gonzalez-fuentes/"
+                        href="https://github.com/JorgeGlezFun"
                         target="_blank"
                         >
                         <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
