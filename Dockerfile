@@ -1,13 +1,13 @@
 # 1️⃣ Imagen base PHP con FPM
 FROM php:8.2-fpm
 
-# 2️⃣ Instalar extensiones de PHP necesarias para PostgreSQL
+# 2️⃣ Instalar dependencias del sistema y extensiones de PHP necesarias
 RUN apt-get update && apt-get install -y \
     libpq-dev \
     unzip \
     git \
     curl \
-    && docker-php-ext-install pdo pdo_pgsql
+    && docker-php-ext-install pdo pdo_pgsql mbstring tokenizer xml ctype bcmath
 
 # 3️⃣ Instalar Composer
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
@@ -22,7 +22,7 @@ WORKDIR /var/www/html
 # 6️⃣ Copiar archivos del proyecto
 COPY . .
 
-# 7️⃣ Instalar dependencias PHP y JS, y build de React
+# 7️⃣ Instalar dependencias PHP y JS, y build de React/Vite
 RUN composer install --no-dev --optimize-autoloader
 RUN if [ -f package.json ]; then npm install && npm run build; fi
 
