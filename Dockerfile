@@ -4,9 +4,12 @@
 FROM php:8.2-fpm AS builder
 
 # 1️⃣ Instalar dependencias del sistema y herramientas de compilación
-# Hemos quitado libonig-dev. Mantenemos las dependencias de zip.
+# Hemos quitado PostgreSQL (libpq-dev) y AGREGADO XML (libxml2-dev, libxslt-dev)
 RUN apt-get update && apt-get install -y \
     libzip-dev \
+    libonig-dev \
+    libxml2-dev \
+    libxslt-dev \
     unzip \
     git \
     curl \
@@ -15,17 +18,11 @@ RUN apt-get update && apt-get install -y \
     build-essential \
     libssl-dev \
     zlib1g-dev \
-    # Limpieza de caché
     && rm -rf /var/lib/apt/lists/*
 
-# 2️⃣ Instalar extensiones de PHP (¡Solo las que son necesarias y menos problemáticas!)
-# Quitamos pdo_pgsql. Quitaremos 'zip' y 'mbstring' si este paso falla.
-RUN docker-php-ext-install pdo tokenizer xml ctype bcmath
-
-# 2️⃣b: Instalación de extensiones problemáticas (Aisladas)
-# Intentamos instalar zip y mbstring de forma aislada
-RUN docker-php-ext-install zip
-# RUN docker-php-ext-install mbstring # Dejamos mbstring fuera por ahora.
+# 2️⃣ Instalar extensiones de PHP (¡Incluyendo XML, Zip y Mbstring!)
+# NOTA: pdo_pgsql sigue fuera.
+RUN docker-php-ext-install pdo mbstring tokenizer xml ctype bcmath zip
 
 # 3️⃣ Instalar Composer
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
@@ -45,17 +42,23 @@ RUN composer install --no-dev --optimize-autoloader
 RUN npm install && npm run build
 
 # ----------------------------------------------------
-# ETAPA 2: PRODUCCIÓN (Imagen final)
+# ETAPA 2: PRODUCCIÓN (Imagen final, limpia y ligera)
 # ----------------------------------------------------
 FROM php:8.2-fpm AS production
-# ... (El resto de la imagen de producción sigue igual)
+
+# 1️⃣ Copiar los archivos de la etapa builder
 WORKDIR /var/www/html
 COPY --from=builder /app /var/www/html
+
+# 2️⃣ Configurar permisos
 RUN chown -R www-data:www-data /var/www/html \
     && chmod -R 775 /var/www/html/storage \
     && chmod -R 775 /var/www/html/bootstrap/cache
+
+# 3️⃣ Configuración de Laravel
 RUN php artisan key:generate --force
-# (Aquí debes decidir si las migraciones deben ir en el build o en el start script)
-# RUN php artisan migrate --force
+RUN php artisan migrate --force
+
+# 4️⃣ Puerto y comando de inicio
 EXPOSE 10000
 CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=10000"]
