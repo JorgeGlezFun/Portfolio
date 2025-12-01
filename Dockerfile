@@ -1,8 +1,8 @@
 # 1️⃣ IMAGEN BASE
 FROM php:8.2-fpm
 
-# 2️⃣ INSTALAR DEPENDENCIAS DEL SISTEMA
-# Instala las dependencias necesarias, incluyendo las que necesita docker-php-ext-install.
+# 2️⃣ INSTALAR DEPENDENCIAS DEL SISTEMA Y HERRAMIENTAS DE BUILD
+# Incluimos los paquetes de build-esenciales y limpiamos la caché en la misma capa.
 RUN apt-get update && apt-get install -y \
     libpq-dev \
     libzip-dev \
@@ -11,17 +11,22 @@ RUN apt-get update && apt-get install -y \
     git \
     curl \
     gnupg \
+    # AGREGADO: Herramientas esenciales para la compilación de extensiones de PHP
+    autoconf \
+    build-essential \
+    libssl-dev \
+    zlib1g-dev \
+    # Fin de AGREGADO
     && rm -rf /var/lib/apt/lists/*
 
 # 3️⃣ INSTALAR EXTENSIONES DE PHP
-# Este comando ahora tiene las dependencias -dev disponibles en la capa anterior.
+# Ahora, con las herramientas de compilación instaladas, este paso debería funcionar.
 RUN docker-php-ext-install pdo pdo_pgsql mbstring tokenizer xml ctype bcmath zip
 
 # 4️⃣ INSTALAR COMPOSER
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
 # 5️⃣ INSTALAR NODE.JS (Versión 20.x)
-# Se hace el segundo apt-get update para la nueva fuente de paquetes de Node.js.
 RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
     && apt-get update \
     && apt-get install -y nodejs \
@@ -43,6 +48,8 @@ COPY . .
 
 # 10️⃣ CONFIGURACIÓN DE LARAVEL
 RUN php artisan key:generate --force
+# Nota: Si las migraciones fallan aquí por no tener conexión a la DB,
+# tendrás que mover este comando a un script de inicio o a los comandos de Render.
 RUN php artisan migrate --force
 
 # 11️⃣ PUERTO Y COMANDO DE INICIO
