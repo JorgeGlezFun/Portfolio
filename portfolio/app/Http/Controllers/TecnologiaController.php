@@ -136,6 +136,7 @@ class TecnologiaController extends Controller
         return redirect()->route('tecnologias.index')->with('success', 'Tecnología eliminada correctamente');
     }
 
+
     public function conocimientos()
     {
         $tecnologias = Tecnologia::with('tipoTecnologia')->get();

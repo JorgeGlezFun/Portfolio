@@ -25,6 +25,9 @@ export default function Contacto() {
     const [mensajeError, setMensajeError] = useState("");
     const [mensajeExito, setMensajeExito] = useState("");
 
+    const [cvUrl, setCvUrl] = useState(null); // URL del curriculum
+    const [loadingCv, setLoadingCv] = useState(true); // opcional: para mostrar spinner
+
     useEffect(() => {
         const handleResize = () => setRes(window.innerWidth >= 1536);
         window.addEventListener("resize", handleResize);
@@ -96,6 +99,35 @@ export default function Contacto() {
         }
     };
 
+    useEffect(() => {
+        const fetchCv = async () => {
+            try {
+                const response = await fetch("http://127.0.0.1:8000/curriculum/latest");
+                const data = await response.json();
+
+                if (response.ok && data.url) {
+                    setCvUrl(data.url); // guardamos la URL
+                } else {
+                    setCvUrl(null); // no hay CV disponible
+                }
+            } catch (error) {
+                console.error(error);
+                setCvUrl(null);
+            } finally {
+                setLoadingCv(false);
+            }
+        };
+
+        fetchCv();
+    }, []);
+
+    const handlePreview = () => {
+        if (cvUrl) {
+            window.open(cvUrl, "_blank");
+        }
+    };
+
+
     return (
         <div className={modo ? "dark" : ""}>
             <div id="Contacto" className="bloqueContactos">
@@ -114,8 +146,14 @@ export default function Contacto() {
                 </div>
 
                 <div className="contenedorContactos">
-                    <div className="contenedorOtrosMetodos">
-                        <div id="contenedorEnlaces">
+                    <div className="contenedorOtrosMetodos"
+
+                    >
+                        <div id="contenedorEnlaces"
+                            className="opacity-0 transition-all duration-700 ease-out"
+                            data-animate
+                            {...res ? { "data-fade-left": true } : { "data-fade-up": true }}
+                        >
                             <a href="https://www.linkedin.com/in/jorgegfdev" target="_blank" className="enlacesContacto">
                                 <img src={!modo ? linkedinclaro : linkedinoscuro} alt="Logo de LinkedIn" className="imagenContacto" />
                                 <span className="tituloOtrosMetodos">LinkedIn: Jorge González Fuentes</span>
@@ -132,17 +170,29 @@ export default function Contacto() {
                                 <img src={!modo ? telefonoclaro : telefonooscuro} alt="Logo de Teléfono" className="imagenContacto" />
                                 <span className="tituloOtrosMetodos">Teléfono: +34 671 71 04 04</span>
                             </a>
-                            <a href={CV} download target="_blank" className="enlacesContacto">
-                                <img src={!modo ? logoCVclaro : logoCVoscuro} alt="Logo de Curriculum Vitae" className="imagenContacto" />
+                            <button
+                                onClick={handlePreview}
+                                disabled={!cvUrl}
+                                className={`enlacesContacto ${!cvUrl ? "opacity-50 cursor-not-allowed" : ""}`}
+                            >
+                                <img
+                                    src={!modo ? logoCVclaro : logoCVoscuro}
+                                    alt="Logo de Curriculum Vitae"
+                                    className="imagenContacto"
+                                />
                                 <span className="tituloOtrosMetodos">Curriculum Vitae</span>
-                            </a>
+                            </button>
                         </div>
                     </div>
 
-                    <div className="barraSeparacionContacto" />
+                    <div className="barraSeparacionContacto"/>
 
                     <div className="contenedorFormulario">
-                        <form onSubmit={handleSubmit}>
+                        <form onSubmit={handleSubmit}
+                            className="opacity-0 transition-all duration-700 ease-out w-full"
+                            data-animate
+                            {...res ? { "data-fade-right": true } : { "data-fade-down": true }}
+                        >
                             {mensajeError && (
                                 <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-2 rounded mb-4 transition-opacity duration-500">
                                     {mensajeError}

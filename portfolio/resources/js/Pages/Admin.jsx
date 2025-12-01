@@ -38,6 +38,12 @@ export default function Admin(auth) {
                                         >
                                             Tipos de tecnología
                                     </Link>
+                                    <Link
+                                            href={route('curriculums.index')}
+                                            className="px-4 py-2 bg-gray-200 text-black text-2xl rounded-lg hover:bg-gray-300 focus:scale-90 transition duration-200"
+                                        >
+                                            Curriculums
+                                    </Link>
                                 </div>
                             </div>
                         </div>

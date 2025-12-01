@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ContactoController;
+use App\Http\Controllers\CurriculumController;
 use App\Http\Controllers\ProyectoController;
 use App\Http\Controllers\TecnologiaController;
 use App\Http\Controllers\TipoTecnologiaController;
@@ -29,14 +30,13 @@ Route::middleware('auth')->group(function () {
     Route::resource('/proyectos', ProyectoController::class);
     Route::resource('/tecnologias', TecnologiaController::class);
     Route::resource('/tipotecnologias', TipoTecnologiaController::class);
+    Route::resource('/curriculums', CurriculumController::class);
 });
 
 Route::post('/contacto', [ContactoController::class, 'send']);
 
-// Route::resource('/proyectos', ProyectoController::class);
-// Route::resource('/tecnologias', TecnologiaController::class);
-
 Route::get('/carrusel', [ProyectoController::class, 'carrusel']);
 Route::get('/conocimientos', [TecnologiaController::class, 'conocimientos']);
+Route::get('/curriculum/latest', [CurriculumController::class, 'latest']);
 
 require __DIR__.'/auth.php';

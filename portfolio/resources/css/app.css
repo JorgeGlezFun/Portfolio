@@ -687,7 +687,7 @@ main {
     @apply flex flex-col space-y-4 w-full
 }
 
-@layer utilities {
+/* @layer utilities {
     @media (min-width: 640px) {
         #contenedorEnlaces {
             @apply fade-up;
@@ -701,7 +701,7 @@ main {
             @apply fade-left;
         }
     }
-}
+} */
 
 .tituloOtrosMetodos {
     @apply text-xl mb-0
@@ -723,7 +723,7 @@ main {
     2xl:w-1/2
 }
 
-@layer utilities {
+/* @layer utilities {
     @media (min-width: 640px) {
         form {
             @apply fade-down;
@@ -737,16 +737,11 @@ main {
             @apply fade-right;
         }
     }
-}
+} */
 
 .filaNombre {
     @apply flex space-x-4
 }
-
-/* .animacionEscritura {
-    @apply
-    text-4xl font-bold text-center text-white animate-ping;
-} */
 
 /* Animaciones*/
 @layer utilities {
