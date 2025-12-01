@@ -34,19 +34,17 @@ export default function Footer() {
                         <div className="w-full">
                             <h1 className="tituloFooter">Contacto</h1>
                             <p>Si quieres trabajar juntos o tienes interes, no dudes en contactarme.</p>
-                            <div className="flex flex-row space-x-4 my-4">
-                                <Mail className="dark:text-black"/>
-                                <Link href="#Contacto" className="block">Enviame un email</Link>
-                            </div>
+                            <a className="botonFooter" href="#Contacto">
+                                <Mail/>
+                                <p href="#Contacto">Enviame un email</p>
+                            </a>
                         </div>
                     </div>
                 </div>
-                <div className="contenedorLineaSeparacion">
-                    <div className="lineaSeparacionFooter"/>
-                </div>
-                <div className="w-full flex flex-row items-start space-x-6 py-8">
+                <div className="lineaSeparacionFooter"/>
+                <div className="contenedorLogosFooter">
                     <a
-                        className="rounded-lg bg-[#2d343f] hover:bg-[#66baf4] dark:bg-[#f5e6cc] dark:hover:bg-[#94030a] p-2 transition duration-200 ease-in-out cursor-pointer"
+                        className="iconoFooter"
                         href="https://www.linkedin.com/in/jorge-gonzalez-fuentes/"
                         target="_blank"
                         >
@@ -55,7 +53,7 @@ export default function Footer() {
                         </svg>
                     </a>
                     <a
-                        className="rounded-lg bg-[#2d343f] hover:bg-[#66baf4] dark:bg-[#f5e6cc] dark:hover:bg-[#94030a] p-2 transition duration-200 ease-in-out cursor-pointer"
+                        className="iconoFooter"
                         href="https://www.linkedin.com/in/jorgegfdev"
                         target="_blank"
                         >
@@ -64,10 +62,8 @@ export default function Footer() {
                         </svg>
                     </a>
                 </div>
-                <div className="w-full">
-                    <div className=" h-[0.05rem] bg-white dark:bg-black"/>
-                </div>
-                <p className="w-full py-8 ">© {currentYear} Jorge González Fuentes. Todos los derechos reservados.</p>
+                <div className="lineaSeparacionFooter"/>
+                <p className="w-full py-8">© {currentYear} Jorge González Fuentes. Todos los derechos reservados.</p>
             </nav>
         </div>
     );
