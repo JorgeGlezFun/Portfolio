@@ -1,8 +1,5 @@
 import { Table, TableBody, TableCell, TableHead, TableHeadCell, TableRow } from "flowbite-react";
-import { Head, router } from '@inertiajs/react';
-import { Button, Modal, ModalBody, ModalHeader } from "flowbite-react";
-import { HiOutlineExclamationCircle } from "react-icons/hi";
-import { useState } from "react";
+import { Head } from '@inertiajs/react';
 import HeaderCRUD from '../../Components/CRUD/HeaderCRUD.jsx';
 
 export default function Index({ auth, tipotecnologias }) {

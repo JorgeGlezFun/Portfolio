@@ -78,14 +78,6 @@ export default function Header({ user }) {
                         <ResponsiveNavLink href="#Conocimientos">CONOCIMIENTOS</ResponsiveNavLink>
                         <ResponsiveNavLink href="#Proyectos">PROYECTOS</ResponsiveNavLink>
                         <ResponsiveNavLink href="#Contacto">CONTACTO</ResponsiveNavLink>
-                        {user && (
-                        <div>
-                            <ResponsiveNavLink href={route("profile.edit")}>Perfil</ResponsiveNavLink>
-                            <ResponsiveNavLink method="post" href={route("logout")} as="button">
-                            Cerrar Sesión
-                            </ResponsiveNavLink>
-                        </div>
-                        )}
                         <div className='trampaMovil'/>
                     </div>
                 </div>

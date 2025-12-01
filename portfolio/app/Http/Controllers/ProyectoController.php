@@ -160,6 +160,7 @@ class ProyectoController extends Controller
         return redirect()->route('proyectos.index')->with('success', 'Proyecto eliminado correctamente');
     }
 
+
     public function carrusel()
     {
         $proyectos = Proyecto::with('tecnologias')->get();

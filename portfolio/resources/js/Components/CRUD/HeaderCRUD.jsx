@@ -32,6 +32,9 @@ export default function Header({ user }) {
                         <NavLinkCRUD href={route('tipotecnologias.index')} active={route().current('tipotecnologias.index')}>
                             Tipos de Tecnologías
                         </NavLinkCRUD>
+                        <NavLinkCRUD href={route('curriculums.index')} active={route().current('curriculums.index')}>
+                            Curriculums
+                        </NavLinkCRUD>
                             {user ?
                             (
                                 <Dropdown>
