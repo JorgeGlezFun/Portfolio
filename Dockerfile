@@ -4,9 +4,8 @@
 FROM php:8.2-fpm AS builder
 
 # 1️⃣ Instalar dependencias del sistema y herramientas de compilación
-# Usaremos build-essential y las libs para compilar extensiones.
+# NOTA: Eliminamos 'libpq-dev' (PostgreSQL)
 RUN apt-get update && apt-get install -y \
-    libpq-dev \
     libzip-dev \
     libonig-dev \
     unzip \
@@ -17,12 +16,10 @@ RUN apt-get update && apt-get install -y \
     build-essential \
     libssl-dev \
     zlib1g-dev \
-    # Limpieza de caché
     && rm -rf /var/lib/apt/lists/*
 
-# 2️⃣ Instalar extensiones de PHP (¡Separado para depurar!)
-# Lo separamos del RUN anterior para que el log te diga exactamente qué extensión falla.
-RUN docker-php-ext-install pdo pdo_pgsql mbstring tokenizer xml ctype bcmath zip
+# 2️⃣ Instalar extensiones de PHP (¡SIN pdo_pgsql!)
+RUN docker-php-ext-install pdo mbstring tokenizer xml ctype bcmath zip
 
 # 3️⃣ Instalar Composer
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
@@ -42,21 +39,22 @@ RUN composer install --no-dev --optimize-autoloader
 RUN npm install && npm run build
 
 # ----------------------------------------------------
-# ETAPA 2: PRODUCCIÓN (Imagen final, limpia y ligera)
+# ETAPA 2: PRODUCCIÓN (Imagen final)
 # ----------------------------------------------------
 FROM php:8.2-fpm AS production
 
-# 1️⃣ Copiar los archivos de la etapa builder (incluyendo /vendor y /public/build)
+# 1️⃣ Copiar los archivos de la etapa builder
 WORKDIR /var/www/html
 COPY --from=builder /app /var/www/html
 
-# 2️⃣ Crear directorios de Laravel y configurar permisos
+# 2️⃣ Configurar permisos
 RUN chown -R www-data:www-data /var/www/html \
     && chmod -R 775 /var/www/html/storage \
     && chmod -R 775 /var/www/html/bootstrap/cache
 
 # 3️⃣ Configuración de Laravel
-# Nota: Si php artisan migrate falla por la DB, deberás moverlo a un script de inicio
+# Las migraciones y la conexión fallarán si la app usa PostgreSQL.
+# Si tu proyecto usa MySQL, no habrá problema.
 RUN php artisan key:generate --force
 RUN php artisan migrate --force
 
