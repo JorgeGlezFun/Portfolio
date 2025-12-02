@@ -12,7 +12,7 @@ export default function Conocimientos() {
   // Carga de datos
   useEffect(() => {
     axios
-      .get("http://127.0.0.1:8000/conocimientos")
+      .get("https://jorgegfdev.com/conocimientos")
       .then((res) => {
         setTecnologias(res.data.tecnologias || []);
         setTiposExistentes(res.data.tiposExistentes || []);

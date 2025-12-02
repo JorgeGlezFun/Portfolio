@@ -70,7 +70,7 @@ export default function Contacto() {
         const token = document.querySelector('meta[name="csrf-token"]')?.getAttribute("content");
 
         try {
-            const response = await fetch("http://127.0.0.1:8000/contacto", {
+            const response = await fetch("https://jorgegfdev.com/contacto", {
                 method: "POST",
                 headers: { "Content-Type": "application/json", "X-CSRF-TOKEN": token },
                 body: JSON.stringify({ nombre, apellido, email, mensaje }),
@@ -102,7 +102,7 @@ export default function Contacto() {
     useEffect(() => {
         const fetchCv = async () => {
             try {
-                const response = await fetch("http://127.0.0.1:8000/curriculum/latest");
+                const response = await fetch("https://jorgegfdev.com/curriculum/latest");
                 const data = await response.json();
 
                 if (response.ok && data.url) {

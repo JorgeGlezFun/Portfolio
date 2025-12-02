@@ -8,7 +8,7 @@ export default function Carrusel() {
     const [proyectos, setProyectos] = useState([]);
 
     useEffect(() => {
-        axios.get("http://127.0.0.1:8000/carrusel")
+        axios.get("https://jorgegfdev.com/carrusel")
         .then(res => setProyectos(res.data));
     }, []);
 
