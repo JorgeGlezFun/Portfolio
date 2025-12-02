@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
 import { ThemeContext } from "@/Components/ThemeContext";
-import { Head } from '@inertiajs/react';
 import "../../css/app.css";
 
 export default function SobreMi() {
@@ -56,7 +55,6 @@ export default function SobreMi() {
   return (
 
     <div className={modo ? "dark" : ""}>
-        <Head title="Sobre mí" />
         <div id="SobreMi" className="bloqueSobreMi">
         <div
             data-animate

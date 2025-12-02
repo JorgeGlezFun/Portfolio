@@ -101,7 +101,7 @@ export default function Contacto() {
     useEffect(() => {
         const fetchCv = async () => {
             try {
-                const response = await fetch("https://jorgegfdev.com/curriculum/latest");
+                const response = await fetch("https://www.jorgegfdev.com/curriculum/latest");
                 const data = await response.json();
 
                 if (response.ok && data.url) {
