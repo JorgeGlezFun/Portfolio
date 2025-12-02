@@ -1,9 +1,8 @@
 import { useContext, useState, useEffect } from "react";
 import { ThemeContext } from "@/Components/ThemeContext";
+import { Head } from '@inertiajs/react';
 
-import logoGO from "../../img/logos/logos_empresa/LW_1A.png"; // Grande Oscuro
 import logoPO from "../../img/logos/logos_empresa/LW_1B.png"; // Pequeño Oscuro
-import logoGC from "../../img/logos/logos_empresa/LW_2A.png"; // Grande Claro
 import logoPC from "../../img/logos/logos_empresa/LW_2B.png"; // Pequeño Claro
 
 import "../../css/app.css";
@@ -29,6 +28,7 @@ export default function Inicio() {
 
     return (
         <div className={modo ? "dark" : ""}>
+            <Head title="Inicio" />
             <div id="Inicio" className="bloqueInicio">
                 <div className="contenedorFotoInicio">
                     <img src={logoSrc} className={`fotoInicio ${isLarge ? "w-48" : "w-24"}`} />

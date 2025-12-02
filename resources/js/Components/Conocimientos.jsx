@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import { ThemeContext } from "@/Components/ThemeContext";
 import axios from "axios";
+import { Head } from '@inertiajs/react';
 import "../../css/app.css";
 
 export default function Conocimientos() {
@@ -76,7 +77,7 @@ export default function Conocimientos() {
   return (
     <div className={modo ? "dark" : ""}>
         <div id="Conocimientos" className="bloqueConocimientos">
-        {/* Texto introductorio */}
+        <Head title="Conocimientos" />
         <div
             data-animate
             {...(res ? { "data-fade-down": true } : { "data-fade-right": true })}

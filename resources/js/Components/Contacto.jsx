@@ -11,7 +11,7 @@ import gmailclaro from "../../img/logos/logos_tecnologias/modo_claro/gmaillogocl
 import gmailoscuro from "../../img/logos/logos_tecnologias/modo_oscuro/gmaillogooscuro.png";
 import logoCVclaro from "../../img/logos/logos_tecnologias/modo_claro/LogoCVclaro.png";
 import logoCVoscuro from "../../img/logos/logos_tecnologias/modo_oscuro/LogoCVoscuro.png";
-import CV from "../../assets/CV_Jorge_Gonzalez_Fuentes.pdf";
+import { Head } from '@inertiajs/react';
 
 export default function Contacto() {
     const { modo } = useContext(ThemeContext);
@@ -130,6 +130,7 @@ export default function Contacto() {
 
     return (
         <div className={modo ? "dark" : ""}>
+            <Head title="Contacto" />
             <div id="Contacto" className="bloqueContactos">
                 <div
                     data-animate

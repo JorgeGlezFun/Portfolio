@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import { ThemeContext } from "@/Components/ThemeContext";
 import "../../css/app.css";
 import Carrusel from '@/Components/Carrusel';
+import { Head } from '@inertiajs/react';
 
 export default function Proyectos() {
     const { modo } = useContext(ThemeContext);
@@ -57,6 +58,7 @@ export default function Proyectos() {
 
   return (
     <div className={modo ? "dark" : ""}>
+        <Head title="Proyectos" />
         <div id="Proyectos" className="bloqueProyectos">
             <div
                 data-animate

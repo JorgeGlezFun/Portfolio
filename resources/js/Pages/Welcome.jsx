@@ -11,7 +11,7 @@ import '../../css/app.css';
 export default function Welcome({ auth, laravelVersion, phpVersion }) {
     return (
         <>
-            <Head title="JorgeGlezDev" />
+            <Head title="Inicio" />
                 <div>
                     <Header user={auth.user} />
                     <main>
