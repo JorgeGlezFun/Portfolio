@@ -102,7 +102,7 @@ export default function Carrusel() {
                     <div className="contenedorModal">
                         <a href={"https://" + selected.enlace} className="fotoEnlaceModal" target="_blank" rel="noopener noreferrer">
                             <img
-                            src={modo ? selected.imagen_clara : selected.imagen_oscura}
+                            src={modo ? selected.imagen_oscura : selected.imagen_clara}
                             alt={selected.nombre}
                             className="fotoModal"
                             />

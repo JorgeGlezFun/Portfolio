@@ -17,7 +17,7 @@ return [
 
     'paths' => ['web/*', 'contacto'], // rutas a permitir
     'allowed_methods' => ['*'],
-    'allowed_origins' => ['https://www.jorgegfdev.com'], // <- no *
+    'allowed_origins' => ['https://www.jorgegfdev.com', 'https://jorgegfdev.com'], // <- no *
     'allowed_origins_patterns' => [],
     'allowed_headers' => ['*'],
     'exposed_headers' => [],
