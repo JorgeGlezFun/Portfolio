@@ -11,7 +11,6 @@ import gmailclaro from "../../img/logos/logos_tecnologias/modo_claro/gmaillogocl
 import gmailoscuro from "../../img/logos/logos_tecnologias/modo_oscuro/gmaillogooscuro.png";
 import logoCVclaro from "../../img/logos/logos_tecnologias/modo_claro/LogoCVclaro.png";
 import logoCVoscuro from "../../img/logos/logos_tecnologias/modo_oscuro/LogoCVoscuro.png";
-import { Head } from '@inertiajs/react';
 
 export default function Contacto() {
     const { modo } = useContext(ThemeContext);
@@ -70,7 +69,7 @@ export default function Contacto() {
         const token = document.querySelector('meta[name="csrf-token"]')?.getAttribute("content");
 
         try {
-            const response = await fetch("https://jorgegfdev.com/contacto", {
+            const response = await fetch("https://www.jorgegfdev.com/contacto", {
                 method: "POST",
                 headers: { "Content-Type": "application/json", "X-CSRF-TOKEN": token },
                 body: JSON.stringify({ nombre, apellido, email, mensaje }),
@@ -130,7 +129,6 @@ export default function Contacto() {
 
     return (
         <div className={modo ? "dark" : ""}>
-            <Head title="Contacto" />
             <div id="Contacto" className="bloqueContactos">
                 <div
                     data-animate

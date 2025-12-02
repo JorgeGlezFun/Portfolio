@@ -28,7 +28,6 @@ export default function Inicio() {
 
     return (
         <div className={modo ? "dark" : ""}>
-            <Head title="Inicio" />
             <div id="Inicio" className="bloqueInicio">
                 <div className="contenedorFotoInicio">
                     <img src={logoSrc} className={`fotoInicio ${isLarge ? "w-48" : "w-24"}`} />

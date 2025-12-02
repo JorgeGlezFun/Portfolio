@@ -10,10 +10,9 @@ export default function Conocimientos() {
   const [res, setRes] = useState(false);
   const { modo } = useContext(ThemeContext);
 
-  // Carga de datos
   useEffect(() => {
     axios
-      .get("https://jorgegfdev.com/conocimientos")
+      .get("https://www.jorgegfdev.com/conocimientos")
       .then((res) => {
         setTecnologias(res.data.tecnologias || []);
         setTiposExistentes(res.data.tiposExistentes || []);
@@ -25,7 +24,6 @@ export default function Conocimientos() {
       });
   }, []);
 
-  // Detectar ancho de pantalla
   useEffect(() => {
     const handleResize = () => setRes(window.innerWidth >= 1536);
     window.addEventListener("resize", handleResize);
@@ -33,9 +31,7 @@ export default function Conocimientos() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Animaciones IntersectionObserver
   useEffect(() => {
-    // Esperar a que haya datos renderizados
     if (tiposExistentes.length === 0) return;
 
     const elements = document.querySelectorAll("[data-animate]");
@@ -77,7 +73,6 @@ export default function Conocimientos() {
   return (
     <div className={modo ? "dark" : ""}>
         <div id="Conocimientos" className="bloqueConocimientos">
-        <Head title="Conocimientos" />
         <div
             data-animate
             {...(res ? { "data-fade-down": true } : { "data-fade-right": true })}

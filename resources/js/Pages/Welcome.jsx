@@ -11,18 +11,17 @@ import '../../css/app.css';
 export default function Welcome({ auth, laravelVersion, phpVersion }) {
     return (
         <>
-            <Head title="Inicio" />
-                <div>
-                    <Header user={auth.user} />
-                    <main>
-                        <Inicio/>
-                        <SobreMi/>
-                        <Conocimientos/>
-                        <Proyectos/>
-                        <Contacto/>
-                    </main>
-                    <Footer/>
-                </div>
+            <div>
+                <Header user={auth.user} />
+                <main>
+                    <Inicio/>
+                    <SobreMi/>
+                    <Conocimientos/>
+                    <Proyectos/>
+                    <Contacto/>
+                </main>
+                <Footer/>
+            </div>
         </>
     );
 }
