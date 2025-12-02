@@ -73,6 +73,7 @@ export default function Contacto() {
                 method: "POST",
                 headers: { "Content-Type": "application/json", "X-CSRF-TOKEN": token },
                 body: JSON.stringify({ nombre, apellido, email, mensaje }),
+                credentials: "include",
             });
 
             const data = await response.json();
