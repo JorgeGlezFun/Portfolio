@@ -15,20 +15,13 @@ return [
     |
     */
 
-    'paths' => ['*', 'sanctum/csrf-cookie'],
-
+    'paths' => ['web/*', 'contacto'], // rutas a permitir
     'allowed_methods' => ['*'],
-
-    'allowed_origins' => ['*'],
-
+    'allowed_origins' => ['https://www.jorgegfdev.com'], // <- no *
     'allowed_origins_patterns' => [],
-
     'allowed_headers' => ['*'],
-
     'exposed_headers' => [],
-
     'max_age' => 0,
-
-    'supports_credentials' => false,
+    'supports_credentials' => true, // <- importante
 
 ];
