@@ -64,7 +64,7 @@ export default function Carrusel() {
                         }}
                         onClick={() => handleSlideClick(i, slide)}
                         >
-                        <img src={modo ? slide.imagen_clara : slide.imagen_oscura} alt={slide.nombre} className="fotoSlide" />
+                        <img src={modo ? slide.imagen_oscura : slide.imagen_clara} alt={slide.nombre} className="fotoSlide" />
                         </div>
                     );
                     })}
