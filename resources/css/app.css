@@ -54,12 +54,13 @@ html {
 }
 
 .bloqueSlides {
-    @apply relative flex items-center justify-center h-[30rem] w-full max-w-5xl overflow-visible
+    @apply relative flex items-center justify-center h-[15rem] w-full max-w-5xl overflow-visible
+    sm:h-[30rem]
 }
 
 .slidePrincipal {
-    @apply absolute w-64 h-64 flex items-center justify-center rounded-2xl shadow-xl transition-all duration-500 bg-[#2d343f] cursor-pointer hover:scale-105
-    sm:w-[30rem] sm:h-[30rem]
+    @apply absolute w-48 h-48 flex items-center justify-center rounded-2xl shadow-xl transition-all duration-500 bg-[#2d343f] cursor-pointer hover:scale-105
+    sm:w-80 sm:h-80
     md:w-[29rem] md:h-[29rem]
     lg:w-[28rem] lg:h-[28rem]
     xl:w-[25rem] xl:h-[25rem]
@@ -74,7 +75,8 @@ html {
 }
 
 .contenedorBotonesSlide {
-    @apply flex gap-4 mt-6
+    @apply flex gap-4
+    sm:mt-6
 }
 
 .btnSlide {
@@ -119,7 +121,8 @@ html {
 
 .contenedorModal {
     @apply
-    w-full flex flex-col items-center p-6 text-white
+    w-full flex flex-col items-center px-10 py-6 text-white
+    sm:p-6
     xl:flex-row
     dark:text-black dark:bg-[#f5e6cc]
 }
@@ -132,7 +135,9 @@ html {
 
 .fotoModal {
     @apply
-    h-full
+    h-40
+    sm:h-60
+    xl:h-full
 }
 
 .contenedorTextoModal {
@@ -142,7 +147,10 @@ html {
 
 .tituloModal {
     @apply
-    text-4xl font-semibold
+    text-2xl font-semibold
+    sm:text-4xl
+    lg:text-5xl
+    3xl:text-7xl
 }
 
 .contenedorTecnologias {
@@ -152,13 +160,9 @@ html {
 
 .tecnologiasModal {
     @apply
-    bg-[#66baf4]  px-3 py-1 rounded-full text-xl text-black
+    bg-[#66baf4] px-3 py-1 rounded-full text-lg text-black
+    sm:px-3 sm:py-2 sm:text-xl
     dark:bg-[#9a1a23] dark:text-white
-}
-
-.textoModal {
-    @apply
-    text-2xl mb-4
 }
 
 .panelModal {
@@ -183,8 +187,7 @@ html {
 
 .contenedorLogoHeader {
     @apply
-    flex items-center w-full justify-center
-    sm:pl-10
+    flex items-center w-full justify-center pr-4
     2xl:flex-shrink-0 2xl:w-auto
 }
 
@@ -224,14 +227,13 @@ html {
 
 .botonModo {
     @apply
-    relative  items-center justify-center w-24 h-10 mr-10 hidden
-    2xl:ml-6 2xl:mr-2
+    relative items-center justify-center w-24 h-10 mr-10 hidden
+    2xl:ml-6 2xl:mr-2 2xl:flex
 }
 
 .bolaBotonModo {
     @apply
-    absolute z-20 w-8 h-8 bg-white rounded-full transition-transform duration-500 ease-in-out
-    2xl:w-7 2xl:h-7
+    absolute z-20 w-7 h-7 bg-white rounded-full transition-transform duration-500 ease-in-out
 }
 
 .contenedorBarraModo {
@@ -255,8 +257,8 @@ html {
 
 .botonModoMovil {
     @apply
-    relative flex items-center justify-center w-24 h-10 ml-4
-    2xl:ml-6 2xl:mr-2 2xl:hidden
+    relative flex items-center justify-center w-20 h-10 ml-2
+    2xl:hidden
 }
 
 .contenedorBotonMenuMovil {
@@ -370,7 +372,7 @@ html {
 
 .enlaceHeaderMovil {
     @apply
-    w-full flex relative justify-center items-center pe-4 py-2 text-4xl font-bold transition duration-0 ease-out border-transparent bg-[#2d343f] text-white
+    w-full flex relative justify-center items-center pe-4 py-2 text-2xl font-bold transition duration-0 ease-out border-transparent bg-[#2d343f] text-white
     hover:text-white hover:text-shadow-xl hover:text-shadow-black overflow-hidden
     dark:bg-[#f5e6cc] dark:text-black dark:hover:text-white
 
@@ -515,7 +517,7 @@ main {
     md:p-[1.8125rem]
     lg:p-[2.375rem]
     xl:p-12
-    2xl:p-24 2xl:space-y-80 2xl:m-0
+    2xl:p-24 2xl:space-y-40 2xl:m-0
     dark:text-black dark:bg-[#f1d7ac]
 }
 
@@ -528,19 +530,25 @@ main {
 /* Clases Conocimientos */
 .bloqueConocimientos {
     @apply
-    flex flex-col min-h-screen items-center justify-center p-6 leading-relaxed 2xl:m-0 text-white overflow-hidden space-y-8 bg-[#2d343f] transition-colors duration-500 ease-in-out
+    flex flex-col min-h-screen items-center justify-center p-6 leading-relaxed  text-white overflow-hidden space-y-8 bg-[#2d343f] transition-colors duration-500 ease-in-out
     md:p-[1.8125rem]
     lg:p-[2.375rem]
     xl:p-12
-    2xl:p-24 2xl:space-y-48
+    2xl:p-24 2xl:space-y-24 2xl:m-0
     dark:text-black dark:bg-[#f5e6cc]
 }
 
-.bloqueListasConocimientos {
+/* .bloqueListasConocimientos {
     @apply
-    w-full h-auto flex flex-col justify-center items-center gap-6 overflow-hidden
-    2xl:flex-row 2xl:h-[30rem]
+    w-full h-full flex flex-col justify-center items-start gap-6 overflow-hidden
+    2xl:flex-row
+} */
+
+.bloqueListasConocimientos {
+  @apply grid w-full gap-6 grid-cols-1 overflow-hidden
+  2xl:grid-cols-3 2xl:gap-10;
 }
+
 
 .bloqueListasConocimientos > *:nth-child(1) {
     animation-delay: 0s;
@@ -571,14 +579,16 @@ main {
 
 .tituloListaConocimientos {
     @apply
-    text-4xl font-semibold text-white h-auto
+    text-2xl font-semibold text-white h-auto
+    sm:text-4xl
     3xl:text-5xl
     dark:text-black
 }
 
 .textoListaConocimientos {
     @apply
-    text-xl space-y-4
+    text-sm space-y-4
+    sm:text-xl
     lg:text-2xl
     3xl:text-4xl
 }
@@ -586,12 +596,18 @@ main {
 .listaConocimientos {
     @apply
     flex flex-col w-full h-full bg-[#1d232c] rounded-3xl p-4 opacity-0 transition-all duration-700 ease-out overflow-hidden
+    space-y-2
     dark:bg-[#f1d7ac]
 }
 
 .imagenLista {
-    @apply flex items-center gap-2 w-10 h-10
+  @apply flex items-center gap-2; /* SIN w-6 h-6 */
 }
+
+.imagenLista img {
+  @apply w-6 h-6 sm:w-10 sm:h-10;
+}
+
 
 /* Clases Proyectos */
 .bloqueProyectos {

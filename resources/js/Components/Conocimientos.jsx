@@ -13,6 +13,7 @@ export default function Conocimientos() {
   useEffect(() => {
     axios
       .get("https://www.jorgegfdev.com/conocimientos")
+    //   .get("http://127.0.0.1:8000/conocimientos")
       .then((res) => {
         setTecnologias(res.data.tecnologias || []);
         setTiposExistentes(res.data.tiposExistentes || []);

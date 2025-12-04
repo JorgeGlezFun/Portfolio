@@ -9,6 +9,7 @@ export default function Carrusel() {
 
     useEffect(() => {
         axios.get("https://www.jorgegfdev.com/carrusel")
+        // axios.get("http://127.0.0.1:8000/carrusel")
         .then(res => setProyectos(res.data));
     }, []);
 
@@ -116,7 +117,7 @@ export default function Carrusel() {
                             </span>
                             ))}
                         </div>
-                        <p className="textoModal">{selected.descripcion}</p>
+                        <p className="textos">{selected.descripcion}</p>
                         </div>
                     </div>
                     )}

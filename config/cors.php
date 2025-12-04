@@ -15,13 +15,24 @@ return [
     |
     */
 
+    /* Modo Producción */
     'paths' => ['web/*', 'contacto'], // rutas a permitir
     'allowed_methods' => ['*'],
-    'allowed_origins' => ['https://www.jorgegfdev.com', 'https://jorgegfdev.com'], // <- no *
+    'allowed_origins' => ['https://www.jorgegfdev.com', 'https://jorgegfdev.com'],
     'allowed_origins_patterns' => [],
     'allowed_headers' => ['*'],
     'exposed_headers' => [],
     'max_age' => 0,
-    'supports_credentials' => true, // <- importante
+    'supports_credentials' => true,
+
+    /* Modo Desarrollo */
+    // 'paths' => ['*', 'sanctum/csrf-cookie'],
+    // 'allowed_methods' => ['*'],
+    // 'allowed_origins' => ['*'],
+    // 'allowed_origins_patterns' => [],
+    // 'allowed_headers' => ['*'],
+    // 'exposed_headers' => [],
+    // 'max_age' => 0,
+    // 'supports_credentials' => false,
 
 ];

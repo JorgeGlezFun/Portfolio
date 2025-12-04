@@ -91,7 +91,7 @@ export default function Header({ user }) {
                     }`}
                     >
                     <div className="contenedorMenuNavegacionMovil">
-                        <div className='h-10 bg-[#2d343f] dark:bg-[#f5e6cc]'/>
+                        <div className='h-2 bg-[#2d343f] dark:bg-[#f5e6cc]'/>
                         <ResponsiveNavLink href="#Inicio">INICIO</ResponsiveNavLink>
                         <ResponsiveNavLink href="#SobreMi">SOBRE MÍ</ResponsiveNavLink>
                         <ResponsiveNavLink href="#Conocimientos">CONOCIMIENTOS</ResponsiveNavLink>
