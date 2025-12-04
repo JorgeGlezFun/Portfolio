@@ -15,11 +15,30 @@ export default function Header({ user }) {
         <div className={`flex flex-col ${modo ? "dark" : ""}`}>
             <nav className="contenedorHeader">
                 <div className="contenedorMenuNavegacion">
+                    <button
+                        onClick={toggleModo}
+                        className="botonModoMovil"
+                        >
+                        <div
+                            className={`bolaBotonModo ${modo ? "translate-x-[-90%]" : "translate-x-[90%]"}`}
+                        />
+                        <div className="contenedorBarraModo">
+                            <div
+                            className={`carruselModo
+                                ${modo ? "-translate-x-1/2" : "translate-x-0"}`}
+                            >
+                                <div className="barraOscuro" />
+                                <div className="barraClaro" />
+                            </div>
+                        </div>
+                    </button>
+
                     <div className="contenedorLogoHeader z-10">
                         <Link href={route('/')} className='linkLogoHeader'>
                             <ApplicationLogo />
                         </Link>
                     </div>
+
                     <div className="contenedorEnlacesHeader">
                         <NavLink href="#Inicio">
                             Inicio

@@ -30,12 +30,14 @@ export default function Inicio() {
         <div className={modo ? "dark" : ""}>
             <div id="Inicio" className="bloqueInicio">
                 <div className="contenedorFotoInicio">
-                    <img src={logoSrc} className={`fotoInicio ${isLarge ? "w-48" : "w-24"}`} />
+                    <img src={logoSrc} className="fotoInicio" />
                 </div>
                 <div className="barraSeparacion" />
                 <div className="cuadroTextoInicio">
-                    <h1 className="tituloInicio">Jorge González Fuentes</h1>
-                    <h1 className="tituloDev">DESARROLLADOR WEB</h1>
+                    <div className="textosInicio">
+                        <h1 className="tituloInicio">Jorge González Fuentes</h1>
+                        <h2 className="tituloDev">DESARROLLADOR WEB</h2>
+                    </div>
                 </div>
             </div>
         </div>

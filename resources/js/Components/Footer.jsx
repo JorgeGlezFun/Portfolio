@@ -19,13 +19,13 @@ export default function Footer() {
                 <div className="contenedorPresentacion">
                     <div className="space-y-4 w-full">
                         <h1 className="tituloFooter">Jorge González Fuentes</h1>
-                        <h2 className="text-xl">Desarrollador Full Stack</h2>
+                        <h2 className="text-lg sm:text-xl">Desarrollador Full Stack</h2>
                         <p className="textoFooter">Le doy vida a tus ideas a través del código.</p>
                     </div>
                     <div className="w-full flex flex-row justify-between">
                         <div className="w-full">
                             <h1 className="tituloFooter">Enlaces</h1>
-                            <Link href="#SobreMi" className="enlacesFooter">Sobre mi</Link>
+                            <Link href="#SobreMi" className="enlacesFooter">Sobre mí</Link>
                             <Link href="#Conocimientos" className="enlacesFooter">Conocimientos</Link>
                             <Link href="#Proyectos" className="enlacesFooter">Proyectos</Link>
                             <Link href="#Contacto" className="enlacesFooter">Contacto</Link>
@@ -33,9 +33,9 @@ export default function Footer() {
 
                         <div className="w-full">
                             <h1 className="tituloFooter">Contacto</h1>
-                            <p>Si quieres trabajar juntos o tienes interes, no dudes en contactarme.</p>
+                            <p>Si quieres que trabajemos juntos o tienes interés, no dudes en contactarme.</p>
                             <a className="botonFooter" href="#Contacto">
-                                <Mail/>
+                                <Mail className="iconoMail"/>
                                 <p href="#Contacto">Enviame un email</p>
                             </a>
                         </div>
