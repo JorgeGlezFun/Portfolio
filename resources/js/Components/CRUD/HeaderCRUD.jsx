@@ -87,7 +87,7 @@ export default function Header({ user }) {
                     </div>
                 </div>
 
-                <div
+                {/* <div
                     className={`menuNavegacionMovilCRUD ${
                         showingNavigationDropdown ? "menuAbierto" : "menuCerrado"
                     }`}
@@ -106,7 +106,7 @@ export default function Header({ user }) {
                         )}
                         <div className='trampaMovil'/>
                     </div>
-                </div>
+                </div> */}
 
             </nav>
         </div>

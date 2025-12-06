@@ -129,7 +129,7 @@ html {
 
 .fotoEnlaceModal {
     @apply
-    flex items-center justify-center w-full h-96 object-contain mb-6
+    flex items-center justify-center w-full h-fit object-contain mb-6
     4xl:h-[30rem]
 }
 
@@ -166,8 +166,8 @@ html {
 }
 
 .panelModal {
-    @apply flex mb-6 transform overflow-hidden rounded-lg bg-[#1d232c] shadow-2xl transition-all mx-auto
-    sm:w-[35rem]
+    @apply flex mb-6 transform overflow-hidden rounded-lg bg-[#1d232c] shadow-2xl transition-all mx-auto w-full h-fit
+    sm:w-[35rem] sm:mx-auto
     md:w-[40rem]
     lg:w-[50rem]
     xl:w-[70rem]

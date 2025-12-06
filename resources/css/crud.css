@@ -56,8 +56,7 @@ html {
 
 .contenedorLogoHeaderCRUD {
     @apply
-    flex pl-10 items-center w-full justify-center
-    2xl:flex-shrink-0 2xl:w-auto
+    flex pl-10 items-center justify-center flex-shrink-0 w-auto
 }
 
 .contenedorMenuNavegacionCRUD {
@@ -69,7 +68,8 @@ html {
 
 .contenedorEnlacesHeaderCRUD {
     @apply
-    hidden 2xl:flex items-center space-x-10 w-full justify-end
+    flex items-center space-x-10 w-full justify-end
+
 }
 
 .contenedorNavLinkCRUD {
